@@ -27,7 +27,6 @@ By the end of this chapter you will be able to:
 
 .. toctree::
    :maxdepth: 2
-   :numbered:
 
    01_what_is_linux
    02_history_and_philosophy
