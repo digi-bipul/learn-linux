@@ -2,7 +2,7 @@
 Linux from Scratch to Advanced Professional
 ==================================================
 
-:Author:    [Bipul]
+:Author:    Bipul Das
 :Edition:   First Edition | 2026
 :Source:    https://github.com/digi-bipul/learn-linux
 
@@ -52,8 +52,8 @@ Table of Contents
    :caption: Parts & Chapters
 
    chapter_01/index
+   chapter_02/index
 
-..   chapter_02/index
 ..   chapter_03/index
 ..   chapter_04/index
 ..   chapter_05/index

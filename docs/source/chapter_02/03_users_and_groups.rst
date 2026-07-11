@@ -46,28 +46,36 @@ Let us dissect a typical line:
 
    alice:x:1001:1001:Alice Example,,,:/home/alice:/bin/bash
 
-=============  ============================================================
-Field          Meaning
-=============  ============================================================
-``alice``      Login name.  Case‑sensitive; conventionally all lowercase.
-``x``          Placeholder for the password hash.  ``x`` means the actual
-               hash is in ``/etc/shadow``.  An empty field (``::``) would
-               mean no password is required — a serious security risk.
-``1001``       User ID (UID).  0 is reserved for ``root``.  1–999 (on most
-               modern distributions) are system accounts.  1000 and above
-               are regular ("human") users.
-``1001``       Primary Group ID (GID).  The group whose permissions apply
-               when the user creates a file.
-``Alice Example,,,``  GECOS field.  A legacy name (General Electric
-               Comprehensive Operating Supervisor) that now stores the
-               user's full name and optionally room number, work phone,
-               and home phone, separated by commas.
-``/home/alice``  Home directory.  The user's personal directory, set at
-               login time.
-``/bin/bash``  Login shell.  The program launched when the user logs in.
-               ``/sbin/nologin`` or ``/bin/false`` are used for service
-               accounts that should never have interactive shell access.
-=============  ============================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Field
+     - Meaning
+   * - ``alice``
+     - Login name.  Case‑sensitive; conventionally all lowercase.
+   * - ``x``
+     - Placeholder for the password hash.  ``x`` means the actual hash is
+       in ``/etc/shadow``.  An empty field (``::``) would mean no password
+       is required — a serious security risk.
+   * - ``1001``
+     - User ID (UID).  0 is reserved for ``root``.  1–999 (on most modern
+       distributions) are system accounts.  1000 and above are regular
+       ("human") users.
+   * - ``1001``
+     - Primary Group ID (GID).  The group whose permissions apply when the
+       user creates a file.
+   * - ``Alice Example,,,``
+     - GECOS field.  A legacy name (General Electric Comprehensive
+       Operating Supervisor) that now stores the user's full name and
+       optionally room number, work phone, and home phone, separated by
+       commas.
+   * - ``/home/alice``
+     - Home directory.  The user's personal directory, set at login time.
+   * - ``/bin/bash``
+     - Login shell.  The program launched when the user logs in.
+       ``/sbin/nologin`` or ``/bin/false`` are used for service accounts
+       that should never have interactive shell access.
 
 You can safely view ``/etc/passwd`` with ``cat`` or ``less`` — it is
 world‑readable, as many programs need to map UIDs to usernames and look up
@@ -105,20 +113,31 @@ Each line has nine colon‑separated fields:
 
    alice:$6$s4lt...$h4sh...:19500:0:99999:7:::
 
-=======  ====================================================================
-Field    Meaning
-=======  ====================================================================
-1        Login name
-2        Encrypted password hash (``$6$`` = SHA‑512 on modern systems; ``!``
-         or ``*`` means the account is locked)
-3        Date of last password change (days since 1970‑01‑01)
-4        Minimum days before password may be changed
-5        Maximum days before password must be changed
-6        Days before expiry to warn the user
-7        Days after expiry before the account is disabled
-8        Account expiration date (days since epoch)
-9        Reserved field
-=======  ====================================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 10 90
+
+   * - Field
+     - Meaning
+   * - 1
+     - Login name
+   * - 2
+     - Encrypted password hash (``$6$`` = SHA‑512 on modern systems; ``!``
+       or ``*`` means the account is locked)
+   * - 3
+     - Date of last password change (days since 1970‑01‑01)
+   * - 4
+     - Minimum days before password may be changed
+   * - 5
+     - Maximum days before password must be changed
+   * - 6
+     - Days before expiry to warn the user
+   * - 7
+     - Days after expiry before the account is disabled
+   * - 8
+     - Account expiration date (days since epoch)
+   * - 9
+     - Reserved field
 
 You should never edit ``/etc/shadow`` by hand.  Use ``passwd`` to change
 passwords, ``chage`` to manage aging, and ``usermod`` / ``useradd`` for
@@ -135,15 +154,21 @@ in ``/etc/group`` defines a group:
 
    developers:x:1002:alice,bob,charlie
 
-=============  ============================================================
-Field          Meaning
-=============  ============================================================
-``developers``  Group name
-``x``          Placeholder for group password (rarely used; group passwords
-               are stored in ``/etc/gshadow``)
-``1002``       Group ID (GID)
-``alice,bob,charlie``  Comma‑separated list of supplementary members
-=============  ============================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Field
+     - Meaning
+   * - ``developers``
+     - Group name
+   * - ``x``
+     - Placeholder for group password (rarely used; group passwords are
+       stored in ``/etc/gshadow``)
+   * - ``1002``
+     - Group ID (GID)
+   * - ``alice,bob,charlie``
+     - Comma‑separated list of supplementary members
 
 A user has a *primary group* (the GID in ``/etc/passwd``) and zero or more
 *supplementary groups* (the comma‑separated list in ``/etc/group``).  When a

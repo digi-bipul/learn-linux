@@ -28,13 +28,22 @@ Where Special Permissions Appear in ``ls -l``
 Special permissions replace the ``x`` in the owner, group, or others
 triplet with a different letter:
 
-=======  ========  ======================
-Bit      Position  Displayed As
-=======  ========  ======================
-SUID     Owner     ``s`` (or ``S``)
-SGID     Group     ``s`` (or ``S``)
-Sticky   Others    ``t`` (or ``T``)
-=======  ========  ======================
+.. list-table::
+   :header-rows: 1
+   :widths: 20 20 60
+
+   * - Bit
+     - Position
+     - Displayed As
+   * - SUID
+     - Owner
+     - ``s`` (or ``S``)
+   * - SGID
+     - Group
+     - ``s`` (or ``S``)
+   * - Sticky
+     - Others
+     - ``t`` (or ``T``)
 
 A **lowercase** ``s`` or ``t`` means the underlying execute bit *is* set
 (``rws`` = ``rwx`` + SUID).  An **uppercase** ``S`` or ``T`` means the
@@ -92,13 +101,18 @@ Symbolically:
 
 With octal, SUID is a fourth octal digit prepended to the normal three:
 
-====  =================================
-Digit  Meaning
-====  =================================
-4     SUID
-2     SGID
-1     Sticky bit
-====  =================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Digit
+     - Meaning
+   * - 4
+     - SUID
+   * - 2
+     - SGID
+   * - 1
+     - Sticky bit
 
 Thus ``chmod 4755 program`` sets SUID (4) with ``rwxr-xr-x`` (755).  The
 octal digits for special permissions are cumulative: ``6755`` would be SUID

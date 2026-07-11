@@ -100,22 +100,36 @@ lets you navigate interactively.  Despite its name (a pun on the older
 
 Once inside ``less``, you control navigation with keyboard commands:
 
-===================  ========================================================
-Key                  Action
-===================  ========================================================
-:kbd:`Space` or :kbd:`f`   Forward one screen
-:kbd:`b`             Backward one screen
-:kbd:`j` or :kbd:`Down`    Forward one line
-:kbd:`k` or :kbd:`Up`      Backward one line
-:kbd:`g`             Go to the first line
-:kbd:`G`             Go to the last line
-:kbd:`/pattern`      Search forward for *pattern*
-:kbd:`?pattern`      Search backward for *pattern*
-:kbd:`n`             Repeat last search forward
-:kbd:`N`             Repeat last search backward
-:kbd:`q`             Quit
-:kbd:`h`             Display help
-===================  ========================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Key
+     - Action
+   * - :kbd:`Space` or :kbd:`f`
+     - Forward one screen
+   * - :kbd:`b`
+     - Backward one screen
+   * - :kbd:`j` or :kbd:`Down`
+     - Forward one line
+   * - :kbd:`k` or :kbd:`Up`
+     - Backward one line
+   * - :kbd:`g`
+     - Go to the first line
+   * - :kbd:`G`
+     - Go to the last line
+   * - :kbd:`/pattern`
+     - Search forward for *pattern*
+   * - :kbd:`?pattern`
+     - Search backward for *pattern*
+   * - :kbd:`n`
+     - Repeat last search forward
+   * - :kbd:`N`
+     - Repeat last search backward
+   * - :kbd:`q`
+     - Quit
+   * - :kbd:`h`
+     - Display help
 
 ``less`` can do far more than this table suggests — it supports regular
 expression searches, horizontal scrolling, multiple file browsing, and even
@@ -282,17 +296,26 @@ of the terminal:
 The two‑line "help bar" at the bottom shows common commands using caret
 notation (``^`` means :kbd:`Ctrl`):
 
-===================  ========================
-Keystroke            Action
-===================  ========================
-:kbd:`Ctrl-o`        Write ("save") the file
-:kbd:`Ctrl-x`        Exit nano
-:kbd:`Ctrl-k`        Cut current line
-:kbd:`Ctrl-u`        Paste ("uncut")
-:kbd:`Ctrl-w`        Search
-:kbd:`Ctrl-\`        Search and replace
-:kbd:`Ctrl-g`        Show full help
-===================  ========================
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Keystroke
+     - Action
+   * - :kbd:`Ctrl-o`
+     - Write ("save") the file
+   * - :kbd:`Ctrl-x`
+     - Exit nano
+   * - :kbd:`Ctrl-k`
+     - Cut current line
+   * - :kbd:`Ctrl-u`
+     - Paste ("uncut")
+   * - :kbd:`Ctrl-w`
+     - Search
+   * - ``Ctrl-\``
+     - Search and replace
+   * - :kbd:`Ctrl-g`
+     - Show full help
 
 ``nano`` is ideal for quick edits when you do not want to think about editor
 modes.  If a system asks you to "edit a file" and you are unsure which editor
@@ -326,20 +349,32 @@ thing to learn is how to enter Insert mode and how to get back:
 
 Once back in Normal mode, these commands are essential:
 
-===================  ============================================
-Keystroke            Action
-===================  ============================================
-``:w``               Write (save) the file
-``:q``               Quit
-``:wq`` or ``ZZ``    Write and quit
-``:q!``              Quit **without saving** (discard changes)
-``dd``               Delete the current line
-``u``                Undo
-``/pattern``         Search forward for *pattern*
-``:set number``      Show line numbers
-``:set nonumber``    Hide line numbers
-``:help``            Open vim's excellent built‑in help
-===================  ============================================
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Keystroke
+     - Action
+   * - ``:w``
+     - Write (save) the file
+   * - ``:q``
+     - Quit
+   * - ``:wq`` or ``ZZ``
+     - Write and quit
+   * - ``:q!``
+     - Quit **without saving** (discard changes)
+   * - ``dd``
+     - Delete the current line
+   * - ``u``
+     - Undo
+   * - ``/pattern``
+     - Search forward for *pattern*
+   * - ``:set number``
+     - Show line numbers
+   * - ``:set nonumber``
+     - Hide line numbers
+   * - ``:help``
+     - Open vim's excellent built‑in help
 
 .. warning::
 

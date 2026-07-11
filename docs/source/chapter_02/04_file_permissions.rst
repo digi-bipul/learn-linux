@@ -55,17 +55,26 @@ permission bits:
 
 The **file type** character can be:
 
-=====  ============================================
-Char   Meaning
-=====  ============================================
-``-``  Regular file
-``d``  Directory
-``l``  Symbolic link
-``b``  Block device (e.g., a hard disk)
-``c``  Character device (e.g., a terminal)
-``s``  Unix domain socket
-``p``  Named pipe (FIFO)
-=====  ============================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Char
+     - Meaning
+   * - ``-``
+     - Regular file
+   * - ``d``
+     - Directory
+   * - ``l``
+     - Symbolic link
+   * - ``b``
+     - Block device (e.g., a hard disk)
+   * - ``c``
+     - Character device (e.g., a terminal)
+   * - ``s``
+     - Unix domain socket
+   * - ``p``
+     - Named pipe (FIFO)
 
 The remaining nine characters are three triplets: **owner**, **group**, and
 **others** (sometimes called "world").  Each triplet contains:
@@ -90,45 +99,54 @@ Understanding ``r``, ``w``, and ``x``
 For Regular Files
 ~~~~~~~~~~~~~~~~~
 
-===========  ================================================================
-Permission   On a regular file, allows you to…
-===========  ================================================================
-``r``        View the file's contents (e.g., with ``cat``, ``less``, or by
-             opening it in an editor).
-``w``        Modify the file's contents — write new data, truncate it, or
-             delete it.  Note: deleting a file is actually a write operation
-             on the *directory* containing it (see below).
-``x``        Execute the file as a program.  For a compiled binary, this
-             means the kernel loads it into memory and runs it.  For a
-             script, the kernel reads the shebang line (``#!``) and invokes
-             the interpreter.  Without execute permission, you cannot run the
-             file even if it contains valid code.
-===========  ================================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Permission
+     - On a regular file, allows you to…
+   * - ``r``
+     - View the file's contents (e.g., with ``cat``, ``less``, or by
+       opening it in an editor).
+   * - ``w``
+     - Modify the file's contents — write new data, truncate it, or delete
+       it.  Note: deleting a file is actually a write operation on the
+       *directory* containing it (see below).
+   * - ``x``
+     - Execute the file as a program.  For a compiled binary, this means
+       the kernel loads it into memory and runs it.  For a script, the
+       kernel reads the shebang line (``#!``) and invokes the interpreter.
+       Without execute permission, you cannot run the file even if it
+       contains valid code.
 
 For Directories
 ~~~~~~~~~~~~~~~
 
 The same bits mean something subtly different for directories:
 
-===========  ================================================================
-Permission   On a directory, allows you to…
-===========  ================================================================
-``r``        List the directory's contents (the names of files inside it).
-             Without ``r``, you cannot ``ls`` the directory, though you
-             may still access files inside it if you know their names.
-``w``        Create, delete, and rename files *inside* the directory,
-             regardless of who owns those files.  Yes — if you have write
-             permission on a directory, you can delete *any* file inside it,
-             even one owned by ``root``, **provided the directory itself
-             is not protected by the sticky bit** (see
-             :doc:`05_special_permissions`).
-``x``        Enter the directory — ``cd`` into it — and access files within
-             it by path.  Without ``x`` on a directory, you cannot traverse
-             it, even if you have ``r`` permission.  Conversely, with ``x``
-             alone (no ``r``), you can access files by name but cannot list
-             the directory.  This is sometimes called a "search‑only" or
-             "blind" directory.
-===========  ================================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Permission
+     - On a directory, allows you to…
+   * - ``r``
+     - List the directory's contents (the names of files inside it).
+       Without ``r``, you cannot ``ls`` the directory, though you may
+       still access files inside it if you know their names.
+   * - ``w``
+     - Create, delete, and rename files *inside* the directory, regardless
+       of who owns those files.  Yes — if you have write permission on a
+       directory, you can delete *any* file inside it, even one owned by
+       ``root``, **provided the directory itself is not protected by the
+       sticky bit** (see :doc:`05_special_permissions`).
+   * - ``x``
+     - Enter the directory — ``cd`` into it — and access files within it
+       by path.  Without ``x`` on a directory, you cannot traverse it,
+       even if you have ``r`` permission.  Conversely, with ``x`` alone
+       (no ``r``), you can access files by name but cannot list the
+       directory.  This is sometimes called a "search‑only" or "blind"
+       directory.
 
 .. warning::
 
@@ -145,18 +163,37 @@ Octal (Numeric) Notation
 
 Octal notation represents each permission triplet as a single digit (0–7):
 
-====  ======  ==================================
-Octal  Binary  Permissions
-====  ======  ==================================
-0      000    ``---`` (no permissions)
-1      001    ``--x`` (execute only)
-2      010    ``-w-`` (write only)
-3      011    ``-wx`` (write and execute)
-4      100    ``r--`` (read only)
-5      101    ``r-x`` (read and execute)
-6      110    ``rw-`` (read and write)
-7      111    ``rwx`` (read, write, and execute)
-====  ======  ==================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 15 70
+
+   * - Octal
+     - Binary
+     - Permissions
+   * - 0
+     - 000
+     - ``---`` (no permissions)
+   * - 1
+     - 001
+     - ``--x`` (execute only)
+   * - 2
+     - 010
+     - ``-w-`` (write only)
+   * - 3
+     - 011
+     - ``-wx`` (write and execute)
+   * - 4
+     - 100
+     - ``r--`` (read only)
+   * - 5
+     - 101
+     - ``r-x`` (read and execute)
+   * - 6
+     - 110
+     - ``rw-`` (read and write)
+   * - 7
+     - 111
+     - ``rwx`` (read, write, and execute)
 
 The mnemonic: **r**\ ead = 4, **w**\ rite = 2, e\ **x**\ ecute = 1.  Add the
 numbers for the permissions you want.
@@ -170,15 +207,22 @@ Three digits specify owner, group, and others in that order.  For example:
 
 Common conventions:
 
-========  =========================================
-Mode      Typical use
-========  =========================================
-``755``   Executable programs and directories
-``644``   Regular files (not executable)
-``600``   Sensitive data files (SSH private keys)
-``700``   Private directories and personal scripts
-``777``   World‑writable (almost always a bad idea)
-========  =========================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Mode
+     - Typical use
+   * - ``755``
+     - Executable programs and directories
+   * - ``644``
+     - Regular files (not executable)
+   * - ``600``
+     - Sensitive data files (SSH private keys)
+   * - ``700``
+     - Private directories and personal scripts
+   * - ``777``
+     - World‑writable (almost always a bad idea)
 
 
 Symbolic Notation
@@ -197,57 +241,82 @@ The syntax is:
 
 **Who** (the scope):
 
-=====  ============================================
-Letter  Affects
-=====  ============================================
-``u``  Owner (user)
-``g``  Group
-``o``  Others
-``a``  All three (equivalent to ``ugo``)
-=====  ============================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Letter
+     - Affects
+   * - ``u``
+     - Owner (user)
+   * - ``g``
+     - Group
+   * - ``o``
+     - Others
+   * - ``a``
+     - All three (equivalent to ``ugo``)
 
 **Operator:**
 
-=====  ============================================
-Symbol  Meaning
-=====  ============================================
-``+``  Add the specified permissions
-``-``  Remove the specified permissions
-``=``  Set exactly the specified permissions (clear others)
-=====  ============================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Symbol
+     - Meaning
+   * - ``+``
+     - Add the specified permissions
+   * - ``-``
+     - Remove the specified permissions
+   * - ``=``
+     - Set exactly the specified permissions (clear others)
 
 **What** (the permissions):
 
-=====  ============================================
-Letter  Permission
-=====  ============================================
-``r``  Read
-``w``  Write
-``x``  Execute
-``X``  Execute only if the file is a directory *or*
-       already has at least one execute bit set
-``s``  SUID or SGID (see :doc:`05_special_permissions`)
-``t``  Sticky bit
-=====  ============================================
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+
+   * - Letter
+     - Permission
+   * - ``r``
+     - Read
+   * - ``w``
+     - Write
+   * - ``x``
+     - Execute
+   * - ``X``
+     - Execute only if the file is a directory *or* already has at least
+       one execute bit set
+   * - ``s``
+     - SUID or SGID (see :doc:`05_special_permissions`)
+   * - ``t``
+     - Sticky bit
 
 Examples of symbolic notation:
 
-=====================  ======================================================
-Command                Effect
-=====================  ======================================================
-``chmod u+x file``     Add execute permission for the owner.
-``chmod go-w file``    Remove write permission from group and others.
-``chmod a+r file``     Grant everyone read permission.
-``chmod a=rx file``    Set *exactly* read and execute for everyone (clears
-                       write if it was set).
-``chmod u=rwx,g=rx,o= file``  Owner gets rwx, group gets rx, others get
-                       nothing.  The ``o=`` with no rhs clears all "other"
-                       permissions.
-``chmod +x file``      Add execute for *all* categories (``a`` is the
-                       default when no scope letter is given).  However,
-                       the exact behaviour is influenced by ``umask`` —
-                       see below.
-=====================  ======================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 35 65
+
+   * - Command
+     - Effect
+   * - ``chmod u+x file``
+     - Add execute permission for the owner.
+   * - ``chmod go-w file``
+     - Remove write permission from group and others.
+   * - ``chmod a+r file``
+     - Grant everyone read permission.
+   * - ``chmod a=rx file``
+     - Set *exactly* read and execute for everyone (clears write if it
+       was set).
+   * - ``chmod u=rwx,g=rx,o= file``
+     - Owner gets rwx, group gets rx, others get nothing.  The ``o=``
+       with no rhs clears all "other" permissions.
+   * - ``chmod +x file``
+     - Add execute for *all* categories (``a`` is the default when no
+       scope letter is given).  However, the exact behaviour is
+       influenced by ``umask`` — see below.
 
 The ``X`` permission deserves special mention.  It grants execute permission
 only where it is "sensible" — on directories (which need ``x`` to be
