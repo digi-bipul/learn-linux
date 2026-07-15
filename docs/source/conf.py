@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath("."))
 # ── Project info ────────────────────────────────────────
 project   = "Learn Linux Docs"
 copyright = "2026, Bipul"
-author    = "Bipul"
+author    = "Bipul Das"
 release   = "0.1.0"
 
 # ── Theme ───────────────────────────────────────────────

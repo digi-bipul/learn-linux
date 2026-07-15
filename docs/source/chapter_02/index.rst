@@ -1,6 +1,6 @@
-=====================================
+==================================================
 Chapter 2: The Shell & Command Line
-=====================================
+==================================================
 
 The shell is the gateway to Linux. It is simultaneously the humblest and most
 powerful interface you will ever wield — a deceptively simple text prompt that,
