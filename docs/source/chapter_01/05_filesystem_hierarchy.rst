@@ -85,7 +85,7 @@ repair it in single-user mode (e.g., ``ls``, ``cp``, ``cat``, ``sh``).
 After the ``/usr`` merge, ``/bin`` is typically a symlink to
 ``/usr/bin``.  All general-purpose executables now live together.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /bin
    bash  cat  cp  dash  dd  df  echo  grep  gzip  less  ln  ls  mkdir ...
@@ -96,7 +96,7 @@ Commands intended for system administration: ``fdisk``, ``fsck``,
 ``mkfs``, ``iptables``, ``ss``, ``sysctl``.  These often require root
 privileges.  After ``usrmerge``, ``/sbin`` → ``/usr/sbin``.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /sbin
    fdisk  fsck  ifconfig  iptables  mkfs  reboot  shutdown  sysctl ...
@@ -108,7 +108,7 @@ control: the kernel image itself (``vmlinuz-*``), the initial RAM disk
 (``initrd.img-*`` or ``initramfs-*``), and the bootloader configuration
 (``grub/`` or ``efi/``).
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /boot
    config-6.1.0-25-amd64
@@ -147,7 +147,7 @@ A virtual filesystem populated by the kernel.  Every hardware device
    * - ``/dev/random``, ``/dev/urandom``
      - Kernel random number generators
 
-.. code-block:: console
+.. code-block:: bash
 
    $ echo "This disappears" > /dev/null
    $ cat /dev/null
@@ -160,7 +160,7 @@ The nerve centre of system configuration.  Pronounced "et-see" (not
 never binaries.  The name comes from "et cetera," a historical dumping
 ground that evolved into the standard location for config files.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /etc
    passwd      # user account info
@@ -194,7 +194,7 @@ A user's home directory contains their personal files (``Documents/``,
 ``Downloads/``, ``Pictures/``) and their per-user configuration files,
 which are hidden (names starting with a dot):
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls -a ~
    .bashrc        # Bash configuration
@@ -212,7 +212,7 @@ The tilde (``~``) always expands to the current user's home directory.
 Shared libraries (``.so`` files) and kernel modules.  After ``usrmerge``,
 ``/lib`` → ``/usr/lib``.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /lib/x86_64-linux-gnu/ | head -5
    ld-linux-x86-64.so.2    # the dynamic linker/loader
@@ -232,7 +232,7 @@ into the main tree:
    SD cards.  The desktop environment typically creates subdirectories
    here automatically when you plug in a device:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ ls /media/alice/
       KINGSTON_USB/    # a USB stick was auto-mounted here
@@ -243,7 +243,7 @@ into the main tree:
    administrator.  If you need to mount a disk temporarily to recover
    files, ``/mnt`` is the conventional place:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ sudo mount /dev/sdb1 /mnt
       $ ls /mnt
@@ -257,7 +257,7 @@ the distribution's package manager.  Examples: Google Chrome, MATLAB,
 VMware Tools, some proprietary VPN clients.  Each application typically
 gets its own subdirectory:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /opt
    google/    chrome/    matlab/    zoom/
@@ -272,7 +272,7 @@ The kernel generates its contents on the fly when you read them.  It
 exposes runtime information about processes, hardware, and kernel
 parameters.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ cat /proc/cpuinfo       # CPU details
    $ cat /proc/meminfo       # Memory usage statistics
@@ -283,7 +283,7 @@ parameters.
 
 Each running process has a directory named after its PID:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ echo $$
    1847                      # the PID of the current shell
@@ -304,7 +304,7 @@ only valid until the next reboot: PID files, socket files, lock files,
 and system state.  ``/run`` replaced the older ``/var/run`` (which is now
 a symlink to ``/run`` on most systems).
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /run
    user/       # per-user runtime directories
@@ -318,7 +318,7 @@ Data served by the system: web server document roots, FTP files, version
 control repositories.  Many administrators ignore ``/srv`` and place
 service data under ``/var`` instead; both conventions are valid.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /srv
    www/        # web server content
@@ -332,7 +332,7 @@ objects — devices, buses, drivers, power management — in a structured
 hierarchy.  It is primarily used by hardware management tools and device
 drivers.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /sys/class/          # device classes: block, net, tty, ...
    $ ls /sys/block/sda/      # info about the first disk
@@ -344,7 +344,7 @@ A world-writable scratch space.  Any user can create files here.  Files
 in ``/tmp`` may be deleted on reboot (depending on distribution
 configuration).  Never store anything important in ``/tmp``.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ echo "temporary data" > /tmp/my_temp_file
    $ cat /tmp/my_temp_file

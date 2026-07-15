@@ -53,6 +53,7 @@ Table of Contents
 
    chapter_01/index
    chapter_02/index
+   chapter_03/index
 
 ..   chapter_03/index
 ..   chapter_04/index

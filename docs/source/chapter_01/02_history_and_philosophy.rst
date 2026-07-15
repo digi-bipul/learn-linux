@@ -143,7 +143,7 @@ concatenates files.  ``sort`` sorts lines.  ``uniq`` removes duplicates.
 None of these programs tries to do the others' job.  When you need to
 count unique lines in a file, you *combine* them:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ sort data.txt | uniq | wc -l
 

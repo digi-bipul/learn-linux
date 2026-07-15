@@ -32,7 +32,7 @@ Where Alpine or Fedora differ, the differences are called out.
 **Print Working Directory.**  The simplest command in Linux.  It prints
 the absolute path of your current location in the filesystem tree:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ pwd
    /home/alice
@@ -43,7 +43,7 @@ prompt is truncated or when you are deep inside a long path.
 
 There are two variants, and the difference matters:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ pwd            # prints the logical working directory (shell built-in)
    /home/alice
@@ -65,14 +65,14 @@ links in a later chapter.
 ``cd``).  Without arguments, ``ls`` lists the contents of the current
 directory:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls
    Documents  Downloads  Music  Pictures  notes.txt
 
 With a path, it lists that directory:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls /etc
    adduser.conf  apt  cron.d  default  fstab  hosts  passwd  ...
@@ -83,7 +83,7 @@ With a path, it lists that directory:
 **long listing** format, which reveals seven pieces of metadata for
 every file:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls -l
    total 16
@@ -202,7 +202,7 @@ except the null byte and the forward slash.
      - Colourise output: directories in blue, executables in green,
        symlinks in cyan.  Usually enabled by default via an alias.
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Common ``ls`` combinations
 
    $ ls -la         # all files, long format
@@ -222,7 +222,7 @@ except the null byte and the forward slash.
 An **absolute path** starts with ``/`` and specifies the full route
 from the root:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ cd /usr/share/doc
    $ pwd
@@ -231,7 +231,7 @@ from the root:
 A **relative path** does *not* start with ``/`` and is interpreted
 relative to your current directory:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ pwd
    /home/alice
@@ -263,7 +263,7 @@ relative to your current directory:
      - The previous working directory
      - ``cd -`` toggles between two directories
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Navigation in action
 
    $ pwd
@@ -311,7 +311,7 @@ Creating and Removing Directories
 
 .. rubric:: ``mkdir`` — Make Directory
 
-.. code-block:: console
+.. code-block:: bash
 
    $ mkdir new_directory
    $ ls -ld new_directory
@@ -332,7 +332,7 @@ Key flags:
    * - ``-m MODE`` (``--mode=MODE``)
      - Set permissions (e.g., ``-m 755``) instead of the default.
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Creating nested directories in one command
 
    $ mkdir -p project/src/module/tests
@@ -353,7 +353,7 @@ Key flags:
 
 Removes **empty** directories only:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ rmdir empty_dir        # succeeds
    $ rmdir non_empty_dir    # fails: "Directory not empty"
@@ -372,7 +372,7 @@ primary purpose is to update a file's access and modification timestamps.
 If the file does not exist, ``touch`` creates an empty file as a
 convenient side effect:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ touch newfile.txt
    $ ls -l newfile.txt
@@ -400,7 +400,7 @@ Useful flags:
 
 **Copy.**  Syntax: ``cp [OPTIONS] SOURCE DESTINATION``.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ cp notes.txt notes_backup.txt
    $ ls
@@ -409,7 +409,7 @@ Useful flags:
 If the destination is an existing directory, the source file is copied
 *into* it, keeping its original name:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ cp notes.txt Documents/
    $ ls Documents/
@@ -442,7 +442,7 @@ Key flags:
        (permissions, ownership, timestamps, symlinks), and does not
        follow symlinks.
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Common ``cp`` patterns
 
    $ cp file1 file2 file3 dest_dir/      # copy multiple files into a directory
@@ -469,23 +469,23 @@ different directory *is* relocating.  Both are the same underlying
 operation: changing the directory entry (the "link") that points to the
 file's data.
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Renaming (same directory)
 
    $ mv old_name.txt new_name.txt
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Moving (different directory)
 
    $ mv document.txt ~/Documents/
 
 ``mv`` can also move *and* rename simultaneously:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ mv draft.txt ~/Documents/final_version.txt
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Moving multiple files into a directory
 
    $ mv file1.txt file2.txt file3.txt target_dir/
@@ -519,7 +519,7 @@ Key flags:
 
 **Remove.**  Syntax: ``rm [OPTIONS] FILE...``
 
-.. code-block:: console
+.. code-block:: bash
 
    $ rm old_file.txt
    $ ls old_file.txt
@@ -569,7 +569,7 @@ Key flags:
 
 .. rubric:: Safer alternatives to ``rm``
 
-.. code-block:: console
+.. code-block:: bash
 
    # Use 'rm -i' for interactive confirmation:
    $ rm -i *.txt
@@ -594,7 +594,7 @@ Viewing File Contents
 **Concatenate.**  Reads one or more files and writes their contents to
 standard output (the terminal):
 
-.. code-block:: console
+.. code-block:: bash
 
    $ cat notes.txt
    This is the content of notes.txt.
@@ -602,13 +602,13 @@ standard output (the terminal):
 
 ``cat`` can also concatenate multiple files:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ cat file1.txt file2.txt > combined.txt
 
 Or create a small file directly from the terminal:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ cat > newfile.txt
    Type some text here.
@@ -641,7 +641,7 @@ Useful flags:
 **Less** is a *pager* — it displays content one screen at a time and
 lets you scroll forward and backward:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ less /var/log/syslog
 
@@ -680,7 +680,7 @@ Navigation inside ``less`` is identical to navigation in ``man`` pages
 standard input, not just from files.  This means you can pipe the output
 of *any* command into ``less`` for scrollable viewing:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ dmesg | less                    # scroll through kernel ring buffer
    $ ls -la /usr/bin | less          # scroll through a huge directory listing
@@ -697,7 +697,7 @@ of *any* command into ``less`` for scrollable viewing:
 **Head** prints the first 10 lines of a file; **tail** prints the last
 10:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ head /etc/passwd
    root:x:0:0:root:/root:/bin/bash
@@ -710,7 +710,7 @@ of *any* command into ``less`` for scrollable viewing:
 
 The number of lines is adjustable with ``-n``:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ head -n 3 /etc/passwd        # first 3 lines
    $ tail -n 20 /var/log/syslog   # last 20 lines
@@ -726,7 +726,7 @@ administration:
    lines as they are appended.  This is how administrators watch log
    files in real time:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ tail -f /var/log/syslog
       Jul 10 12:11:43 thinkpad systemd[1]: Starting Cleanup of Temporary...
@@ -748,7 +748,7 @@ administration:
    extension and is **not** available.  If you need GNU ``head`` /
    ``tail`` on Alpine, install the ``coreutils`` package:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       # Alpine: replace BusyBox head/tail with GNU versions
       $ sudo apk add coreutils
@@ -763,7 +763,7 @@ Instead, ``file`` inspects the *content* of the file — typically the
 first few bytes, known as the **magic number** — to identify its true
 type:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ file notes.txt
    notes.txt: ASCII text
@@ -829,7 +829,7 @@ sees the wildcards; it only sees the expanded list.
      - Matches **any one** character in the set
      - ``file[0-9].txt`` matches ``file1.txt`` through ``file9.txt``
 
-.. code-block:: console
+.. code-block:: bash
    :caption: Wildcards in action
 
    $ ls *.txt
@@ -850,7 +850,7 @@ sees the wildcards; it only sees the expanded list.
 
    Matches any one character **not** in the set:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ ls file[!0-9].txt
       fileA.txt  fileB.txt  file_test.txt
@@ -859,7 +859,7 @@ sees the wildcards; it only sees the expanded list.
 
    Inside brackets, you can use POSIX character classes:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ ls *[[:digit:]]*      # filenames containing at least one digit
       $ ls *[[:upper:]]*      # filenames containing at least one uppercase letter
@@ -869,7 +869,7 @@ sees the wildcards; it only sees the expanded list.
 Brace expansion generates arbitrary strings — it is *not* filename
 matching; it generates strings whether or not matching files exist:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ echo file_{a,b,c}.txt
    file_a.txt file_b.txt file_c.txt
@@ -894,7 +894,7 @@ matching; it generates strings whether or not matching files exist:
    ``[ ]``) but may have limited brace expansion support.  Install
    ``bash`` on Alpine if you need full brace expansion:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       # Alpine
       $ sudo apk add bash
@@ -907,7 +907,7 @@ Putting It All Together: A Practical Exercise
 Let us consolidate everything we have learned in a realistic workflow.
 Open a terminal and follow along:
 
-.. code-block:: console
+.. code-block:: bash
 
    # 1. Where am I?
    $ pwd

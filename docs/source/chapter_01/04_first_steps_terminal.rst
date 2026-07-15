@@ -200,7 +200,7 @@ Almost every shell command follows this pattern:
    different from the second argument.  Options (which are named) can
    appear in any order; arguments usually cannot.
 
-.. code-block:: console
+.. code-block:: bash
    :caption: A concrete example
 
    $ ls -l --human-readable /home/alice/Documents
@@ -220,7 +220,7 @@ available:
 
 Almost every command-line program supports ``--help`` or ``-h``:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ ls --help
    Usage: ls [OPTION]... [FILE]...
@@ -236,7 +236,7 @@ The **manual pager** is the canonical documentation system inherited from
 Unix.  Every installed program, every system call, every configuration
 file format has a man page:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ man ls
 
@@ -292,7 +292,7 @@ the command.
 GNU projects often ship more detailed documentation in **Info** format,
 which supports hyperlinks between nodes:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ info coreutils
 
@@ -304,7 +304,7 @@ Navigate with :kbd:`n` (next), :kbd:`p` (previous), :kbd:`u` (up),
 These are not installed by default but are invaluable.  They provide
 curated, example-driven summaries:
 
-.. code-block:: console
+.. code-block:: bash
 
    # Install on Debian/Ubuntu:
    $ sudo apt install tldr
@@ -427,21 +427,21 @@ Distro-Agnostic First Commands
 Let us type a few commands to get comfortable.  Open a terminal and
 follow along:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ whoami
    alice
 
 ``whoami`` prints your username.  Simple and useful in scripts.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ date
    Thu Jul 10 11:54:17 UTC 2026
 
 ``date`` prints the current date and time as the system understands it.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ uptime
    11:54:17 up 3 days,  2:15,  2 users,  load average: 0.08, 0.03, 0.01
@@ -450,7 +450,7 @@ follow along:
 users are logged in, and the system load averages for the last 1, 5, and
 15 minutes.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ echo "Hello, Linux!"
    Hello, Linux!
@@ -458,7 +458,7 @@ users are logged in, and the system load averages for the last 1, 5, and
 ``echo`` prints whatever you give it.  It seems trivial, but it is
 indispensable in scripts and for inspecting shell variables:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ echo $HOME
    /home/alice
@@ -470,7 +470,7 @@ The ``$`` before ``HOME`` and ``SHELL`` tells the shell to *expand* the
 variable — that is, replace it with its current value.  ``echo`` then
 prints the result.  We will explore shell variables in depth later.
 
-.. code-block:: console
+.. code-block:: bash
 
    # What distribution am I running?  (works on most)
    $ cat /etc/os-release
@@ -478,7 +478,7 @@ prints the result.  We will explore shell variables in depth later.
    # On Alpine:
    $ cat /etc/alpine-release
 
-.. code-block:: console
+.. code-block:: bash
 
    # What kernel version?
    $ uname -r
