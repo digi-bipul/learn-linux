@@ -1,6 +1,4 @@
-.. _job_control:
-
-2.7 Job Control
+Job Control
 ==================================================
 
 .. sidebar:: In This Section

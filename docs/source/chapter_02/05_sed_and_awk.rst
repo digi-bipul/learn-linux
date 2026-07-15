@@ -1,4 +1,4 @@
-2.5 sed & awk Fundamentals
+sed & awk Fundamentals
 ===========================================
 
 .. sidebar:: In This Section

@@ -1,4 +1,4 @@
-2.6 Command History & Efficiency
+Command History & Efficiency
 ===========================================
 
 .. sidebar:: In This Section

@@ -1,4 +1,4 @@
-2.4 Text Processing Toolchest
+Text Processing Toolchest
 ===========================================
 
 .. sidebar:: In This Section

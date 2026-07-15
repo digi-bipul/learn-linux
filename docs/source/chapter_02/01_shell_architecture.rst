@@ -1,4 +1,4 @@
-2.1 Shell Architecture
+Shell Architecture
 ===========================================
 
 .. sidebar:: In This Section

@@ -1,4 +1,4 @@
-2.3 Environment Variables & Shell Configuration
+Environment Variables & Shell Configuration
 ================================================
 
 .. sidebar:: In This Section

@@ -1,4 +1,4 @@
-2.2 I/O Redirection & Pipelines
+I/O Redirection & Pipelines
 ===========================================
 
 .. sidebar:: In This Section
