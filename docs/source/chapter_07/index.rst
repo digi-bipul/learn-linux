@@ -1,5 +1,3 @@
-.. _chapter-07:
-
 ##########################################
 Chapter 7: Linux Networking & Core Network Fundamentals
 ##########################################

@@ -1,5 +1,3 @@
-.. _chapter-06-storage:
-
 Chapter 6: Storage, Filesystems & Advanced Volume Management
 =============================================================
 
