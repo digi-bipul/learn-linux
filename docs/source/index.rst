@@ -56,12 +56,11 @@ Table of Contents
    chapter_03/index
    chapter_04/index
    chapter_05/index
-
-..   chapter_06/index
-..   chapter_07/index
-..   chapter_08/index
-..   chapter_09/index
-..   chapter_10/index
+   chapter_06/index
+   chapter_07/index
+   chapter_08/index
+   chapter_09/index
+   chapter_10/index
 ..   chapter_11/index
 ..   chapter_12/index
 ..   appendix_a/index
