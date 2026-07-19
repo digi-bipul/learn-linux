@@ -61,10 +61,10 @@ Table of Contents
    chapter_08/index
    chapter_09/index
    chapter_10/index
-..   chapter_11/index
-..   chapter_12/index
-..   appendix_a/index
-..   appendix_b/index
+   chapter_11/index
+   chapter_12/index
+   appendix_a/index
+   appendix_b/index
 
 .. _colophon:
 
