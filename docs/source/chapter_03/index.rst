@@ -27,10 +27,10 @@ of "everything is a file."
 .. toctree::
    :titlesonly:
 
-   01_multi_user_model
-   02_user_group_management
-   03_file_permissions
-   04_special_permission_bits
-   05_acls
-   06_advanced_attributes
-   07_privilege_escalation
+   multi_user_model
+   user_group_management
+   file_permissions
+   special_permission_bits
+   acls
+   advanced_attributes
+   privilege_escalation

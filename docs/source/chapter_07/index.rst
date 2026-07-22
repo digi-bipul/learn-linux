@@ -30,17 +30,16 @@ Chapter Roadmap
 
 .. toctree::
    :titlesonly:
-   :numbered:
 
-   01_networking_theory
-   02_ip_and_subnetting
-   03_ip_command_suite
-   04_network_configuration
-   05_dns_resolution
-   06_nftables_core
-   07_firewall_frontends
-   08_ssh_mastery
-   09_troubleshooting
+   networking_theory
+   ip_and_subnetting
+   ip_command_suite
+   network_configuration
+   dns_resolution
+   nftables_core
+   firewall_frontends
+   ssh_mastery
+   troubleshooting
 
 Learning Objectives
 ===================

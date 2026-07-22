@@ -21,17 +21,17 @@ to design a storage layout for any scenario — from a single-disk laptop
 to a multi-node enterprise SAN — and articulate *why* each design
 decision matters.
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Chapter Contents
 
-   01_disk_anatomy
-   02_filesystems_tuning
-   03_mounting_fstab
-   04_lvm
-   05_raid
-   06_swap_zram
-   07_quotas_monitoring
-   08_ceph_distributed
+   disk_anatomy
+   filesystems_tuning
+   mounting_fstab
+   lvm
+   raid
+   swap_zram
+   quotas_monitoring
+   ceph_distributed
 
 Key Learning Objectives
 -----------------------

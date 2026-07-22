@@ -24,11 +24,11 @@ By the end of this chapter you will be able to:
   files and directories.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   01_what_is_linux
-   02_history_and_philosophy
-   03_choosing_a_distribution
-   04_first_steps_terminal
-   05_filesystem_hierarchy
-   06_basic_navigation
+   what_is_linux
+   history_and_philosophy
+   choosing_a_distribution
+   first_steps_terminal
+   filesystem_hierarchy
+   basic_navigation

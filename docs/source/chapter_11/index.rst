@@ -62,13 +62,13 @@ By the end of this chapter, you will understand not only how to *use* cloud nati
 but how they *work* — and how the Linux kernel makes them all possible.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Subchapters
 
-   01_virtualization_microvms
-   02_container_fundamentals
-   03_docker_lifecycles
-   04_podman_systemd
-   05_kubernetes_essentials
-   06_container_security
-   07_iac_and_cloud
+   virtualization_microvms
+   container_fundamentals
+   docker_lifecycles
+   podman_systemd
+   kubernetes_essentials
+   container_security
+   iac_and_cloud

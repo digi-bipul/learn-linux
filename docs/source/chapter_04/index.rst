@@ -40,11 +40,11 @@ This chapter explores the complete lifecycle:
    :titlesonly:
    :numbered:
 
-   01_process_lifecycle
-   02_process_monitoring
-   03_signals
-   04_init_and_systemd
-   05_writing_unit_files
-   06_alternative_inits
-   07_service_logging
-   08_scheduling
+   process_lifecycle
+   process_monitoring
+   signals
+   init_and_systemd
+   writing_unit_files
+   alternative_inits
+   service_logging
+   scheduling

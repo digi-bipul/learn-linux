@@ -21,13 +21,13 @@ high-availability clustering, disaster recovery—with the modern Site Reliabili
 Engineering paradigm that treats operations as a software engineering discipline.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Subchapters
 
-   01_centralized_iam
-   02_high_availability
-   03_disaster_recovery
-   04_log_management
-   05_gitops_and_cm
-   06_sre_practices
-   07_capstone_project
+   centralized_iam
+   high_availability
+   disaster_recovery
+   log_management
+   gitops_and_cm
+   sre_practices
+   capstone_project

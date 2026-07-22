@@ -32,12 +32,12 @@ Infrastructure-as-Code (IaC) tooling.
    :maxdepth: 2
    :caption: Chapter 8 Contents
 
-   01_script_structure
-   02_variables_data_types
-   03_conditionals
-   04_loops
-   05_functions_scope
-   06_error_handling
-   07_argument_parsing
-   08_local_automation
-   09_ansible_and_iac
+   script_structure
+   variables_data_types
+   conditionals
+   loops
+   functions_scope
+   error_handling
+   argument_parsing
+   local_automation
+   ansible_and_iac

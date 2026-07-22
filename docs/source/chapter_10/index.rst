@@ -5,17 +5,17 @@ Chapter 10: Performance Engineering & Modern Observability
 ============================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Chapter 10 Contents
 
-   01_performance_methodology
-   02_cpu_analysis
-   03_memory_dynamics
-   04_storage_io
-   05_network_telemetry
-   06_cgroups_v2
-   07_tracing_ebpf
-   08_observability_stack
+   performance_methodology
+   cpu_analysis
+   memory_dynamics
+   storage_io
+   network_telemetry
+   cgroups_v2
+   tracing_ebpf
+   observability_stack
 
 ---
 

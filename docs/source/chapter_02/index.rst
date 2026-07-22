@@ -31,10 +31,10 @@ and more like a workshop where every tool is within arm's reach.
 .. toctree::
    :maxdepth: 2
 
-   01_shell_architecture
-   02_io_redirection
-   03_environment_and_config
-   04_text_processing
-   05_sed_and_awk
-   06_history_efficiency
-   07_job_control
+   shell_architecture
+   io_redirection
+   environment_and_config
+   text_processing
+   sed_and_awk
+   history_efficiency
+   job_control

@@ -41,14 +41,12 @@ Every chapter weaves together three threads:
    forward sequentially.  The book is cumulative: early chapters build
    the vocabulary and mental models that later chapters depend upon.
 
-.. _main-toc:
 
 Table of Contents
 =================
 
 .. toctree::
-   :maxdepth: 3
-   :numbered:
+   :maxdepth: 1
    :caption: Parts & Chapters
 
    chapter_01/index
@@ -65,15 +63,6 @@ Table of Contents
    chapter_12/index
    appendix_a/index
    appendix_b/index
-
-.. _colophon:
-
-Colophon
-========
-
-This book is written in **reStructuredText** and built with **Sphinx**.
-The canonical source is hosted on **GitHub** and the rendered output is
-published on **GitHub Pages**.
 
 .. only:: html
 

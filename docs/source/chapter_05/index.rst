@@ -59,10 +59,10 @@ engineering.
    :titlesonly:
    :numbered:
 
-   01_software_lifecycle
-   02_traditional_binary_managers
-   03_rolling_and_minimalist
-   04_source_based_and_bsd
-   05_functional_declarative
-   06_building_from_source
-   07_universal_and_immutable
+   software_lifecycle
+   traditional_binary_managers
+   rolling_and_minimalist
+   source_based_and_bsd
+   functional_declarative
+   building_from_source
+   universal_and_immutable

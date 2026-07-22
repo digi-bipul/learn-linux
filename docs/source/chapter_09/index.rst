@@ -30,14 +30,14 @@ Linux system, but *why* each control exists, which real-world adversaries it
 mitigates, and how the 2026 industry consensus validates these choices.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Chapter 9 Contents
 
-   01_security_mindset
-   02_pam
-   03_selinux
-   04_apparmor
-   05_network_security
-   06_encryption
-   07_audit_intrusion
-   08_hardening_standards
+   security_mindset
+   pam
+   selinux
+   apparmor
+   network_security
+   encryption
+   audit_intrusion
+   hardening_standards
