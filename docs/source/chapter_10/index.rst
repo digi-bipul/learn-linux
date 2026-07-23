@@ -1,12 +1,10 @@
-.. _chapter-10:
-
 ============================================================
 Chapter 10: Performance Engineering & Modern Observability
 ============================================================
 
 .. toctree::
    :maxdepth: 1
-   :caption: Chapter 10 Contents
+   :titlesonly:
 
    performance_methodology
    cpu_analysis

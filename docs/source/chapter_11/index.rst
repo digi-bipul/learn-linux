@@ -1,8 +1,6 @@
-.. _chapter-11:
-
-============================================================
+===================================================================
 Chapter 11: Containers, Virtualization & Cloud Native Architecture
-============================================================
+===================================================================
 
 .. epigraph::
 
@@ -63,7 +61,7 @@ but how they *work* — and how the Linux kernel makes them all possible.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Subchapters
+   :titlesonly:
 
    virtualization_microvms
    container_fundamentals

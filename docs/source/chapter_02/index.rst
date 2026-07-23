@@ -30,6 +30,7 @@ and more like a workshop where every tool is within arm's reach.
 
 .. toctree::
    :maxdepth: 2
+   :titlesonly:
 
    shell_architecture
    io_redirection

@@ -1,5 +1,3 @@
-.. _appendix-c:
-
 ==============================================================================
 Appendix C: Troubleshooting & Diagnostics Reference
 ==============================================================================
@@ -24,6 +22,7 @@ real-world production incidents.
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
 
    boot_recovery
    network_diag

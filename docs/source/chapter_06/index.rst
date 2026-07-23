@@ -22,7 +22,7 @@ to a multi-node enterprise SAN — and articulate *why* each design
 decision matters.
 .. toctree::
    :maxdepth: 1
-   :caption: Chapter Contents
+   :titlesonly:
 
    disk_anatomy
    filesystems_tuning

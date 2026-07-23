@@ -1,80 +1,74 @@
-==================================================
-Linux from Scratch to Advanced Professional
-==================================================
+=============================================
+Linux: From Zero to Enterprise Administration
+=============================================
 
-:Author:    Bipul Das
-:Edition:   First Edition | 2026
-:Source:    https://github.com/digi-bipul/learn-linux
-
-.. image:: _static/logo.svg
-   :alt: Tux, the Linux mascot
-   :align: center
-   :width: 160px
-
-.. only:: html
-
-   .. raw:: html
-
-      <hr style="margin: 2em 0;">
-
-.. _welcome:
-
-Welcome
-=======
-
-This textbook takes you from zero — no prior knowledge assumed — to the
-level of a confident, professional Linux practitioner.  Whether you are a
-university student, a software developer, a system administrator, or
-simply a curious mind, the material is designed to be **readable**,
-**rigorous**, and **immediately useful**.
-
-Every chapter weaves together three threads:
-
-1. **Concept** — the *why* behind the tool or mechanism.
-2. **Mechanics** — the *how*, spelled out line by line.
-3. **Context** — how the same task differs across the major Linux families
-   (Debian/Ubuntu, RHEL/Fedora, Arch, Alpine, openSUSE).
-
-.. tip::
-
-   If you are brand new, start at :ref:`Chapter 1 <chapter-01>` and work
-   forward sequentially.  The book is cumulative: early chapters build
-   the vocabulary and mental models that later chapters depend upon.
-
-
-Table of Contents
-=================
+A comprehensive university-level textbook covering Linux fundamentals
+through enterprise administration, SRE practices, and modern
+cloud-native architecture.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Parts & Chapters
+   :maxdepth: 2
+   :caption: GETTING STARTED
+   :titlesonly:
 
    chapter_01/index
    chapter_02/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: CORE SYSTEM
+   :titlesonly:
+
    chapter_03/index
    chapter_04/index
    chapter_05/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: STORAGE & FILESYSTEMS
+   :titlesonly:
+
    chapter_06/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: NETWORKING & SECURITY
+   :titlesonly:
+
    chapter_07/index
-   chapter_08/index
    chapter_09/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: AUTOMATION & SCRIPTING
+   :titlesonly:
+
+   chapter_08/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: PERFORMANCE & OBSERVABILITY
+   :titlesonly:
+
    chapter_10/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: MODERN INFRASTRUCTURE
+   :titlesonly:
+
    chapter_11/index
    chapter_12/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: APPENDICES
+   :titlesonly:
+
    appendix_a/index
    appendix_b/index
+   appendix_c/index
 
-.. only:: html
+----
 
-   .. raw:: html
-
-      <hr>
-
-   **License.**  Creative Commons Attribution-ShareAlike 4.0
-   International (CC BY-SA 4.0).
-
-Indices and Tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
+:doc:`genindex`

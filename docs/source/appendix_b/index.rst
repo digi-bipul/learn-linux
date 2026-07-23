@@ -1,5 +1,3 @@
-.. _appendix-b:
-
 ==============================================================================
 Appendix B: Linux Security & Administration Reference
 ==============================================================================
@@ -23,6 +21,7 @@ use.
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
 
    permissions
    lsm

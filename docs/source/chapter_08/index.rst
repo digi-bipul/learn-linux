@@ -1,6 +1,6 @@
-=============================
+========================================================
 Chapter 8 — Shell Scripting & Infrastructure Automation
-=============================
+========================================================
 
 Welcome to the turning point of this book.  In Chapters 1 through 7, you
 learned to navigate, administer, network, and secure a Linux system by
@@ -29,8 +29,8 @@ Infrastructure-as-Code (IaC) tooling.
 * :doc:`8.9 — Config Management & Modern IaC <09_ansible_and_iac>`
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Chapter 8 Contents
+   :maxdepth: 1
+   :titlesonly:
 
    script_structure
    variables_data_types

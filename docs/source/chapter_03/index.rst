@@ -25,6 +25,7 @@ of least privilege, the separation of data and metadata, and the Unix philosophy
 of "everything is a file."
 
 .. toctree::
+   :maxdepth: 1
    :titlesonly:
 
    multi_user_model

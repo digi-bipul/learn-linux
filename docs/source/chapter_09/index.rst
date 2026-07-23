@@ -1,8 +1,6 @@
-.. _chapter_09:
-
-################################################
+=================================================
 Chapter 9: Linux Security & Enterprise Hardening
-################################################
+=================================================
 
 In the preceding chapters, you mastered the foundational mechanics of the
 GNU/Linux operating system—processes, storage, networking, and automation.
@@ -31,7 +29,7 @@ mitigates, and how the 2026 industry consensus validates these choices.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Chapter 9 Contents
+   :titlesonly:
 
    security_mindset
    pam

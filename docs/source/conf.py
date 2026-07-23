@@ -11,6 +11,9 @@ release   = "0.1.0"
 
 # ── Theme ───────────────────────────────────────────────
 html_theme = "sphinx_rtd_theme"
+html_theme_options = {
+    "sticky_navigation": False,   # optional — cleaner feel
+        } 
 
 # ── Custom CSS ──────────────────────────────────────────
 html_static_path = ["_static"]

@@ -1,5 +1,3 @@
-.. _chapter-12:
-
 ============================================================
 Chapter 12: Enterprise Administration, SRE Practices & Capstone Project
 ============================================================
@@ -22,7 +20,7 @@ Engineering paradigm that treats operations as a software engineering discipline
 
 .. toctree::
    :maxdepth: 1
-   :caption: Subchapters
+   :titlesonly:
 
    centralized_iam
    high_availability

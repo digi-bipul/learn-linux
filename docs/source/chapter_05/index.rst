@@ -56,8 +56,8 @@ chore, but as one of the most intellectually rich problems in systems
 engineering.
 
 .. toctree::
+   :maxdepth: 2
    :titlesonly:
-   :numbered:
 
    software_lifecycle
    traditional_binary_managers

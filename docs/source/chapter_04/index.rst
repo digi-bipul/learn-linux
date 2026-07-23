@@ -37,8 +37,8 @@ This chapter explores the complete lifecycle:
 8. **Scheduling** — Cron, crontab, anacron, at, batch, and systemd timers.
 
 .. toctree::
+   :maxdepth: 1
    :titlesonly:
-   :numbered:
 
    process_lifecycle
    process_monitoring

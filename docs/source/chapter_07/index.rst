@@ -1,6 +1,6 @@
-##########################################
+========================================================
 Chapter 7: Linux Networking & Core Network Fundamentals
-##########################################
+========================================================
 
 Computer networking is the connective tissue of modern systems. Without it, our
 servers are isolated islands—powerful, but alone. This chapter bridges the gap
@@ -29,6 +29,7 @@ Chapter Roadmap
 ===============
 
 .. toctree::
+   :maxdepth: 1
    :titlesonly:
 
    networking_theory

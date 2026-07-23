@@ -1,5 +1,3 @@
-.. _appendix-a:
-
 ==============================================================================
 Appendix A: Regular Expressions Reference
 ==============================================================================
@@ -18,6 +16,7 @@ from the textbook into a dense, skimmable reference.
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
 
    flavors
    syntax
