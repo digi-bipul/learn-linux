@@ -1,7 +1,7 @@
 .. _app-b-journal:
 
 ------------------------------------------------------------------------------
-B.8  Journald & Log Management
+Journald & Log Management
 ------------------------------------------------------------------------------
 
 ``systemd-journald`` is the logging daemon that collects and stores log data
@@ -9,7 +9,7 @@ from the kernel, systemd services, and syslog. It replaces (or complements)
 traditional syslog daemons.
 
 ------------------------------------------------------------------------------
-B.8.1  Journald Configuration (``/etc/systemd/journald.conf``)
+Journald Configuration (``/etc/systemd/journald.conf``)
 ------------------------------------------------------------------------------
 
 .. list-table:: Key journald.conf directives
@@ -58,7 +58,7 @@ B.8.1  Journald Configuration (``/etc/systemd/journald.conf``)
    sudo systemctl restart systemd-journald   # After config changes
 
 ------------------------------------------------------------------------------
-B.8.2  journalctl — Querying the Journal
+journalctl — Querying the Journal
 ------------------------------------------------------------------------------
 
 .. list-table:: journalctl option reference
@@ -144,7 +144,7 @@ B.8.2  journalctl — Querying the Journal
    journalctl _UID=1000 _COMM=cron
 
 ------------------------------------------------------------------------------
-B.8.3  Journal Persistence & Size Management
+Journal Persistence & Size Management
 ------------------------------------------------------------------------------
 
 .. code-block:: bash
@@ -175,7 +175,7 @@ B.8.3  Journal Persistence & Size Management
    module(load="imjournal" StateFile="imjournal.state")
 
 ------------------------------------------------------------------------------
-B.8.4  Log Management Best Practices
+Log Management Best Practices
 ------------------------------------------------------------------------------
 
 .. list-table:: Log management tips

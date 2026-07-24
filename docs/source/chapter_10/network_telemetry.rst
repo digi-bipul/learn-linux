@@ -1,7 +1,7 @@
 .. _ch10-network-telemetry:
 
 ###########################################################
-10.5  Network Telemetry & Control
+Network Telemetry & Control
 ###########################################################
 
 .. epigraph::
@@ -10,7 +10,7 @@
    — John Gage (Sun Microsystems, 1984)
 
 ----------------------------------------------------------------------
-10.5.1  Active Testing with ``iperf3``
+Active Testing with ``iperf3``
 ----------------------------------------------------------------------
 
 **Server (listener):**
@@ -47,7 +47,7 @@
    [  5]   0.00-10.00  sec   119 MBytes   100 Mbits/sec  0.023 ms  0/84953 (0%)
 
 ----------------------------------------------------------------------
-10.5.2  Modern Socket Statistics: ``ss`` and ``nstat`` (Abandoning ``netstat``)
+Modern Socket Statistics: ``ss`` and ``nstat`` (Abandoning ``netstat``)
 ----------------------------------------------------------------------
 
 .. admonition:: R.I.P. ``netstat`` — Why We Abandon It
@@ -102,7 +102,7 @@
 - **IpInDiscards, IpOutDiscards:** Kernel-level packet drops.
 
 ----------------------------------------------------------------------
-10.5.3  Network Interface Tuning with ``ethtool``
+Network Interface Tuning with ``ethtool``
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -143,7 +143,7 @@
    $ echo 1 > /proc/irq/123/smp_affinity   # Pin IRQ to CPU 0
 
 ----------------------------------------------------------------------
-10.5.4  Mitigating Bufferbloat with ``tc`` and Modern AQMs
+Mitigating Bufferbloat with ``tc`` and Modern AQMs
 ----------------------------------------------------------------------
 
 **Bufferbloat** is the phenomenon where large buffers cause excessive latency.
@@ -181,7 +181,7 @@ AQM algorithms drop/mark packets *before* buffers fill.
    $ ping -c 100 -i 0.01 10.0.0.1
 
 ----------------------------------------------------------------------
-10.5.5  Network USE Checklist
+Network USE Checklist
 ----------------------------------------------------------------------
 
 .. code-block:: console

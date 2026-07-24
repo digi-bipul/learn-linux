@@ -1,3 +1,5 @@
+.. _io-redirection:
+
 I/O Redirection & Pipelines
 ===========================================
 

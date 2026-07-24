@@ -1,6 +1,6 @@
 .. _section-4-2:
 
-4.2 Process Monitoring
+Process Monitoring
 ==================================================
 
 .. rst-class:: lead
@@ -11,7 +11,7 @@
    process inspection, ranging from the venerable ``ps`` to the interactive
    live monitors ``top``, ``htop``, and ``atop``.
 
-4.2.1 ``ps`` — The Universal Process Snapshot
+``ps`` — The Universal Process Snapshot
 ================================================
 
 The ``ps(1)`` command (Process Status) is the oldest and most fundamental
@@ -20,7 +20,7 @@ at the instant it runs. Understanding ``ps`` is a rite of passage for every
 Linux user — and, unfortunately, a source of confusion due to the historical
 conflation of **three different option syntaxes**.
 
-4.2.1.1 The Three ``ps`` Syntaxes
+The Three ``ps`` Syntaxes
 
 .. table:: The Three ``ps`` Syntax Styles
    :widths: 10 20 30 40
@@ -46,7 +46,7 @@ conflation of **three different option syntaxes**.
    ``ps`` implementation (procps-ng) tries to be smart about detecting
    the style, but it is best to stick to one.
 
-4.2.1.2 The Most Common Invocations
+The Most Common Invocations
 
 .. code-block:: console
    :caption: Essential ``ps`` commands
@@ -90,7 +90,7 @@ conflation of **three different option syntaxes**.
    # Watch repeatedly (like top, but with ps output)
    $ watch -n 1 'ps aux --sort=-%cpu | head -20'
 
-4.2.1.3 Decoding ``ps aux`` — Parameter by Parameter
+Decoding ``ps aux`` — Parameter by Parameter
 
 The most famous invocation is ``ps aux``. Let us decode it:
 
@@ -166,7 +166,7 @@ The most famous invocation is ``ps aux``. Let us decode it:
    is calculated at snapshot time. For real-time CPU monitoring, always use
    ``top`` or ``htop``.
 
-4.2.1.4 Useful ``ps`` Output Formats
+Useful ``ps`` Output Formats
 
 .. code-block:: console
 
@@ -182,7 +182,7 @@ The most famous invocation is ``ps aux``. Let us decode it:
    # Show processes with their OOM score (Out-Of-Memory killer adjustment)
    $ ps -eo pid,comm,oom_adj,oom_score,oom_score_adj
 
-4.2.2 ``top`` — The Classic Live Monitor
+``top`` — The Classic Live Monitor
 ===========================================
 
 While ``ps`` gives a snapshot, ``top(1)`` provides a **continuously
@@ -259,7 +259,7 @@ Once ``top`` is running, press these keys to control the display:
    i          Hide idle processes
    t          Toggle display of CPU/cpu line
 
-4.2.3 ``htop`` — Modern Interactive Monitor
+``htop`` — Modern Interactive Monitor
 ==============================================
 
 ``htop`` is a third-party interactive process viewer (install with
@@ -315,7 +315,7 @@ improves on ``top`` in several ways:
    While ``htop`` remains the community standard, ``btop`` represents the
    cutting edge of terminal-based monitoring.
 
-4.2.4 ``atop`` — Advanced System & Process Monitor
+``atop`` — Advanced System & Process Monitor
 =====================================================
 
 ``atop`` is unique in that it **records** system activity to a log file,
@@ -358,7 +358,7 @@ intermittent issues that happened hours ago.
    T         Jump to newer (next) log interval
    b          Jump back to specified timestamp
 
-4.2.5 ``pstree`` — Process Trees
+``pstree`` — Process Trees
 ====================================
 
 The ``pstree(1)`` command displays processes as a tree, visually showing the
@@ -398,7 +398,7 @@ relationships between daemons, shells, and their children.
    # Show only processes matching a name
    $ pstree sshd
 
-4.2.6 Choosing the Right Tool
+Choosing the Right Tool
 ================================
 
 .. table:: Monitoring Tool Selection Guide
@@ -433,7 +433,7 @@ relationships between daemons, shells, and their children.
    |         | relationships.    |                       |                         |
    +---------+-------------------+-----------------------+------------------------+
 
-4.2.7 Summary
+Summary
 ==============
 
 *   ``ps`` provides a snapshot of processes. Understand its three syntax

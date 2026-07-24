@@ -1,7 +1,7 @@
 .. _app-b-firewall:
 
 ------------------------------------------------------------------------------
-B.4  Firewalls
+Firewalls
 ------------------------------------------------------------------------------
 
 Three major firewall frameworks coexist on modern Linux: the low-level
@@ -9,7 +9,7 @@ Three major firewall frameworks coexist on modern Linux: the low-level
 the simplified ``ufw`` (Ubuntu).
 
 ------------------------------------------------------------------------------
-B.4.1  iptables / nftables
+iptables / nftables
 ------------------------------------------------------------------------------
 
 **nftables** is the successor to iptables (available since kernel 3.13).
@@ -113,7 +113,7 @@ or ``iptables-nft``).
    systemctl enable --now nftables
 
 ------------------------------------------------------------------------------
-B.4.2  firewalld
+firewalld
 ------------------------------------------------------------------------------
 
 firewalld (default on RHEL/CentOS/Fedora) manages nftables through
@@ -162,7 +162,7 @@ firewalld (default on RHEL/CentOS/Fedora) manages nftables through
    firewall-cmd --add-rich-rule='rule family="ipv4" port port="3306" protocol="tcp" drop'
 
 ------------------------------------------------------------------------------
-B.4.3  ufw (Uncomplicated Firewall)
+ufw (Uncomplicated Firewall)
 ------------------------------------------------------------------------------
 
 ufw (default on Ubuntu) is a front-end to iptables/nftables.

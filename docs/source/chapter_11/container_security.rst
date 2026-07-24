@@ -1,7 +1,7 @@
 .. _chapter-11-6:
 
 ============================================================
-11.6 Container Security & Compliance
+Container Security & Compliance
 ============================================================
 
 Containers introduce a unique security challenge: they share a kernel with the host and
@@ -13,7 +13,7 @@ capabilities, applying seccomp and AppArmor profiles, enforcing rootless executi
 and implementing a modern **software supply chain** security pipeline with CVE
 scanning, SBOMs, and cryptographic signing.
 
-11.6.1 Linux Capabilities: The Principle of Least Privilege
+Linux Capabilities: The Principle of Least Privilege
 ============================================================
 
 Linux capabilities break the binary root/non-root model into fine-grained privileges.
@@ -91,7 +91,7 @@ In Kubernetes, you specify capabilities via ``securityContext``:
    it cannot escalate privileges inside the container. This is always the safe
    default.
 
-11.6.2 Seccomp Profiles
+Seccomp Profiles
 ========================
 
 **Seccomp** (Secure Computing Mode) is a Linux kernel feature that allows a process to
@@ -164,7 +164,7 @@ syscalls. Blocked syscalls include:
       strace -c -f -o /tmp/syscalls.log nginx -g 'daemon off;'
       # Then cat /tmp/syscalls.log to see the syscall names and counts
 
-11.6.3 AppArmor and SELinux
+AppArmor and SELinux
 ============================
 
 Beyond capabilities and seccomp, Mandatory Access Control (MAC) systems provide
@@ -207,7 +207,7 @@ additional confinement:
    # Run container with the profile
    docker run --rm --security-opt apparmor=docker-nginx nginx
 
-11.6.4 Rootless Execution: The Zero-Trust Baseline
+Rootless Execution: The Zero-Trust Baseline
 ====================================================
 
 As explained in §11.4, running containers **rootless** means the container process has
@@ -270,7 +270,7 @@ controllers (as of v1.30+, PodSecurity admission is built-in):
    kubectl -n production run bad-pod --image=nginx --privileged
    # Error: admission webhook "pod-security" denied the request
 
-11.6.5 The 2026 Software Supply Chain Pipeline
+The 2026 Software Supply Chain Pipeline
 ================================================
 
 The 2021 SolarWinds and Log4j attacks taught the industry that you cannot trust third-
@@ -402,7 +402,7 @@ infrastructure. **cosign** is the CLI tool for signing and verifying container i
          - name: Push
            run: docker push ghcr.io/myorg/my-app:${{ github.sha }}
 
-11.6.6 Runtime Security with Falco
+Runtime Security with Falco
 ====================================
 
 **Falco** (by Sysdig, CNCF graduated) is a runtime security monitor for containers and
@@ -433,7 +433,7 @@ when behaviour deviates from defined rules.
    #   output: "Download tool used (user=%user.name container=%container.name process=%proc.name)"
    #   priority: WARNING
 
-11.6.7 Antipatterns
+Antipatterns
 ===================
 
 .. admonition:: Antipattern: Running a Privileged Container
@@ -458,7 +458,7 @@ when behaviour deviates from defined rules.
    (``image@sha256:...``) is immutable and guarantees that what you scanned and
    tested is exactly what is deployed.
 
-11.6.8 Practical Exercises
+Practical Exercises
 ==========================
 
 **1. Capability Exploration**

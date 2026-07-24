@@ -1,7 +1,7 @@
 .. _ch10-cpu-analysis:
 
 ###########################################################
-10.2  CPU Analysis
+CPU Analysis
 ###########################################################
 
 .. epigraph::
@@ -16,7 +16,7 @@ this section, we dismantle the CPU abstraction layer by layer, using the USE
 method as our guide.
 
 ----------------------------------------------------------------------
-10.2.1  Demystifying Load Averages
+Demystifying Load Averages
 ----------------------------------------------------------------------
 
 The **load average** — displayed by ``uptime``, ``top``, and countless
@@ -70,7 +70,7 @@ excess tasks are in D-state (I/O bound), and the bottleneck is elsewhere.
 +--------------------------+-----------------------------------------------+
 
 ----------------------------------------------------------------------
-10.2.2  Modern Process Viewers: btop, htop, atop
+Modern Process Viewers: btop, htop, atop
 ----------------------------------------------------------------------
 
 ``htop`` — the incremental upgrade
@@ -111,7 +111,7 @@ shared resource (e.g., memory bandwidth).
    $ atop -r /var/log/atop/atop_20260719  # Replay a specific date
 
 ----------------------------------------------------------------------
-10.2.3  Deep Profiling with the ``perf`` Subsystem
+Deep Profiling with the ``perf`` Subsystem
 ----------------------------------------------------------------------
 
 ``perf`` (formally ``perf_events``) is the Linux kernel's built-in profiling
@@ -150,9 +150,9 @@ Output (simplified)::
    Samples: 1M  of event 'cycles:P', 4000 Hz
    Event count (approx.): 8501234567
    Overhead  Shared Object        Symbol
-     15.2%   kernel.kallsyms      [k] _raw_spin_unlock_irqrestore
-     12.8%   libc-2.35.so         [.] __memmove_avx512
-      7.1%   nginx                [.] ngx_http_process_request
+%   kernel.kallsyms      [k] _raw_spin_unlock_irqrestore
+%   libc-2.35.so         [.] __memmove_avx512
+%   nginx                [.] ngx_http_process_request
 
 ``perf record`` and ``perf report`` — saved profiles
 =====================================================
@@ -174,7 +174,7 @@ function, but the entire call chain.
    $ perf record -e syscalls:sys_enter_write -p PID
 
 ----------------------------------------------------------------------
-10.2.4  Multi-Core Analysis with ``mpstat``
+Multi-Core Analysis with ``mpstat``
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -201,7 +201,7 @@ Output::
 - **%idle:** CPU has no runnable tasks.
 
 ----------------------------------------------------------------------
-10.2.5  Putting It Together: CPU USE Checklist
+Putting It Together: CPU USE Checklist
 ----------------------------------------------------------------------
 
 .. code-block:: console

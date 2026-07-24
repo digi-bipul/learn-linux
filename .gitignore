@@ -1,4 +1,5 @@
 .venv/
 docs/build/
+docs/source/.label_backups/
 __pycache__/
 *.pyc

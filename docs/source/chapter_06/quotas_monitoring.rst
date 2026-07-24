@@ -1,6 +1,6 @@
 .. _quotas-monitoring:
 
-6.7 Disk Quotas & Monitoring
+Disk Quotas & Monitoring
 =============================
 
 Storage systems are finite resources shared among users and
@@ -11,7 +11,7 @@ cascading failures. Quotas impose limits;
 monitoring tools provide
 visibility.
 
-6.7.1 Usage Analysis: ``df``, ``du``, and ``ncdu``
+Usage Analysis: ``df``, ``du``, and ``ncdu``
 ----------------------------------------------------
 
 ``df`` reports filesystem-level usage:
@@ -48,7 +48,7 @@ deletion:
    sudo ncdu /home                # interactive analysis
    ncdu -x /                      # stay on one filesystem (don't cross mounts)
 
-6.7.2 I/O Profiling with ``iostat``
+I/O Profiling with ``iostat``
 ------------------------------------
 
 ``iostat`` (from the ``sysstat`` package) reports per-device I/O
@@ -107,7 +107,7 @@ And ``fio`` benchmarks realistic mixed workloads:
        --rw=randrw --rwmixread=70 --size=1G --numjobs=4 \
        --runtime=60 --time_based --filename=/mnt/data/fio_test
 
-6.7.3 User and Group Quotas
+User and Group Quotas
 ----------------------------
 
 Linux quota support must be enabled both in the kernel
@@ -187,7 +187,7 @@ sudo tee -a /etc/projid
    sudo xfs_quota -x -c 'project -s project-alpha' /srv
    sudo xfs_quota -x -c 'limit -p bsoft=100g bhard=110g project-alpha' /srv
 
-6.7.4 Monitoring I/O Pressure
+Monitoring I/O Pressure
 ------------------------------
 
 Beyond ``iostat``, modern kernels expose **pressure stall

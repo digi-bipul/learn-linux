@@ -1,6 +1,6 @@
 .. _section-3-3:
 
-3.3 File Permissions
+File Permissions
 ==================================================
 
 .. rst-class:: lead
@@ -11,7 +11,7 @@
    triads, three classes—is deceptively simple, profoundly elegant, and
    absolutely essential to master.
 
-3.3.1 The Permission Triad
+The Permission Triad
 ============================
 
 Every file and directory on a Linux system is tagged with three classes of
@@ -88,13 +88,13 @@ Let us parse each column:
                            b = block device, c = character device, s = socket,
                            p = named pipe
 
-3.3.2 Changing Permissions with ``chmod``
+Changing Permissions with ``chmod``
 ==========================================
 
 The ``chmod(1)`` command changes file permissions. It supports two syntaxes:
 **symbolic** (human-readable) and **octal** (numeric).
 
-3.3.2.1 Symbolic Mode
+Symbolic Mode
 ---------------------
 
 The symbolic syntax is: ``[ugo][+-=][rwx]``
@@ -129,7 +129,7 @@ The symbolic syntax is: ``[ugo][+-=][rwx]``
    A classic mistake is ``chmod -R 777 /`` which makes the entire system
    world-writable. Never do this.
 
-3.3.2.2 Octal (Numeric) Mode
+Octal (Numeric) Mode
 ----------------------------
 
 Each permission bit has a numeric value:
@@ -235,10 +235,10 @@ Converting between symbolic and octal is a skill that becomes automatic:
    no one else can write. It is the baseline from which you deviate only
    when you have a specific reason.
 
-3.3.3 Changing Ownership with ``chown`` and ``chgrp``
+Changing Ownership with ``chown`` and ``chgrp``
 =======================================================
 
-3.3.3.1 ``chown``
+``chown``
 -----------------
 
 The ``chown(1)`` command changes ownership. Only ``root`` can change a
@@ -272,7 +272,7 @@ group they belong to).
    mistaken ``chown -R alice /usr`` would break the system's package
    manager and installed software. Always double-check the path.
 
-3.3.3.2 ``chgrp``
+``chgrp``
 -----------------
 
 The ``chgrp(1)`` command changes **only** the group ownership.
@@ -288,7 +288,7 @@ The ``chgrp(1)`` command changes **only** the group ownership.
    # Symbolic link handling (by default, chgrp changes the target)
    chgrp -h developers symlink_to_file   # Change the link itself
 
-3.3.4 The ``umask``: Default Permissions
+The ``umask``: Default Permissions
 ==========================================
 
 When you create a new file or directory, Linux assigns default permissions
@@ -409,7 +409,7 @@ all users, it can be set in:
    no other user gains write access. It is a safe default that simplifies
    later group sharing.
 
-3.3.5 Understanding User Private Groups (UPG)
+Understanding User Private Groups (UPG)
 ===============================================
 
 The User Private Group scheme, enabled by ``USERGROUPS_ENAB yes`` in
@@ -445,7 +445,7 @@ Alice later wants to share files with a project group, she can:
 Now, members of ``developers`` can write to the file, and Alice's own files
 remain private because her UPG owns them by default.
 
-3.3.6 Special Cases: Permissions on Symbolic Links and Directories
+Special Cases: Permissions on Symbolic Links and Directories
 ====================================================================
 
 **Symbolic links:**
@@ -485,7 +485,7 @@ But **Alice can delete Bob's file**, even if Bob owns it. Why? Because
 deleting a file requires ``w`` permission on the **directory**, not on the
 file itself. To prevent this, you need the **sticky bit** (section 3.4).
 
-3.3.7 Permission Checking Algorithm
+Permission Checking Algorithm
 =====================================
 
 When a process attempts to access a file, the kernel follows this decision
@@ -522,7 +522,7 @@ others. Once a match is found, it uses that triad only. If you are the file
 owner but lack read permission (``--x``), you **cannot read it**, even if
 group or others have read access.
 
-3.3.8 Summary
+Summary
 ==============
 
 *   Every file has three permission triads: owner (u), group (g), others (o).

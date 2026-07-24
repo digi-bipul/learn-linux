@@ -1,15 +1,17 @@
+.. _sre-practices:
+
 ============================================================
-12.6 SRE Practices & Change Management
+SRE Practices & Change Management
 ============================================================
 
-12.6.1 What is Site Reliability Engineering?
+What is Site Reliability Engineering?
 ==============================================
 
 SRE applies software engineering to operations. Core principles: treat operations as
 an engineering problem, use error budgets, reduce toil, conduct blameless post-mortems,
 and treat everything as code.
 
-12.6.2 Version-Controlling /etc with etckeeper
+Version-Controlling /etc with etckeeper
 =================================================
 
 `etckeeper <https://etckeeper.branchable.com/>`_ turns ``/etc`` into a Git repository.
@@ -36,7 +38,7 @@ and treat everything as code.
 .. important::
    Use a **private** repository or ``git-crypt`` to protect secrets in /etc.
 
-12.6.3 Executable Runbooks
+Executable Runbooks
 =============================
 
 Static runbook documents are outdated under pressure. Use executable runbooks instead.
@@ -82,13 +84,13 @@ Markdown + Ansible Playbooks
     pcs status
     ```
 
-12.6.4 Toil Reduction: The 50% Rule
+Toil Reduction: The 50% Rule
 ======================================
 
 Toil is manual, repetitive, automatable, tactical work with no enduring value.
 Every SRE should spend no more than 50% of their time on toil.
 
-12.6.5 Blameless Post-Mortems
+Blameless Post-Mortems
 =================================
 
 A post-mortem identifies system weaknesses, not individual mistakes.
@@ -109,7 +111,7 @@ A post-mortem identifies system weaknesses, not individual mistakes.
     ## Blameless Statement
     The engineer followed the existing process. The failure is in the process.
 
-12.6.6 Change Management: The SRE Way
+Change Management: The SRE Way
 ========================================
 
 Replace process gatekeeping with engineering gates: automated testing, progressive
@@ -122,7 +124,7 @@ delivery, observability, and automatic rollback.
     ansible-playbook --syntax-check deploy-webapp.yml
     echo "=== Validation passed ==="
 
-12.6.7 Summary
+Summary
 ===============
 
 * **etckeeper** versions /etc automatically.

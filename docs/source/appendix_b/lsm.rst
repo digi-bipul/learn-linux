@@ -1,7 +1,7 @@
 .. _app-b-lsm:
 
 ------------------------------------------------------------------------------
-B.2  Linux Security Modules (AppArmor, SELinux)
+Linux Security Modules (AppArmor, SELinux)
 ------------------------------------------------------------------------------
 
 LSMs provide Mandatory Access Control (MAC) on top of the standard DAC
@@ -10,7 +10,7 @@ LSMs provide Mandatory Access Control (MAC) on top of the standard DAC
 CentOS). They are **mutually exclusive** — only one can be active at a time.
 
 ------------------------------------------------------------------------------
-B.2.1  AppArmor
+AppArmor
 ------------------------------------------------------------------------------
 
 AppArmor confines programs to a set of allowed files, capabilities, and
@@ -89,7 +89,7 @@ network operations defined in **profiles** (stored in ``/etc/apparmor.d/``).
    cat /sys/module/apparmor/parameters/enabled   # Returns "Y" if enabled
 
 ------------------------------------------------------------------------------
-B.2.2  SELinux
+SELinux
 ------------------------------------------------------------------------------
 
 SELinux (Security-Enhanced Linux) labels every object (files, processes,

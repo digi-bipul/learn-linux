@@ -1,6 +1,6 @@
 .. _section-4-8:
 
-4.8 Scheduling: Cron, Anacron, At, and systemd Timers
+Scheduling: Cron, Anacron, At, and systemd Timers
 =====================================================
 
 .. rst-class:: lead
@@ -13,7 +13,7 @@
    ``systemd.timer``. This section covers them all, with a detailed
    comparison to help you choose the right tool for each job.
 
-4.8.1 The History of Unix Scheduling
+The History of Unix Scheduling
 ======================================
 
 The original ``cron`` (from the Greek *chronos*, meaning "time") was written
@@ -32,7 +32,7 @@ a testament to its simplicity and correctness.
    2010s: fcron — enhanced cron with finer granularity
    2015+:  systemd timers — modern, integrated replacement for cron
 
-4.8.2 Cron — The Universal Scheduler
+Cron — The Universal Scheduler
 ========================================
 
 The ``cron(8)`` daemon reads configuration files (crontabs) and executes
@@ -42,7 +42,7 @@ commands at specified times. The two most common implementations are:
   Debian/Ubuntu).
 * **Busybox cron** (on Alpine Linux — smaller, fewer features).
 
-4.8.2.1 The Crontab Syntax
+The Crontab Syntax
 
 A crontab file has five time-and-date fields followed by the command:
 
@@ -132,7 +132,7 @@ A crontab file has five time-and-date fields followed by the command:
       SHELL=/bin/bash
       30 3 * * * /usr/local/bin/daily-backup
 
-4.8.2.2 Managing Crontabs with ``crontab``
+Managing Crontabs with ``crontab``
 
 .. code-block:: console
    :caption: ``crontab`` commands
@@ -167,7 +167,7 @@ Access to cron is controlled by two files:
 If ``cron.allow`` exists, only users listed in it can use ``crontab``.
 If only ``cron.deny`` exists, all users except those listed can use cron.
 
-4.8.2.3 System-Wide Crontab Directories
+System-Wide Crontab Directories
 
 In addition to per-user crontabs, the system runs jobs from these
 directories:
@@ -206,7 +206,7 @@ The ``run-parts`` command runs every executable script in a directory. This
 is how packages can drop scripts into ``/etc/cron.daily/`` and have them
 run automatically.
 
-4.8.2.4 Cron Environment and Common Pitfalls
+Cron Environment and Common Pitfalls
 
 .. code-block:: text
    :caption: Common cron debugging checklist
@@ -233,7 +233,7 @@ By default, cron mails stdout and stderr to the user's mailbox
    # Log to a file
    0 3 * * * /usr/local/bin/script.sh >> /var/log/script.log 2>&1
 
-4.8.3 Anacron — Handling Missed Jobs
+Anacron — Handling Missed Jobs
 =======================================
 
 Cron assumes the system is **always running**. On a laptop or a workstation
@@ -280,7 +280,7 @@ and runs jobs that were missed when the system was off.
    anacron for daily/weekly/monthly batches (as shown in the ``/etc/crontab``
    example above).
 
-4.8.4 ``at`` and ``batch`` — One-Time Future Execution
+``at`` and ``batch`` — One-Time Future Execution
 =========================================================
 
 While cron handles recurring tasks, ``at(1)`` schedules a command to run
@@ -327,7 +327,7 @@ system load is low.
 **Security:** Access to ``at`` and ``batch`` is controlled by
 ``/etc/at.allow`` and ``/etc/at.deny`` (analogous to cron).
 
-4.8.5 systemd Timers — The Modern Replacement for Cron
+systemd Timers — The Modern Replacement for Cron
 =========================================================
 
 systemd timers (``.timer`` units) provide all the functionality of cron,
@@ -344,7 +344,7 @@ anacron, and ``at`` combined, with several significant advantages:
 * **Randomised delays**: Avoid "thundering herd" problems (many systems
   running the same job at exactly the same second).
 
-4.8.5.1 Anatomy of a systemd Timer
+Anatomy of a systemd Timer
 
 A timer unit works by **activating** another unit (usually a
 ``.service``). The timer file and the service file have the same base name:
@@ -398,7 +398,7 @@ A timer unit works by **activating** another unit (usually a
    ``multi-user.target.wants/``) because the timer will activate it. Only
    the timer unit is enabled.
 
-4.8.5.2 Timer Directives
+Timer Directives
 
 .. table:: Key ``[Timer]`` Directives
    :widths: 30 70
@@ -439,7 +439,7 @@ A timer unit works by **activating** another unit (usually a
    |                            | timer triggers ``same-name.service``).         |
    +----------------------------+------------------------------------------------+
 
-4.8.5.3 Calendar Expression Syntax
+Calendar Expression Syntax
 
 systemd calendar expressions are far more readable than cron:
 
@@ -495,7 +495,7 @@ systemd calendar expressions are far more readable than cron:
      Iteration #4: Mon 2026-07-20 09:00:00 EDT
      Iteration #5: Tue 2026-07-21 09:00:00 EDT
 
-4.8.5.4 Managing Timers with ``systemctl``
+Managing Timers with ``systemctl``
 
 .. code-block:: console
 
@@ -520,7 +520,7 @@ systemd calendar expressions are far more readable than cron:
    # Manually trigger a timer (run the service now)
    $ systemctl start myapp-backup.service
 
-4.8.6 systemd Timers vs. Cron — A Practical Comparison
+systemd Timers vs. Cron — A Practical Comparison
 ==========================================================
 
 Let us compare the same job — run a backup at 3:00 AM daily — in both
@@ -580,7 +580,7 @@ systems:
   distributions (the majority of modern Linux).
 * You need to avoid "thundering herd" problems with distributed systems.
 
-4.8.7 Summary
+Summary
 ==============
 
 * **Cron** is the classic Unix scheduler: five time fields followed by a

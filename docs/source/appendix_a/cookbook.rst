@@ -1,7 +1,7 @@
 .. _app-a-cookbook:
 
 ------------------------------------------------------------------------------
-A.4  Admin Cookbook: Ready-to-Use Patterns
+Admin Cookbook: Ready-to-Use Patterns
 ------------------------------------------------------------------------------
 
 This section provides **tested, production-ready** regex patterns for the
@@ -19,7 +19,7 @@ and flavor.
    configuration files.
 
 ------------------------------------------------------------------------------
-A.4.1  IPv4 Address Matching
+IPv4 Address Matching
 ------------------------------------------------------------------------------
 
 A valid IPv4 address is four octets (0-255) separated by periods.
@@ -51,7 +51,7 @@ A valid IPv4 address is four octets (0-255) separated by periods.
    sed -E 's/\b([0-9]{1,3}\.){3}[0-9]{1,3}\b/10.0.0.0/g' access.log
 
 ------------------------------------------------------------------------------
-A.4.2  IPv6 Address Matching
+IPv6 Address Matching
 ------------------------------------------------------------------------------
 
 IPv6 is more complex. A valid address has 8 groups of 1-4 hex digits separated
@@ -85,7 +85,7 @@ by colons, with these rules:
    grep -oP '\b(?:[0-9A-Fa-f]{1,4}:){1,7}[0-9A-Fa-f]{1,4}\b|::1' access.log
 
 ------------------------------------------------------------------------------
-A.4.3  Email Address Matching
+Email Address Matching
 ------------------------------------------------------------------------------
 
 Email validation is famously complex (RFC 5322). The pattern below covers at
@@ -123,7 +123,7 @@ least 99% of real-world addresses without being impractically huge.
    sed -E 's/([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+\.[A-Za-z]{2,})/\1@REDACTED/g' file.txt
 
 ------------------------------------------------------------------------------
-A.4.4  URL Matching
+URL Matching
 ------------------------------------------------------------------------------
 
 .. rubric:: Pattern (PCRE)
@@ -152,7 +152,7 @@ A.4.4  URL Matching
    sed -E 's|https?://[^[:space:]]+|<URL_REDACTED>|g' config.txt
 
 ------------------------------------------------------------------------------
-A.4.5  Date & Timestamp Matching
+Date & Timestamp Matching
 ------------------------------------------------------------------------------
 
 .. list-table:: Common date/time formats with regex patterns
@@ -198,7 +198,7 @@ A.4.5  Date & Timestamp Matching
    sed -E 's|\b([0-9]{2})/([0-9]{2})/([0-9]{4})\b|\3-\1-\2|g' file.txt
 
 ------------------------------------------------------------------------------
-A.4.6  Nginx Log Parsing
+Nginx Log Parsing
 ------------------------------------------------------------------------------
 
 Standard Nginx combined log format:
@@ -211,7 +211,7 @@ Standard Nginx combined log format:
 
 Example line::
 
-   192.168.1.10 - admin [20/Jul/2026:10:36:02 +0000] "GET /api/health HTTP/1.1" 200 2326 "https://example.com/dashboard" "Mozilla/5.0 ..."
+- admin [20/Jul/2026:10:36:02 +0000] "GET /api/health HTTP/1.1" 200 2326 "https://example.com/dashboard" "Mozilla/5.0 ..."
 
 .. rubric:: Pattern to parse combined log line (ERE)
 
@@ -270,12 +270,12 @@ Example line::
    awk '{ bytes[$4] += $10 } END { for (d in bytes) print d, bytes[d] }' /var/log/nginx/access.log
 
 ------------------------------------------------------------------------------
-A.4.7  Apache Log Parsing
+Apache Log Parsing
 ------------------------------------------------------------------------------
 
 Apache combined log format::
 
-   192.168.1.10 - admin [20/Jul/2026:10:36:02 +0000] "GET /index.html HTTP/1.1" 200 2326
+- admin [20/Jul/2026:10:36:02 +0000] "GET /index.html HTTP/1.1" 200 2326
 
 .. rubric:: Pattern (ERE)
 
@@ -328,7 +328,7 @@ Apache combined log format::
    awk '{ ip[$1] += $10 } END { for (i in ip) printf "%s %.2f MB\n", i, ip[i]/1048576 }' access.log | sort -k2 -rn
 
 ------------------------------------------------------------------------------
-A.4.8  Additional Sysadmin Patterns
+Additional Sysadmin Patterns
 ------------------------------------------------------------------------------
 
 .. list-table:: Quick-reference pattern collection

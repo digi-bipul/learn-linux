@@ -1,11 +1,11 @@
 .. _app-c-rescue:
 
 ------------------------------------------------------------------------------
-C.7  Rescue Procedures & Recovery Tools
+Rescue Procedures & Recovery Tools
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.7.1  Live USB/ISO Rescue Environment
+Live USB/ISO Rescue Environment
 
 .. rubric:: Essential live Linux distributions for rescue
 
@@ -71,7 +71,7 @@ C.7.1  Live USB/ISO Rescue Environment
    reboot
 
 ------------------------------------------------------------------------------
-C.7.2  Single-User Mode Recovery
+Single-User Mode Recovery
 
 .. rubric:: Booting to single-user (rescue) mode
 
@@ -111,7 +111,7 @@ C.7.2  Single-User Mode Recovery
    grub-mkconfig -o /boot/grub/grub.cfg
 
 ------------------------------------------------------------------------------
-C.7.3  Password Recovery
+Password Recovery
 
 .. rubric:: Resetting a lost root password
 
@@ -165,7 +165,7 @@ C.7.3  Password Recovery
    sudo chntpw -u Administrator SAM  # Reset Administrator password
 
 ------------------------------------------------------------------------------
-C.7.4  Network Boot Issues
+Network Boot Issues
 
 .. rubric:: System boots to "Network is unreachable"
 
@@ -207,7 +207,7 @@ C.7.4  Network Boot Issues
    nmcli device status
 
 ------------------------------------------------------------------------------
-C.7.5  X Server / Display Issues
+X Server / Display Issues
 
 .. rubric:: "Failed to start the X server"
 

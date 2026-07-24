@@ -1,7 +1,9 @@
+.. _functions-scope:
+
 .. highlight:: bash
 
 ========================================
-8.5 — Functions & Scope
+— Functions & Scope
 ========================================
 
 Functions are the shell's mechanism for code reuse.  Unlike external scripts,
@@ -9,7 +11,7 @@ functions execute **in the current shell process** — they can modify variables
 change directories, and set traps that affect the calling environment.
 
 --------------------------------
-8.5.1 Defining Functions
+Defining Functions
 --------------------------------
 
 .. code-block:: bash
@@ -25,7 +27,7 @@ change directories, and set traps that affect the calling environment.
    }
 
 --------------------------------
-8.5.2 Function Arguments
+Function Arguments
 --------------------------------
 
 Inside a function, ``$1``, ``$2``, ..., ``$9`` (use ``${10}`` for 10+) are the
@@ -39,7 +41,7 @@ positional arguments.  ``$@`` is all arguments, ``$#`` is the count.
    greet "World"    # Output: Hello, World
 
 --------------------------------
-8.5.3 The ``local`` Keyword and Variable Scope
+The ``local`` Keyword and Variable Scope
 --------------------------------
 
 By default, **all variables in a function are global**.  Always declare
@@ -72,7 +74,7 @@ function-internal variables as ``local``.
    echo "$myvar"      # 6
 
 --------------------------------
-8.5.4 Return Codes vs Echoing Output
+Return Codes vs Echoing Output
 --------------------------------
 
 Functions communicate results in two ways:
@@ -108,7 +110,7 @@ Functions communicate results in two ways:
 captured output.
 
 --------------------------------
-8.5.5 Sourcing Libraries
+Sourcing Libraries
 --------------------------------
 
 .. code-block:: bash
@@ -123,7 +125,7 @@ captured output.
 Always use ``BASH_SOURCE`` for reliable path resolution in sourced scripts.
 
 --------------------------------
-8.5.6 What NOT to Do — Function Pitfalls
+What NOT to Do — Function Pitfalls
 --------------------------------
 
 **Antipattern 1:** Not using ``local`` — variables leak into global scope.
@@ -136,7 +138,7 @@ Always use ``BASH_SOURCE`` for reliable path resolution in sourced scripts.
 **Antipattern 4:** Confusing ``$*`` and ``$@`` inside a function.
 
 --------------------------------
-8.5.7 Summary
+Summary
 --------------------------------
 
 +------------------------+-------------------------------------------------+

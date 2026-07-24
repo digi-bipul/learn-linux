@@ -1,7 +1,7 @@
 .. _chapter-11-5:
 
 ============================================================
-11.5 Kubernetes Ecosystem Essentials
+Kubernetes Ecosystem Essentials
 ============================================================
 
 Kubernetes (K8s) is the industry-standard **orchestration platform** for automating the
@@ -13,7 +13,7 @@ in history. This section provides an architectural overview, introduces the core
 objects, and surveys the landscape of lightweight and immutable Kubernetes
 distributions.
 
-11.5.1 Control Plane vs Worker Nodes
+Control Plane vs Worker Nodes
 ======================================
 
 A Kubernetes cluster consists of two logical planes:
@@ -97,7 +97,7 @@ A Kubernetes cluster consists of two logical planes:
    kubectl get componentstatuses
    kubectl -n kube-system get pods
 
-11.5.2 The Core API Objects
+The Core API Objects
 ============================
 
 Kubernetes is a **declarative API**. You write YAML (or JSON) describing the desired
@@ -292,7 +292,7 @@ Pods are ephemeral (they come and go). A Service provides a **stable virtual IP*
 
    Then in your app: ``password = readFile("/run/secrets/db/password")``
 
-11.5.3 Immutable Node OSes: Talos Linux
+Immutable Node OSes: Talos Linux
 ========================================
 
 Traditional Kubernetes worker nodes run a full Linux distribution (Ubuntu, RHEL,
@@ -338,7 +338,7 @@ Benefits of Talos:
 * **API-driven:** Full automation without SSH key management.
 * **minimal:** Approximately 50 MB footprint.
 
-11.5.4 Lightweight Distributions: K3s
+Lightweight Distributions: K3s
 ======================================
 
 **K3s** (pronounced "k-ees") is a CNCF-certified Kubernetes distribution optimised for
@@ -413,7 +413,7 @@ Key simplifications:
      - Edge, IoT, CI, lab
      - Security-sensitive production
 
-11.5.5 The Kubernetes Networking Model
+The Kubernetes Networking Model
 =======================================
 
 Kubernetes imposes a flat network model with three fundamental requirements:
@@ -445,7 +445,7 @@ This model **delegates implementation** to Container Network Interface (CNI) plu
    eBPF foundation, which provides superior performance, deep observability
    (Hubble), and identity-based security (CiliumNetworkPolicy).
 
-11.5.6 Practical Exercises
+Practical Exercises
 ==========================
 
 **1. Deploy a Full Application**

@@ -1,11 +1,11 @@
 .. _app-c-logs:
 
 ------------------------------------------------------------------------------
-C.5  Log Analysis & Incident Response
+Log Analysis & Incident Response
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.5.1  Log File Locations
+Log File Locations
 
 .. list-table:: Standard Linux log locations
    :header-rows: 1
@@ -76,7 +76,7 @@ C.5.1  Log File Locations
      - Security events: file access, syscalls, user/group changes
 
 ------------------------------------------------------------------------------
-C.5.2  Log Analysis Patterns
+Log Analysis Patterns
 
 .. code-block:: bash
    :caption: Security-focused log analysis
@@ -141,7 +141,7 @@ C.5.2  Log Analysis Patterns
    sudo journalctl -u chronyd | grep -i "step\|skew\|offset\|sync"
 
 ------------------------------------------------------------------------------
-C.5.3  Incident Response Runbook
+Incident Response Runbook
 
 .. rubric:: Phase 1: Detection
 

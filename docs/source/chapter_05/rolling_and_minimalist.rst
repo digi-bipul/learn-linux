@@ -1,6 +1,6 @@
 .. _section-5-3:
 
-5.3 Rolling Release & Minimalist Managers
+Rolling Release & Minimalist Managers
 ==================================================
 
 .. rst-class:: lead
@@ -20,7 +20,7 @@ This section examines two iconic rolling-release package
 managers: Arch Linux's ``pacman`` and Alpine Linux's ``apk``.
 
 ------------------------------------------------
-5.3.1 Arch Linux: ``pacman`` and the AUR
+Arch Linux: ``pacman`` and the AUR
 ------------------------------------------------
 
 Arch Linux is the quintessential rolling-release distribution. Its
@@ -30,7 +30,7 @@ which separate low-level and high-level tools, ``pacman`` is a single
 binary that handles everything — from repository synchronization to
 dependency resolution to filesystem operations.
 
-5.3.1.1 ``pacman``: Command Structure
+``pacman``: Command Structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Every ``pacman`` operation is invoked with a top-level flag that selects
@@ -87,7 +87,7 @@ Flags are mnemonic:
    which can break library dependencies and render the system unstable.
    Always use ``pacman -Syu`` to synchronize, update, and then install.
 
-5.3.1.2 Packages and the Arch Build System
+Packages and the Arch Build System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Arch packages are ``.pkg.tar.zst`` files — essentially a tarball
@@ -98,7 +98,7 @@ The Arch Build System (ABS) is the framework for building these packages.
 Every official package is built from a ``PKGBUILD`` file — a shell script
 that describes how to download, compile, and package the software.
 
-5.3.1.3 The Arch User Repository (AUR)
+The Arch User Repository (AUR)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The **Arch User Repository (AUR)** is the defining feature of the Arch
@@ -197,7 +197,7 @@ but tedious. AUR **helpers** automate the process. The most popular are:
    The Arch wiki's "AUR Trusted User (TU)" system provides some quality
    control, but ultimately the responsibility is yours.
 
-5.3.1.4 ``pacman`` Cache and Database
+``pacman`` Cache and Database
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
@@ -222,7 +222,7 @@ but tedious. AUR **helpers** automate the process. The most popular are:
    $ ls /var/lib/pacman/sync/    # Repository database snapshots
 
 ------------------------------------------------
-5.3.2 Alpine Linux: ``apk``
+Alpine Linux: ``apk``
 ------------------------------------------------
 
 Alpine Linux is a security-oriented, lightweight Linux distribution based
@@ -230,7 +230,7 @@ on **musl libc** and **BusyBox**. Its package manager is ``apk`` (the
 Alpine Package Keeper). Alpine is famous for being the default base image
 in Docker — a typical Alpine Docker image is under 10 MB.
 
-5.3.2.1 ``apk``: Design Philosophy
+``apk``: Design Philosophy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``apk`` is a single binary (like ``pacman``) that handles all package
@@ -269,7 +269,7 @@ environments.
    # Show what package owns a file
    $ apk info --who-owns /usr/bin/nginx
 
-5.3.2.2 Dependencies and Virtual Packages
+Dependencies and Virtual Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``apk`` uses a **smarter dependency solver** than traditional tools. It
@@ -307,10 +307,10 @@ has built-in support for:
    $ apk del vim
 
 This "world" approach is reminiscent of Gentoo's ``world`` file (Section
-5.4) and is a precursor to the **declarative** model that Nix takes to
+) and is a precursor to the **declarative** model that Nix takes to
 its logical extreme (Section 5.5).
 
-5.3.2.3 ``abuild``: Building Alpine Packages
+``abuild``: Building Alpine Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Alpine's package build system is called ``abuild``. Like ``makepkg`` on
@@ -365,7 +365,7 @@ The ``APKBUILD`` file is Alpine's equivalent of Arch's ``PKGBUILD``:
    sha512sums="..."
 
 ------------------------------------------------
-5.3.3 Comparison: ``pacman`` vs. ``apk``
+Comparison: ``pacman`` vs. ``apk``
 ------------------------------------------------
 
 .. list-table:: pacman vs apk

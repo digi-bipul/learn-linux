@@ -1,7 +1,7 @@
 .. _sec-07-07:
 
 =======================================
-7.7 Firewall Frontends
+Firewall Frontends
 =======================================
 
 While nftables gives you direct, low-level control over the kernel's packet
@@ -15,7 +15,7 @@ This section covers the two dominant frontends in the Linux ecosystem:
 RHEL, Fedora, and CentOS). We also discuss the security technique of *port
 knocking*.
 
-7.7.1 ufw — Uncomplicated Firewall (Debian/Ubuntu)
+ufw — Uncomplicated Firewall (Debian/Ubuntu)
 ===================================================
 
 **ufw** (Uncomplicated Firewall) lives up to its name. It provides a
@@ -129,7 +129,7 @@ enable IP forwarding in ``/etc/sysctl.conf`` (``net.ipv4.ip_forward=1``).
 * Rule ordering can be tricky — ufw inserts rules at the end of the chain, so
   interactions with ``before.rules`` and ``after.rules`` require care.
 
-7.7.2 firewalld — Firewall Zones and Services (RHEL/Fedora)
+firewalld — Firewall Zones and Services (RHEL/Fedora)
 =============================================================
 
 **firewalld** is the default firewall management tool on RHEL, Fedora,
@@ -267,7 +267,7 @@ If you need to insert raw nftables rules that firewalld cannot express:
 Direct mode is a last resort — it bypasses firewalld's zone and service
 abstractions and should be used sparingly.
 
-7.7.3 Port Knocking
+Port Knocking
 =====================
 
 **Port knocking** is a security technique that hides a service (typically SSH)
@@ -342,7 +342,7 @@ detecting the correct sequence, the firewall temporarily opens the port.
   like ``fwknop``, which encrypts the authorization packet.
 * Combine port knocking with SSH key authentication for defence in depth.
 
-7.7.4 When to Use Each Tool
+When to Use Each Tool
 ============================
 
 +------------------------+-----------------------------------+-----------------------------------+

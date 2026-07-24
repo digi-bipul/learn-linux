@@ -1,8 +1,10 @@
+.. _capstone-project:
+
 ============================================================
-12.7 Capstone Project: Production-Ready 3-Tier Architecture
+Capstone Project: Production-Ready 3-Tier Architecture
 ============================================================
 
-12.7.1 Project Overview
+Project Overview
 =========================
 
 Design and deploy a production-ready, resilient 3-tier architecture from scratch.
@@ -34,7 +36,7 @@ Technology Stack
 | Backups            | Borg/Restic to MinIO (Object Lock)                |
 +--------------------+---------------------------------------------------+
 
-12.7.2 Phase 1: Infrastructure with OpenTofu
+Phase 1: Infrastructure with OpenTofu
 ===============================================
 
 .. code-block:: hcl
@@ -63,7 +65,7 @@ Technology Stack
 
     cd tofu && tofu init && tofu apply
 
-12.7.3 Phase 2: Configuration with Ansible
+Phase 2: Configuration with Ansible
 =============================================
 
 .. code-block:: yaml
@@ -92,7 +94,7 @@ Technology Stack
 
     ansible-playbook -i inventory/production/hosts.ini playbooks/site.yml
 
-12.7.4 Phase 3: SELinux Hardening
+Phase 3: SELinux Hardening
 ====================================
 
 .. code-block:: bash
@@ -112,7 +114,7 @@ Technology Stack
     semodule_package -o webapp.pp -m webapp.mod
     semodule -i webapp.pp
 
-12.7.5 Phase 4: Kubernetes Deployment
+Phase 4: Kubernetes Deployment
 ========================================
 
 .. code-block:: yaml
@@ -160,7 +162,7 @@ Technology Stack
 
     kubectl apply -f k8s/
 
-12.7.6 Phase 5: Observability Stack
+Phase 5: Observability Stack
 ========================================
 
 .. code-block:: yaml
@@ -192,7 +194,7 @@ Alert Rules
         expr: pg_replication_lag_seconds > 300
         for: 1m
 
-12.7.7 Phase 6: Automated Backups & DR
+Phase 6: Automated Backups & DR
 =========================================
 
 .. code-block:: bash
@@ -205,7 +207,7 @@ Alert Rules
     restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
     restic check
 
-12.7.8 Phase 7: GitOps Reconciliation
+Phase 7: GitOps Reconciliation
 ========================================
 
 .. code-block:: yaml
@@ -227,7 +229,7 @@ Alert Rules
           prune: true
           selfHeal: true
 
-12.7.9 Validation Checklist
+Validation Checklist
 =============================
 
 .. list-table::
@@ -267,7 +269,7 @@ Alert Rules
      - /etc git-tracked
      - :command:`cd /etc && git log --oneline`
 
-12.7.10 Graduation
+Graduation
 ====================
 
 You have earned the title: **Senior Linux Infrastructure Engineer**.

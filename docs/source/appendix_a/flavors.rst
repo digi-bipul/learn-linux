@@ -1,7 +1,7 @@
 .. _app-a-flavors:
 
 ------------------------------------------------------------------------------
-A.1  Regex Flavors: BRE, ERE, PCRE/PCRE2
+Regex Flavors: BRE, ERE, PCRE/PCRE2
 ------------------------------------------------------------------------------
 
 Three major regex dialects appear throughout Linux. Knowing which engine a
@@ -50,7 +50,7 @@ frustrations.
      - ``(?>...)``
 
 ------------------------------------------------------------------------------
-A.1.1  POSIX Basic Regular Expressions (BRE)
+POSIX Basic Regular Expressions (BRE)
 ------------------------------------------------------------------------------
 
 BRE is the original Unix regex standard. Its defining property: **metacharacters
@@ -75,7 +75,7 @@ at the end; ``.`` is always meta (matches any single character).
    # Also valid (ERE below would not need the backslashes)
 
 ------------------------------------------------------------------------------
-A.1.2  POSIX Extended Regular Expressions (ERE)
+POSIX Extended Regular Expressions (ERE)
 ------------------------------------------------------------------------------
 
 ERE removes the escaping burden: ``( ) { } + ? |`` are **metacharacters by
@@ -98,7 +98,7 @@ default**. To match them literally, backslash them.
 .. _pcre2-note:
 
 ------------------------------------------------------------------------------
-A.1.3  Perl-Compatible Regular Expressions (PCRE / PCRE2)
+Perl-Compatible Regular Expressions (PCRE / PCRE2)
 ------------------------------------------------------------------------------
 
 PCRE (now **PCRE2** as of 2015) adds a huge superset of features: lookahead,

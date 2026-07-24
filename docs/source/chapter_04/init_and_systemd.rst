@@ -1,6 +1,6 @@
 .. _section-4-4:
 
-4.4 Initialization Archetypes & systemd Architecture
+Initialization Archetypes & systemd Architecture
 ====================================================
 
 .. rst-class:: lead
@@ -17,7 +17,7 @@
    and unit types — while contrasting it with the older SysV model it
    replaced.
 
-4.4.1 The Historical Evolution of PID 1
+The Historical Evolution of PID 1
 =========================================
 
 .. table:: Major Init Systems in Linux History
@@ -59,7 +59,7 @@
    |            |                     | executable ``run`` script.           |
    +------------+---------------------+--------------------------------------+
 
-4.4.2 systemd's Design Philosophy
+systemd's Design Philosophy
 ====================================
 
 systemd is not *just* an init system — it is a **comprehensive system and
@@ -93,7 +93,7 @@ coherent, integrated set of tools. Its design principles are:
    what a service does, how it starts, what its dependencies are, and how it
    should be restarted.
 
-4.4.3 The SysV Model (Brief Contrast)
+The SysV Model (Brief Contrast)
 ========================================
 
 To understand why systemd was created, one must appreciate the limitations
@@ -135,7 +135,7 @@ Each ``rcX.d`` directory contains symlinks to scripts in ``/etc/init.d/``:
   script often forked multiple processes, and tracking which processes
   belonged to which service was difficult.
 
-4.4.4 systemd Units — The Core Abstraction
+systemd Units — The Core Abstraction
 =============================================
 
 In systemd, everything is a **unit**. A unit is a resource that systemd
@@ -205,7 +205,7 @@ directly. Package updates will overwrite them. Instead, use:
    completely disables a unit.
 3. Copy the unit file to ``/etc/systemd/system/`` and modify there.
 
-4.4.5 Targets — Replacements for Runlevels
+Targets — Replacements for Runlevels
 ============================================
 
 SysV runlevels (0–6) are replaced by **targets** in systemd:
@@ -262,7 +262,7 @@ SysV runlevels (0–6) are replaced by **targets** in systemd:
    Use it carefully — ``systemctl isolate graphical.target`` will start
    your display manager.
 
-4.4.6 systemd's Service Architecture
+systemd's Service Architecture
 =======================================
 
 When a service starts under systemd:
@@ -321,7 +321,7 @@ When a service starts under systemd:
    |                     | terminated by signal).                             |
    +---------------------+---------------------------------------------------+
 
-4.4.7 Socket Activation
+Socket Activation
 ==========================
 
 One of systemd's most powerful features: systemd can listen on a socket
@@ -372,7 +372,7 @@ connection arrives.
    # After the last connection closes, systemd stops sshd again
    # (if configured to do so)
 
-4.4.8 Timers — Replacing Cron (Covered in Detail in Section 4.8)
+Timers — Replacing Cron (Covered in Detail in Section 4.8)
 ====================================================================
 
 systemd timers (``.timer`` units) provide cron-like functionality with
@@ -388,7 +388,7 @@ several advantages:
   instead of ``1-5``).
 * **Persistent timers**: "Catch up" on missed runs if the system was off.
 
-4.4.9 The ``systemctl`` Command — Central Control
+The ``systemctl`` Command — Central Control
 ====================================================
 
 ``systemctl`` is the primary control interface for systemd:
@@ -431,7 +431,7 @@ several advantages:
    systemctl hibernate
    systemctl hybrid-sleep
 
-4.4.10 Summary
+Summary
 ===============
 
 * PID 1 is the ancestor of all processes. Modern Linux distributions

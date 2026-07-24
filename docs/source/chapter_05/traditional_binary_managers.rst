@@ -1,6 +1,6 @@
 .. _section-5-2:
 
-5.2 Traditional Binary Package Managers
+Traditional Binary Package Managers
 ==================================================
 
 .. rst-class:: lead
@@ -22,7 +22,7 @@ dependency resolution strategies, and their philosophical approach to
 stability versus freshness.
 
 ------------------------------------------------
-5.2.1 The Debian Family: ``dpkg`` and ``apt``
+The Debian Family: ``dpkg`` and ``apt``
 ------------------------------------------------
 
 The Debian package management stack has two layers:
@@ -39,7 +39,7 @@ unified frontend introduced in Debian 8 / Ubuntu 16.04. The two share the
 same underlying libraries; ``apt`` is designed to be more user-friendly
 and combines the functionality of ``apt-get`` and ``apt-cache``.
 
-5.2.1.1 ``dpkg``: The Foundation
+``dpkg``: The Foundation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Every ``.deb`` file is an ``ar`` archive containing three files:
@@ -89,7 +89,7 @@ post-installation script (``postinst``), and updates the dpkg database at
    state. You must resolve dependencies manually or use ``apt`` to
    pull them in automatically.
 
-5.2.1.2 ``apt`` and ``apt-get``: Dependency Resolution
+``apt`` and ``apt-get``: Dependency Resolution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``apt`` and ``apt-get`` introduce the **repository** concept. Instead of
@@ -218,7 +218,7 @@ stable base without destabilizing the core system.
 The ``-t`` flag selects the target release, overriding the default
 priority.
 
-5.2.1.3 ``dpkg`` vs. ``apt``: When to Use Which
+``dpkg`` vs. ``apt``: When to Use Which
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: dpkg vs apt
@@ -254,7 +254,7 @@ dependency resolution; use ``dpkg`` only when you need to work directly
 with ``.deb`` files or query the low-level database.
 
 ------------------------------------------------
-5.2.2 The Red Hat Family: ``rpm`` and ``dnf``
+The Red Hat Family: ``rpm`` and ``dnf``
 ------------------------------------------------
 
 The Red Hat ecosystem has evolved dramatically. The toolchain went from
@@ -264,7 +264,7 @@ default; on RHEL 8+ and CentOS Stream, ``dnf`` replaces ``yum``. The
 ``yum`` command still exists on many systems as a compat symlink to
 ``dnf``.
 
-5.2.2.1 ``rpm``: The Foundation
+``rpm``: The Foundation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 RPM packages are binary archives with the ``.rpm`` extension. They use the
@@ -309,7 +309,7 @@ Flags explained:
 * ``-V``: verify
 * ``-f``: file → package
 
-5.2.2.2 ``dnf``: The Modern High-Level Tool
+``dnf``: The Modern High-Level Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
@@ -346,7 +346,7 @@ Key features of ``dnf``:
 * **Transaction history** — Every ``dnf`` operation is logged. You can
   roll back to previous states.
 
-5.2.2.3 ``dnf`` vs. ``yum``: What Changed
+``dnf`` vs. ``yum``: What Changed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: yum vs dnf
@@ -375,7 +375,7 @@ For end-users, the commands are nearly identical. The transition was
 primarily about replacing a monolithic Python codebase with a modular
 stack using a compiled dependency resolver.
 
-5.2.2.4 RPM Fusion, EPEL, and COPR
+RPM Fusion, EPEL, and COPR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 RHEL and Fedora maintain strict policies about what can be included in
@@ -428,7 +428,7 @@ or Ubuntu PPAs, but with automated builds and distribution through DNF.
    caution you would with any third-party software source.
 
 ------------------------------------------------
-5.2.3 Comparative Philosophy: Debian vs. Red Hat
+Comparative Philosophy: Debian vs. Red Hat
 ------------------------------------------------
 
 .. list-table:: Debian vs. Red Hat family comparison
@@ -474,7 +474,7 @@ upgrade thousands of interdependent packages — a feat of dependency
 engineering that should never be taken for granted.
 
 ------------------------------------------------
-5.2.4 When Traditional Binary Managers Struggle
+When Traditional Binary Managers Struggle
 ------------------------------------------------
 
 It is important to acknowledge the limitations that motivated the

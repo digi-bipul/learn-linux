@@ -1,11 +1,11 @@
 .. _app-c-storage:
 
 ------------------------------------------------------------------------------
-C.3  Storage & Filesystem Recovery
+Storage & Filesystem Recovery
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.3.1  Filesystem Full or Inode Exhaustion
+Filesystem Full or Inode Exhaustion
 
 .. code-block:: bash
    :caption: "No space left on device" — but ``df`` shows free space
@@ -66,7 +66,7 @@ C.3.1  Filesystem Full or Inode Exhaustion
    sudo logrotate -f /etc/logrotate.d/nginx
 
 ------------------------------------------------------------------------------
-C.3.2  Filesystem Corruption & fsck
+Filesystem Corruption & fsck
 
 .. code-block:: bash
    :caption: Filesystem check procedures
@@ -153,7 +153,7 @@ C.3.2  Filesystem Corruption & fsck
    sudo btrfs device stats /mount/point
 
 ------------------------------------------------------------------------------
-C.3.3  Mount Problems
+Mount Problems
 
 .. list-table:: Common mount errors and solutions
    :header-rows: 1
@@ -220,7 +220,7 @@ C.3.3  Mount Problems
    sudo e2fsck -b 32768 /dev/sda1
 
 ------------------------------------------------------------------------------
-C.3.4  RAID & LVM Recovery
+RAID & LVM Recovery
 
 .. rubric:: MD RAID (mdadm)
 
@@ -286,7 +286,7 @@ C.3.4  RAID & LVM Recovery
    sudo pvmove /dev/sdb1                         # Move extents to other PVs in VG
 
 ------------------------------------------------------------------------------
-C.3.5  Data Recovery Tools
+Data Recovery Tools
 
 .. list-table:: Linux data recovery tools
    :header-rows: 1

@@ -1,7 +1,7 @@
 .. _sec-07-09:
 
 =======================================
-7.9 Network Troubleshooting
+Network Troubleshooting
 =======================================
 
 No matter how carefully you configure a network, things will break. A cable
@@ -14,7 +14,7 @@ This section presents the administrator's diagnostic toolkit. We cover each
 tool in depth: what it measures, how to interpret its output, and how to apply
 it in a real troubleshooting workflow.
 
-7.9.1 The Troubleshooting Methodology
+The Troubleshooting Methodology
 ======================================
 
 Before reaching for any tool, have a mental framework:
@@ -33,7 +33,7 @@ Before reaching for any tool, have a mental framework:
    check the firewall rules.
 5. **Fix, verify, document.**
 
-7.9.2 ping — The Layer 3 Reachability Test
+ping — The Layer 3 Reachability Test
 ===========================================
 
 ``ping`` sends ICMP Echo Request packets to a target host and waits for Echo
@@ -80,7 +80,7 @@ at the network layer.
 does *not* necessarily mean the host is unreachable on other protocols (TCP,
 UDP). Always try a TCP-based test (like ``curl``) when ping fails.
 
-7.9.3 traceroute / mtr — Path Discovery
+traceroute / mtr — Path Discovery
 ========================================
 
 When you can reach a host but the connection is slow, or when you cannot reach
@@ -174,7 +174,7 @@ showed the same, the link at hop 3 would be the problem.
 If a middle hop shows loss but subsequent hops do not, ignore it — some
 routers rate-limit ICMP responses.
 
-7.9.4 tcpdump — Packet Sniffing
+tcpdump — Packet Sniffing
 =================================
 
 ``tcpdump`` captures raw packets from a network interface and displays them in
@@ -252,7 +252,7 @@ The three-way TCP handshake: SYN, SYN-ACK, ACK. If you see SYN sent but no
 SYN-ACK returned, the remote host is not listening or a firewall is dropping
 the SYN packet.
 
-7.9.5 nmap — Port Scanning and Host Discovery
+nmap — Port Scanning and Host Discovery
 ===============================================
 
 ``nmap`` (Network Mapper) scans hosts and networks to discover open ports,
@@ -323,7 +323,7 @@ both security auditing and troubleshooting.
 jurisdictions. Only scan hosts you own or have explicit written permission to
 test.
 
-7.9.6 iperf3 — Bandwidth Testing
+iperf3 — Bandwidth Testing
 ==================================
 
 ``iperf3`` measures the maximum achievable bandwidth between two hosts. It is
@@ -388,7 +388,7 @@ If you see a bitrate far below link capacity (e.g., 50 Mbps on a 1 Gbps link)
 and many retransmissions, the link likely has packet loss, a faulty cable, or
 network congestion.
 
-7.9.7 curl / wget — HTTP Diagnostics
+curl / wget — HTTP Diagnostics
 ======================================
 
 Both ``curl`` and ``wget`` download files via HTTP, HTTPS, and other
@@ -476,7 +476,7 @@ exposes headers and connection details.
 ``wget`` is less diagnostic-oriented than ``curl`` but excels at recursive
 downloads and resumption of interrupted transfers.
 
-7.9.8 End-to-End Troubleshooting Scenario
+End-to-End Troubleshooting Scenario
 ==========================================
 
 Let us walk through a realistic problem: "Users cannot connect to the web
@@ -487,7 +487,6 @@ server at ``www.example.com``."
 .. code-block:: bash
 
     $ dig +short www.example.com
-    203.0.113.10
 
 DNS resolves. Good.
 
@@ -558,7 +557,7 @@ The firewall has no rules allowing HTTP/HTTPS. The solution:
 
 Problem solved.
 
-7.9.9 Quick Reference: Diagnostic Flow
+Quick Reference: Diagnostic Flow
 =======================================
 
 ::
@@ -582,7 +581,7 @@ Problem solved.
 This structured approach turns a panic into a process. Learn it, internalise
 it, and your troubleshooting time will shrink dramatically.
 
-7.9.10 Summary of Tools
+Summary of Tools
 =========================
 
 +------------+----------------------------------------------------------+

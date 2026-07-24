@@ -1,3 +1,5 @@
+.. _environment-and-config:
+
 Environment Variables & Shell Configuration
 ================================================
 

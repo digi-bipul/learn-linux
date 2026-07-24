@@ -1,6 +1,6 @@
 .. _section-5-5:
 
-5.5 Functional & Declarative Package Management
+Functional & Declarative Package Management
 ==================================================
 
 .. rst-class:: lead
@@ -33,7 +33,7 @@ instructions), it always produces the same output — a content-addressed,
 immutable directory in a **store** — without side effects.
 
 ------------------------------------------------
-5.5.1 Nix: The Pioneering Functional Package Manager
+Nix: The Pioneering Functional Package Manager
 ------------------------------------------------
 
 Nix (named after "Nix" as in the model-theoretic "nix" of state) is both
@@ -49,7 +49,7 @@ Its core ideas are:
    users, kernel parameters) is specified in a single configuration file,
    and changes are atomic.
 
-5.5.1.1 The Nix Store: Content-Addressed, Immutable, and Garbage-Collected
+The Nix Store: Content-Addressed, Immutable, and Garbage-Collected
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Nix store is at ``/nix/store``.
@@ -79,7 +79,7 @@ This has profound consequences:
   store paths, exactly like a tracing garbage collector in a programming
   language.
 
-5.5.1.2 Derivations: The Build Recipe
+Derivations: The Build Recipe
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A **derivation** (``.drv`` file) is Nix's equivalent of a ``PKGBUILD`` or
@@ -119,7 +119,7 @@ Building this expression::
    $ /nix/store/6gkz8f...-hello-2.12.1/bin/hello
    Hello, world!
 
-5.5.1.3 ``nix-shell``: Ephemeral Development Environments
+``nix-shell``: Ephemeral Development Environments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One of Nix's killer features is ``nix-shell`` — a command that creates a
@@ -162,7 +162,7 @@ development environments:
 Now ``nix-shell`` in that directory always provides the exact same
 tool versions, regardless of what is installed on the host system.
 
-5.5.1.4 NixOS: The Declarative Operating System
+NixOS: The Declarative Operating System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NixOS takes Nix to the OS level.
@@ -233,7 +233,7 @@ This is the ultimate expression of **declarative infrastructure** — your
 system configuration is a file under version control, and changes are
 atomic, testable, and reversible.
 
-5.5.1.5 Nix Flakes (Modern Nix)
+Nix Flakes (Modern Nix)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Flakes** (introduced experimentally in Nix 2.4, stable in Nix 2.17+)
@@ -262,7 +262,7 @@ A locked ``flake.lock`` file ensures every build uses the identical source
 code — even years later.
 
 ------------------------------------------------
-5.5.2 GNU Guix: Functional Management with Scheme
+GNU Guix: Functional Management with Scheme
 ------------------------------------------------
 
 **GNU Guix** (pronounced "geeks") is the GNU Project's functional package
@@ -277,7 +277,7 @@ manager, heavily inspired by Nix but with key differences:
 * **Daemon-based:** Like Nix, Guix uses a build daemon that runs builds
   in isolated environments (containers, user namespaces, or chroots).
 
-5.5.2.1 Package Definitions in Guile Scheme
+Package Definitions in Guile Scheme
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: scheme
@@ -308,7 +308,7 @@ Build and install::
    $ guix upgrade             # Upgrade all user-installed packages
    $ guix gc                  # Garbage-collect unreachable store paths
 
-5.5.2.2 Guix System (GuixSD)
+Guix System (GuixSD)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Like NixOS, Guix can manage the entire operating system declaratively:
@@ -348,7 +348,7 @@ Guix also supports **generations** and **rollback**, just like Nix:
    $ sudo guix system list-generations
    $ sudo guix system roll-back
 
-5.5.2.3 The Guix Substitute System
+The Guix Substitute System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While Nix and Guix are source-based by default, both support **binary
@@ -369,7 +369,7 @@ This gives users the best of both worlds: **reproducible, functional
 builds** with the option of **binary speed** when desired.
 
 ------------------------------------------------
-5.5.3 Nix vs. Guix: A Comparison
+Nix vs. Guix: A Comparison
 ------------------------------------------------
 
 .. list-table:: Nix vs. GNU Guix
@@ -409,7 +409,7 @@ Both are technically extraordinary — they represent a paradigm shift from
 *stateful management* to *functional composition*.
 
 ------------------------------------------------
-5.5.4 The Implications for System Administration
+The Implications for System Administration
 ------------------------------------------------
 
 Functional package management is not merely an academic curiosity.

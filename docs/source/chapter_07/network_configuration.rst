@@ -1,7 +1,7 @@
 .. _sec-07-04:
 
 =======================================
-7.4 Network Configuration Ecosystems
+Network Configuration Ecosystems
 =======================================
 
 Commands like ``ip addr add`` and ``ip route add`` change the kernel's
@@ -13,7 +13,7 @@ versions of the same distribution) use different tools. This section covers the
 four major systems you will encounter in production, with guidance on which to
 use and when.
 
-7.4.1 Netplan (Ubuntu 17.10+)
+Netplan (Ubuntu 17.10+)
 ==============================
 
 **Netplan** is a YAML-based network configuration abstraction layer developed
@@ -75,7 +75,7 @@ previous configuration is restored.
 * You can use ``sudo netplan set`` to modify settings from the command line
   (e.g., ``sudo netplan set ethernets.eth0.dhcp4=false``).
 
-7.4.2 NetworkManager (Desktop / RHEL / Fedora)
+NetworkManager (Desktop / RHEL / Fedora)
 ===============================================
 
 **NetworkManager** is the de-facto standard for desktop Linux networking and is
@@ -130,7 +130,7 @@ server installations where it is the default. It is well-integrated with
 ``firewalld``, VPN plugins, and the desktop environment. On lightweight
 servers or containers, you may prefer ``systemd-networkd``.
 
-7.4.3 systemd-networkd (Modern Server Standard)
+systemd-networkd (Modern Server Standard)
 =================================================
 
 ``systemd-networkd`` is a part of the systemd ecosystem and is rapidly becoming
@@ -205,7 +205,7 @@ NetworkManager to ``systemd-networkd``, you must either uninstall
 NetworkManager or configure it to ignore the interfaces that
 ``systemd-networkd`` controls (``nmcli device set eth0 managed no``).
 
-7.4.4 Legacy ifupdown (Older Debian / Ubuntu)
+Legacy ifupdown (Older Debian / Ubuntu)
 ==============================================
 
 Before Netplan, Debian and Ubuntu used the ``ifupdown`` package, configured
@@ -256,7 +256,7 @@ limited support for complex setups (bonds, bridges, VLANs), and has no
 integration with modern init systems or D-Bus. If you encounter it, migrate to
 ``systemd-networkd`` or Netplan at your earliest convenience.
 
-7.4.5 Choosing the Right System
+Choosing the Right System
 ================================
 
 +---------------------+------------------------+-------------------------------+
@@ -285,7 +285,7 @@ editing files. Running ``systemctl status systemd-networkd`` and checking
 whether NetworkManager is active will tell you instantly what you are dealing
 with.
 
-7.4.6 Practical Workflow: Configuring a New Interface
+Practical Workflow: Configuring a New Interface
 ======================================================
 
 Regardless of the system, the workflow is the same:

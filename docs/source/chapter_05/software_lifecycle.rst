@@ -1,6 +1,6 @@
 .. _section-5-1:
 
-5.1 Software Lifecycle & Shared Libraries
+Software Lifecycle & Shared Libraries
 ==================================================
 
 .. rst-class:: lead
@@ -21,7 +21,7 @@ allows millions of lines of code to be reused across thousands of
 programs without duplicating a single byte on disk.
 
 ------------------------------------------------
-5.1.1 The Software Lifecycle: Source to Execution
+The Software Lifecycle: Source to Execution
 ------------------------------------------------
 
 Every piece of software on a Linux system begins its life as **source
@@ -127,7 +127,7 @@ shared libraries, resolves the remaining symbols, and transfers control to
 the program's entry point.
 
 ----------------------------------------------
-5.1.2 Shared Libraries: The Backbone of Reuse
+Shared Libraries: The Backbone of Reuse
 ----------------------------------------------
 
 A **shared library** is a compiled collection of functions and data that
@@ -190,7 +190,7 @@ Breaking down the output:
    instead, which reads the ELF headers without executing anything.
 
 ----------------------------------------
-5.1.3 The Dynamic Linker and ``ldconfig``
+The Dynamic Linker and ``ldconfig``
 ----------------------------------------
 
 When a program starts, the kernel loads the executable into memory, then
@@ -251,7 +251,7 @@ and its included files) and creates symlinks for SONAMEs.
    exists on disk, but ``ld.so.cache`` does not know about it.
 
 --------------------------------------------
-5.1.4 The ``LD_LIBRARY_PATH`` Environment Variable
+The ``LD_LIBRARY_PATH`` Environment Variable
 --------------------------------------------
 
 ``LD_LIBRARY_PATH`` is a colon-separated list of directories that the
@@ -298,7 +298,7 @@ For this reason:
    maliciously by rootkits. The same setuid restriction applies.
 
 ----------------------------------------------
-5.1.5 Symbol Versioning and ABI Compatibility
+Symbol Versioning and ABI Compatibility
 ----------------------------------------------
 
 Shared libraries live with a tension: they must evolve (fixing bugs,
@@ -338,7 +338,7 @@ Each ``NEEDED`` entry may include a minimum version requirement, ensuring
 the binary only runs with a compatible library.
 
 ----------------------------------------------
-5.1.6 Practical Tooling: Inspecting Libraries
+Practical Tooling: Inspecting Libraries
 ----------------------------------------------
 
 The following commands form your library diagnostic toolkit:
@@ -384,7 +384,7 @@ The following commands form your library diagnostic toolkit:
    /usr/lib/libcrypto.so.1.1 is owned by openssl 1.1.1k-1
 
 ------------------------------------------------
-5.1.7 Summary and Key Principles
+Summary and Key Principles
 ------------------------------------------------
 
 The software lifecycle — source → compilation → linkage → packaging →

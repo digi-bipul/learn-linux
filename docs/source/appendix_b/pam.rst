@@ -1,14 +1,14 @@
 .. _app-b-pam:
 
 ------------------------------------------------------------------------------
-B.3  Pluggable Authentication Modules (PAM)
+Pluggable Authentication Modules (PAM)
 ------------------------------------------------------------------------------
 
 PAM provides a modular framework for authentication on Linux. Applications
 link against ``libpam`` and delegate authentication to configured modules.
 
 ------------------------------------------------------------------------------
-B.3.1  PAM Configuration Files
+PAM Configuration Files
 ------------------------------------------------------------------------------
 
 Configuration files reside in ``/etc/pam.d/``. Each service (``sshd``,
@@ -36,7 +36,7 @@ groups** are:
      - ``pam_unix.so``, ``pam_limits.so``, ``pam_mount.so``, ``pam_selinux.so``
 
 ------------------------------------------------------------------------------
-B.3.2  Control Flags
+Control Flags
 ------------------------------------------------------------------------------
 
 Each module entry includes a control flag determining how the result affects
@@ -88,7 +88,7 @@ overall authentication:
    session    required     pam_unix.so
 
 ------------------------------------------------------------------------------
-B.3.3  Common PAM modules
+Common PAM modules
 
 .. list-table:: Common PAM Modules
    :header-rows: 1

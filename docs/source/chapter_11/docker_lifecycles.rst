@@ -1,7 +1,7 @@
 .. _chapter-11-3:
 
 ============================================================
-11.3 Docker & Image Lifecycles
+Docker & Image Lifecycles
 ============================================================
 
 Docker popularised containers by packaging the kernel primitives from §11.2 into a
@@ -12,7 +12,7 @@ user-friendly CLI. This section examines the Docker architecture, image layering
 efficient build practices, networking abstractions, and declarative orchestration with
 Docker Compose.
 
-11.3.1 The Docker Daemon Architecture
+The Docker Daemon Architecture
 ======================================
 
 Docker uses a **client-server (C/S) architecture** with a monolithic daemon:
@@ -81,7 +81,7 @@ mount the host filesystem, escape containers, and install kernel modules:
    access. Use **rootless Docker** (available since Docker 19.03) or, preferably,
    switch to **Podman** (§11.4).
 
-11.3.2 Container Images and Layers
+Container Images and Layers
 ===================================
 
 A Docker image is a **stack of read-only layers** built using a union filesystem
@@ -136,7 +136,7 @@ original layer is untouched.
    #   ]
    # }
 
-11.3.3 Building Efficient Images
+Building Efficient Images
 =================================
 
 **Multi-stage builds** are the single most important technique for minimising image
@@ -213,7 +213,7 @@ This way, a source-code change does not trigger a reinstall of dependencies.
 * Use ``DOCKER_BUILDKIT=1`` (enabled by default in Docker 24+) for parallel builds
   and secret mounting.
 
-11.3.4 Docker Networking Abstractions
+Docker Networking Abstractions
 ======================================
 
 Docker provides five built-in network drivers:
@@ -294,7 +294,7 @@ When you run a container without specifying ``--network``, Docker creates:
    # Disconnect
    docker network disconnect my-net my-container
 
-11.3.5 Docker Compose: Declarative State
+Docker Compose: Declarative State
 =========================================
 
 Docker Compose allows you to define multi-container applications in a YAML file and
@@ -390,7 +390,7 @@ it only waits for the container to be running. For strict ordering, add:
 This tells Compose: wait until the ``db`` service passes its health check before
 starting ``api``.
 
-11.3.6 The Docker Registry Protocol
+The Docker Registry Protocol
 ====================================
 
 Docker images are distributed via registries — the default being **Docker Hub**
@@ -422,7 +422,7 @@ Docker images are distributed via registries — the default being **Docker Hub*
    #   }
    # }
 
-11.3.7 Antipatterns
+Antipatterns
 ===================
 
 .. admonition:: Antipattern: The "Fat Image" Anti-Pattern
@@ -474,7 +474,7 @@ Docker images are distributed via registries — the default being **Docker Hub*
       # Best (immutable)
       image: nginx@sha256:a1b2c3d4e5f6...
 
-11.3.8 Practical Exercises
+Practical Exercises
 ==========================
 
 **1. Layer Inspection**

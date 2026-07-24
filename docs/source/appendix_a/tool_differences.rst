@@ -1,7 +1,7 @@
 .. _app-a-tools:
 
 ------------------------------------------------------------------------------
-A.3  Tool Differences: grep, sed, awk
+Tool Differences: grep, sed, awk
 ------------------------------------------------------------------------------
 
 Even when all three tools appear to "use regex," their parsing rules,
@@ -9,7 +9,7 @@ escaping requirements, and supported features differ in ways that routinely
 trip up administrators.
 
 ------------------------------------------------------------------------------
-A.3.1  grep(1) — Pattern Matching
+grep(1) — Pattern Matching
 ------------------------------------------------------------------------------
 
 .. list-table:: grep regex modes
@@ -66,7 +66,7 @@ A.3.1  grep(1) — Pattern Matching
    # Or: alias grep='grep --color=auto'
 
 ------------------------------------------------------------------------------
-A.3.2  sed(1) — Stream Editing
+sed(1) — Stream Editing
 ------------------------------------------------------------------------------
 
 sed uses **BRE** by default and **ERE** with ``-E`` (or ``-r`` on some older
@@ -136,7 +136,7 @@ GNU sed versions). Unlike grep, sed operates on **address ranges** and applies
    sed 's#/var/log/#/var/log/archive/#g' config.txt
 
 ------------------------------------------------------------------------------
-A.3.3  awk(1) — Pattern Scanning & Processing
+awk(1) — Pattern Scanning & Processing
 ------------------------------------------------------------------------------
 
 awk uses **ERE** natively — no ``-E`` flag required. It is fundamentally
@@ -208,7 +208,7 @@ control flow.
    awk -F: '$3 == 0 { print $1 }' /etc/passwd  # UID 0 users
 
 ------------------------------------------------------------------------------
-A.3.4  Side-by-Side Comparison Table
+Side-by-Side Comparison Table
 ------------------------------------------------------------------------------
 
 .. list-table:: grep vs. sed vs. awk: core differences

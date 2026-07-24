@@ -1,7 +1,7 @@
 .. _sec9_5:
 
 ###########################################################
-9.5 Network Security & Next-Generation Firewalls
+Network Security & Next-Generation Firewalls
 ###########################################################
 
 Network security is the outermost defensive layer in the Linux stack. In
@@ -17,7 +17,7 @@ intrusion prevention with ``fail2ban``, the stealth technique of
 port knocking, and the 2026 industry-standard approach of eBPF/XDP-based
 networking with Cilium.
 
-9.5.1 nftables: The Modern Linux Firewall
+nftables: The Modern Linux Firewall
 ==========================================
 
 The ``nftables`` framework replaces the legacy ``iptables`` (and its
@@ -104,9 +104,9 @@ efficient multi-way branching in a single rule:
 
     nft add chain inet filter input
     nft add rule inet filter input ip saddr vmap {
-        10.0.0.1 : accept,
-        10.0.0.2 : drop,
-        192.168.0.0/16 : accept,
+: accept,
+: drop,
+/16 : accept,
         * : drop
     }
 
@@ -126,7 +126,7 @@ For a full migration, use ``iptables-save`` piped through ``iptables-restore-tra
     iptables-restore-translate -f /tmp/rules.v4 > /tmp/rules.nft
     nft -f /tmp/rules.nft
 
-9.5.2 fail2ban: Automated Intrusion Prevention
+fail2ban: Automated Intrusion Prevention
 ===============================================
 
 ``fail2ban`` monitors log files for repeated authentication failures and
@@ -188,7 +188,7 @@ per day, ensure ``fail2ban`` uses the ``systemd`` backend (``backend =
 systemd``) rather than ``pyinotify`` or ``gamin``, as journald is orders
 of magnitude more efficient for log access.
 
-9.5.3 Port Knocking
+Port Knocking
 ====================
 
 Port knocking is a security technique that keeps a port (typically SSH)
@@ -234,7 +234,7 @@ access via VPN** (WireGuard) or **Zero Trust Network Access (ZTNA)** instead.
 Nevertheless, for low-profile personal servers and IoT devices, port knocking
 combined with ``fail2ban`` remains a practical way to reduce attack surface.
 
-9.5.4 eBPF and XDP: The 2026 Network Security Revolution
+eBPF and XDP: The 2026 Network Security Revolution
 ==========================================================
 
 **eBPF (extended Berkeley Packet Filter)** allows sandboxed programs to run
@@ -356,7 +356,7 @@ A Tetragon policy to prevent SSH key exfiltration:
           matchActions:
           - action: Sigkill
 
-9.5.5 Putting It All Together: The 2026 Network Security Stack
+Putting It All Together: The 2026 Network Security Stack
 ===============================================================
 
 A modern Linux server's network security stack in 2026:

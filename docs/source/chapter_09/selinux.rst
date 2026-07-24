@@ -1,7 +1,7 @@
 .. _sec9_3:
 
 ###########################################################
-9.3 SELinux (Security-Enhanced Linux)
+SELinux (Security-Enhanced Linux)
 ###########################################################
 
 **SELinux is the most powerful mandatory access control (MAC) system ever**
@@ -11,7 +11,7 @@ community in 2000, SELinux implements a **Flask security architecture** that
 enables fine-grained, type-enforcement-based access control over every
 system resource—processes, files, sockets, IPC, and even kernel objects.
 
-9.3.1 Why SELinux? The NSA's Motivations
+Why SELinux? The NSA's Motivations
 =========================================
 
 The NSA's mission includes protecting classified national security systems
@@ -40,7 +40,7 @@ confronts daily.
   National Intelligence Service have published guidelines recommending
   SELinux for high-security Linux deployments.
 
-9.3.2 Core Concepts: Labels, Contexts, and Types
+Core Concepts: Labels, Contexts, and Types
 =================================================
 
 SELinux associates a **security context** (also called a label) with every
@@ -95,7 +95,7 @@ file accidentally labeled ``shadow_t`` ends up in ``/var/www/html/``,
 Apache is **denied** —even if file permissions say ``644`` and the owner
 is ``root``. This is MAC in action.
 
-9.3.3 SELinux Modes
+SELinux Modes
 ====================
 
 SELinux operates in one of three modes:
@@ -129,7 +129,7 @@ Persistent mode is configured in ``/etc/selinux/config``:
     SELINUX=enforcing
     SELINUXTYPE=targeted   # Or: mls, minimum
 
-9.3.4 SELinux Policy Types
+SELinux Policy Types
 ===========================
 
 **Targeted Policy (default)**
@@ -151,7 +151,7 @@ Persistent mode is configured in ``/etc/selinux/config``:
     A lightweight version of targeted that loads only a small set of
     rules. Suitable for embedded systems with very constrained resources.
 
-9.3.5 SELinux Booleans
+SELinux Booleans
 =======================
 
 Booleans toggle predefined sets of policy rules without writing new policy.
@@ -194,7 +194,7 @@ Set a boolean persistently:
 The ``-P`` flag writes to the persistent policy store (``/etc/selinux/targeted/booleans``).
 Without ``-P``, the change is lost on reboot.
 
-9.3.6 Troubleshooting SELinux
+Troubleshooting SELinux
 ==============================
 
 SELinux's greatest strength—its comprehensiveness—is also its greatest
@@ -250,7 +250,7 @@ The toolkit for resolving denials:
 
    Use this to test a service without disabling SELinux entirely.
 
-9.3.7 SELinux in Container Environments
+SELinux in Container Environments
 ========================================
 
 Containers present a unique challenge: they share a kernel with the host.
@@ -268,7 +268,7 @@ host. However, the **``unconfined_u`` user namespace escape** remains a
 concern—ensure ``container_t`` is the default domain for all container
 runtime processes (``runc``, ``crun``, ``containerd``).
 
-9.3.8 Real-World: MLS in a Classified Environment
+Real-World: MLS in a Classified Environment
 ==================================================
 
 Consider a **SCI (Sensitive Compartmented Information)** facility running
@@ -296,7 +296,7 @@ anyone below ``s15`` from opening it.
 (Joint Worldwide Intelligence Communications System) and **NSANet** use
 variants of this model across tens of thousands of Linux workstations.
 
-9.3.9 SELinux vs. Alternatives
+SELinux vs. Alternatives
 ===============================
 
 The perennial debate: *SELinux or AppArmor?* We provide a detailed comparison

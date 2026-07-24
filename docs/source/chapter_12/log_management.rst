@@ -1,8 +1,10 @@
+.. _log-management:
+
 ============================================================
-12.4 Modern Log Management
+Modern Log Management
 ============================================================
 
-12.4.1 The 2026 Logging Landscape
+The 2026 Logging Landscape
 =====================================
 
 By 2026, the industry has moved away from the JVM-heavy ELK stack (Elasticsearch,
@@ -20,7 +22,7 @@ Logstash, Kibana) due to cost and complexity. The modern stack is:
 | **OpenTelemetry**   | Unified telemetry: logs, metrics, traces    |
 +---------------------+---------------------------------------------+
 
-12.4.2 Local Logging: rsyslog and logrotate
+Local Logging: rsyslog and logrotate
 =============================================
 
 rsyslog
@@ -65,7 +67,7 @@ logrotate
         endscript
     }
 
-12.4.3 Vector: The Universal Log Router
+Vector: The Universal Log Router
 =========================================
 
 `Vector <https://vector.dev/>`_ is written in Rust (~10 MB binary, < 50 MB RAM).
@@ -102,7 +104,7 @@ File → Parse → Loki Pipeline
     max_size = 1049000000
     when_full = "block"
 
-12.4.4 Grafana Loki: Log Aggregation for the Modern Era
+Grafana Loki: Log Aggregation for the Modern Era
 =========================================================
 
 Loki does not index log content — only labels. This reduces storage 5-10x vs ELK.
@@ -135,7 +137,7 @@ Querying with LogQL
     # Rate of log lines
     rate({job="postgresql"}[5m])
 
-12.4.5 OpenTelemetry: The Unified Standard
+OpenTelemetry: The Unified Standard
 =============================================
 
 `OpenTelemetry <https://opentelemetry.io/>`_ is the industry standard for telemetry.
@@ -165,7 +167,7 @@ Querying with LogQL
 .. important::
    OTel is a **standard**. Instrument once with the OTel SDK, ship anywhere.
 
-12.4.6 Summary
+Summary
 ===============
 
 * **rsyslog** and **logrotate** remain essential for local log management.

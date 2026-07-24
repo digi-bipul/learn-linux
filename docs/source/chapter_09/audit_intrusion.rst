@@ -1,7 +1,7 @@
 .. _sec9_7:
 
 ###########################################################
-9.7 Audit, EDR, & Intrusion Detection
+Audit, EDR, & Intrusion Detection
 ###########################################################
 
 Detection is the complement to prevention. Even the most hardened system will
@@ -10,7 +10,7 @@ This section covers the Linux audit subsystem, file integrity monitoring,
 rootkit detection, and the modern Endpoint Detection and Response (EDR)
 tools that define security operations in 2026.
 
-9.7.1 auditd: The Linux Audit Framework
+auditd: The Linux Audit Framework
 ========================================
 
 The Linux Audit Daemon (``auditd``) is the kernel's event-logging subsystem
@@ -113,7 +113,7 @@ For high-security environments, configure TLS-encrypted audit transport
 using ``audisp-remote`` with TLS or forward via syslog-ng/rsyslog with
 TLS to an Elastic SIEM or Splunk Heavy Forwarder.
 
-9.7.2 File Integrity Monitoring: AIDE
+File Integrity Monitoring: AIDE
 ======================================
 
 **AIDE (Advanced Intrusion Detection Environment)** creates a cryptographic
@@ -213,7 +213,7 @@ measure and attest the integrity of every executed file. These are
 beyond the scope of typical Linux administration but are essential in
 **Trusted Computing** environments with TPM-based remote attestation.
 
-9.7.3 Rootkit Detection: rkhunter and chkrootkit
+Rootkit Detection: rkhunter and chkrootkit
 =================================================
 
 **Rootkits** are stealth malware that modify the kernel or system binaries
@@ -266,7 +266,7 @@ hook modification) rather than its static signature.
 Nevertheless, rkhunter and chkrootkit remain useful as a *complementary*
 layer—particularly in legacy environments where eBPF is not available.
 
-9.7.4 lynis: Security Auditing
+lynis: Security Auditing
 ===============================
 
 **Lynis** is an open-source security auditing tool that scans a Linux system
@@ -330,7 +330,7 @@ guidance in this chapter, a properly hardened system should score 85+.
 absolute requirements. Evaluate each suggestion against your specific threat
 model and operational requirements.
 
-9.7.5 Modern EDR: osquery and Falco
+Modern EDR: osquery and Falco
 ====================================
 
 **osquery: SQL-based OS instrumentation**
@@ -414,7 +414,7 @@ container runtime security in 2026.
   response* — when a critical alert fires, Talon can kill the process,
   pause the container, or trigger a network block via CiliumNetworkPolicy.
 
-9.7.6 Real-World EDR Stack (2026)
+Real-World EDR Stack (2026)
 ==================================
 
 A production EDR stack deployed by a Fortune 500 company in 2026:

@@ -1,7 +1,7 @@
 .. _app-b-kernel:
 
 ------------------------------------------------------------------------------
-B.10  Kernel Parameters & Sysctl
+Kernel Parameters & Sysctl
 ------------------------------------------------------------------------------
 
 The Linux kernel exposes hundreds of runtime parameters via the ``sysctl``
@@ -9,7 +9,7 @@ interface (``/proc/sys/``). These control networking, memory management,
 security, and more — all adjustable without reboot.
 
 ------------------------------------------------------------------------------
-B.10.1  sysctl Command Reference
+sysctl Command Reference
 ------------------------------------------------------------------------------
 
 .. list-table:: sysctl commands
@@ -36,7 +36,7 @@ B.10.1  sysctl Command Reference
      - Print only the value (no key name)
 
 ------------------------------------------------------------------------------
-B.10.2  Network Security Hardening
+Network Security Hardening
 ------------------------------------------------------------------------------
 
 .. code-block:: bash
@@ -96,7 +96,7 @@ B.10.2  Network Security Hardening
    net.ipv4.conf.default.log_martians = 1
 
 ------------------------------------------------------------------------------
-B.10.3  Memory & VM Tuning
+Memory & VM Tuning
 ------------------------------------------------------------------------------
 
 .. code-block:: bash
@@ -129,7 +129,7 @@ B.10.3  Memory & VM Tuning
    # vm.nr_hugepages = 1024
 
 ------------------------------------------------------------------------------
-B.10.4  File System & Kernel Limits
+File System & Kernel Limits
 ------------------------------------------------------------------------------
 
 .. code-block:: bash
@@ -154,7 +154,7 @@ B.10.4  File System & Kernel Limits
    kernel.pid_max = 65536
 
 ------------------------------------------------------------------------------
-B.10.5  Network Performance Tuning
+Network Performance Tuning
 ------------------------------------------------------------------------------
 
 .. code-block:: bash
@@ -197,7 +197,7 @@ B.10.5  Network Performance Tuning
    net.ipv4.tcp_mtu_probing = 1
 
 ------------------------------------------------------------------------------
-B.10.6  Applying and Testing Changes
+Applying and Testing Changes
 ------------------------------------------------------------------------------
 
 .. code-block:: bash

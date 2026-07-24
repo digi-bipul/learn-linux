@@ -1,11 +1,11 @@
 .. _app-c-backup:
 
 ------------------------------------------------------------------------------
-C.8  Backup & Disaster Recovery
+Backup & Disaster Recovery
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.8.1  Backup Strategy Design (3-2-1 Rule)
+Backup Strategy Design (3-2-1 Rule)
 
 .. list-table:: The 3-2-1 Backup Rule
    :header-rows: 1
@@ -37,7 +37,7 @@ C.8.1  Backup Strategy Design (3-2-1 Rule)
      - 15 minutes → hot standby; 4 hours → restore from backup
 
 ------------------------------------------------------------------------------
-C.8.2  Command-Line Backup Tools
+Command-Line Backup Tools
 
 .. list-table:: Linux backup tools comparison
    :header-rows: 1
@@ -195,7 +195,7 @@ C.8.2  Command-Line Backup Tools
    restic --repo /mnt/backup/restic_repo forget --keep-daily 7 --keep-weekly 4 --prune
 
 ------------------------------------------------------------------------------
-C.8.3  Disaster Recovery Plan Template
+Disaster Recovery Plan Template
 
 .. rubric:: DR Plan Checklist
 
@@ -229,7 +229,7 @@ C.8.3  Disaster Recovery Plan Template
    ☐ Schedule additional recovery tests
 
 ------------------------------------------------------------------------------
-C.8.4  Testing Backup Restores
+Testing Backup Restores
 
 .. code-block:: bash
    :caption: Backup verification procedures

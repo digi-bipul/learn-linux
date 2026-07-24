@@ -1,7 +1,7 @@
 .. _ch10-cgroups-v2:
 
 ###########################################################
-10.6  Resource Isolation (cgroups v2)
+Resource Isolation (cgroups v2)
 ###########################################################
 
 .. epigraph::
@@ -17,7 +17,7 @@ is no longer supported in any modern distribution. **Teaching cgroups v1 in
 2026 is academic archaeology, not engineering.**
 
 ----------------------------------------------------------------------
-10.6.1  The Unified Hierarchy (cgroups v2)
+The Unified Hierarchy (cgroups v2)
 ----------------------------------------------------------------------
 
 In cgroups v2:
@@ -39,7 +39,7 @@ In cgroups v2:
    cgroup2 on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime)
 
 ----------------------------------------------------------------------
-10.6.2  Exploring the cgroups v2 Tree
+Exploring the cgroups v2 Tree
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -85,7 +85,7 @@ In cgroups v2:
 If ``nr_throttled > 0``, the cgroup hit its ``cpu.max`` limit.
 
 ----------------------------------------------------------------------
-10.6.3  Observing with ``systemd-cgtop``
+Observing with ``systemd-cgtop``
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -99,7 +99,7 @@ If ``nr_throttled > 0``, the cgroup hit its ``cpu.max`` limit.
 - **Memory:** RSS + page cache + swap.
 
 ----------------------------------------------------------------------
-10.6.4  Defining Resource Limits with Systemd Slices
+Defining Resource Limits with Systemd Slices
 ----------------------------------------------------------------------
 
 **Limit nginx to 2 CPU cores and 1 GiB of memory:**
@@ -139,7 +139,7 @@ If ``nr_throttled > 0``, the cgroup hit its ``cpu.max`` limit.
    Slice=database.slice
 
 ----------------------------------------------------------------------
-10.6.5  Container Observability: ``podman stats``
+Container Observability: ``podman stats``
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -153,7 +153,7 @@ If ``nr_throttled > 0``, the cgroup hit its ``cpu.max`` limit.
    /machine.slice/libpod-a1b2c3d4e5f6.scope/container
 
 ----------------------------------------------------------------------
-10.6.6  Why cgroups v1 is Dead
+Why cgroups v1 is Dead
 ----------------------------------------------------------------------
 
 - **Multiple mount points** with inconsistent behaviour (e.g.,
@@ -165,7 +165,7 @@ The Linux cgroup maintainers have been unequivocal: **v1 is unsupported in
 kernels ≥ 6.0.** Every major distribution ships with v2 as default.
 
 ----------------------------------------------------------------------
-10.6.7  cgroups v2 USE Checklist
+cgroups v2 USE Checklist
 ----------------------------------------------------------------------
 
 .. code-block:: console

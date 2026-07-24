@@ -1,7 +1,7 @@
 .. _sec-07-01:
 
 =======================================
-7.1 Foundational CS Networking Theory
+Foundational CS Networking Theory
 =======================================
 
 Before we configure a single interface, we must establish a mental model of how
@@ -12,7 +12,7 @@ We deliberately avoid the depths of physical-layer engineering (modulation,
 signal encoding, cable impedance). Our focus is the abstraction layers from the
 link layer upward — the layers a system administrator touches every day.
 
-7.1.1 Why Layering? The Sandwich Metaphor
+Why Layering? The Sandwich Metaphor
 ==========================================
 
 Networking protocols are organised into *layers*. Each layer provides a service
@@ -35,7 +35,7 @@ the order. This *separation of concerns* allows technology at one layer to be
 replaced entirely without disturbing the others. You can swap out your physical
 cabling from copper to fibre without rewriting your web server.
 
-7.1.2 The OSI Model (The Full Seven Layers)
+The OSI Model (The Full Seven Layers)
 ============================================
 
 The **Open Systems Interconnection (OSI) model**, standardised by ISO in 1984,
@@ -72,7 +72,7 @@ discussing networking architecture. From bottom to top:
 connectivity. Layer 4 is where you control access (firewalls, port filtering).
 Layers 5–7 are the purview of application configuration.
 
-7.1.3 The TCP/IP Stack (The Four-Layer Model)
+The TCP/IP Stack (The Four-Layer Model)
 ==============================================
 
 The OSI model is a *conceptual* framework. The *practical* model used by the
@@ -96,7 +96,7 @@ referring to the OSI layer number. When you hear "TCP/IP", they mean the
 practical four-layer stack. Both are valid; use whichever is more precise for
 the context.
 
-7.1.4 Packets vs. Frames: The Encapsulation Dance
+Packets vs. Frames: The Encapsulation Dance
 ==================================================
 
 The single most important concept for a Linux administrator to internalise is
@@ -139,7 +139,7 @@ destination IP, consults its routing table, then wraps the same packet into a
 *new* frame for the next hop. The packet lives across the entire path; frames
 live only for a single hop.
 
-7.1.5 MAC Addresses vs. IP Addresses
+MAC Addresses vs. IP Addresses
 =====================================
 
 | **MAC address** (Media Access Control) — 48 bits, usually written as six
@@ -161,7 +161,7 @@ Protocol** for IPv6) bridges the gap: when a host knows an IP address but needs
 the corresponding MAC address to build a frame, it broadcasts an ARP request:
 "Who has IP 192.168.1.10? Tell me your MAC address."
 
-7.1.6 Switching vs. Routing
+Switching vs. Routing
 ============================
 
 **Switching (Layer 2)**
@@ -195,7 +195,7 @@ first question is whether the destination is on your *local subnet* (switching)
 or beyond your gateway (routing). If your default gateway is unreachable, no
 off-subnet traffic will flow.
 
-7.1.7 Ports and Sockets
+Ports and Sockets
 ========================
 
 The **port** is a 16-bit number (0–65535) that identifies a specific process or
@@ -236,7 +236,7 @@ Port ranges:
 |             | clients when initiating outbound connections.            |
 +-------------+----------------------------------------------------------+
 
-7.1.8 TCP vs. UDP: A Quick Comparison
+TCP vs. UDP: A Quick Comparison
 ======================================
 
 Enough theory for a conceptual foundation. Two transport protocols dominate:
@@ -261,7 +261,7 @@ As a systems administrator, you will write firewall rules that distinguish TCP
 from UDP because different services use different protocols. DNS, for example,
 uses UDP for queries (port 53) but may fall back to TCP for large responses.
 
-7.1.9 Summary: The Administrator's Mental Map
+Summary: The Administrator's Mental Map
 ==============================================
 
 When you type a URL into a browser or ``ssh`` into a remote server, this chain

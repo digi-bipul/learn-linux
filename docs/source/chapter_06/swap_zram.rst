@@ -1,6 +1,6 @@
 .. _swap-zram:
 
-6.6 Swap & Memory Compression
+Swap & Memory Compression
 ==============================
 
 Swap is the kernel's mechanism for extending virtual memory beyond
@@ -10,7 +10,7 @@ Swap is not a substitute for RAM — it is a
 safety valve that allows the system to survive transient memory
 spikes and to evict cold anonymous pages, freeing RAM for active
 working sets and filesystem cache.
-6.6.1 Swap Partitions vs. Swap Files
+Swap Partitions vs. Swap Files
 -------------------------------------
 
 **Swap partitions** are dedicated block devices (a partition of type
@@ -46,7 +46,7 @@ use ``chattr +C /swapfile`` before allocation, and do not use
    Btrfs does not support swap files in kernels before Linux 5.0.
 Even on 5.0+, you must disable CoW and compression. On Btrfs,
    strongly prefer a swap partition or a dedicated swap LV in LVM.
-6.6.2 Managing Swap with ``swapon`` and ``swapoff``
+Managing Swap with ``swapon`` and ``swapoff``
 ----------------------------------------------------
 
 .. code-block:: bash
@@ -64,7 +64,7 @@ Higher-priority areas are filled first. This allows
 **tiered swap** — for example, a small, fast NVMe swap area (priority
 100) for burst overflow, backed by a large HDD swap (priority 1)
 for sustained memory pressure.
-6.6.3 ``vm.swappiness`` Tuning
+``vm.swappiness`` Tuning
 -------------------------------
 
 The kernel parameter ``vm.swappiness`` (range 0–200, default 60)
@@ -92,7 +92,7 @@ The performance gap between RAM and
   HDD is so large that the kernel should aggressively evict page
   cache to avoid the multi-millisecond penalty of paging anonymous
   memory to HDD.
-6.6.4 Modern Memory Compression: ``zram`` and ``zswap``
+Modern Memory Compression: ``zram`` and ``zswap``
 --------------------------------------------------------
 
 Traditional swap to disk incurs I/O latency measured in microseconds

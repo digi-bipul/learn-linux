@@ -1,7 +1,7 @@
 .. _ch10-storage-io:
 
 ###########################################################
-10.4  Storage I/O Profiling
+Storage I/O Profiling
 ###########################################################
 
 .. epigraph::
@@ -17,7 +17,7 @@ once deep are now shallow; latencies dropped from ms to µs. Many classic tools
 applied to NVMe.
 
 ----------------------------------------------------------------------
-10.4.1  ``iostat`` — The Gateway Tool
+``iostat`` — The Gateway Tool
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -26,12 +26,12 @@ applied to NVMe.
    Linux 6.7.0 (hostname)    07/19/2026    _x86_64_    (32 CPU)
 
    avg-cpu:  %user   %nice %system %iowait  %steal   %idle
-              5.20    0.00    2.10    0.30    0.00   92.40
+0.00    2.10    0.30    0.00   92.40
 
    Device     r/s     w/s     rkB/s    wkB/s  rrqm/s  wrqm/s  %rrqm  %wrqm \
    await r_await w_await  aqu-sz  rareq-sz  wareq-sz  svctm  %util
    nvme0n1 4500.0 1200.0 512000.0 240000.0 0.0 0.0 0.0 0.0 \
-   0.12 0.08 0.25 0.56 113.8 200.0 0.02 11.40
+0.08 0.25 0.56 113.8 200.0 0.02 11.40
 
 **Critical interpretation:**
 
@@ -54,7 +54,7 @@ applied to NVMe.
    drives.** Alert on ``await`` (latency) and ``aqu-sz`` (saturation).
 
 ----------------------------------------------------------------------
-10.4.2  ``iotop-c`` — Per-Process I/O
+``iotop-c`` — Per-Process I/O
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -69,7 +69,7 @@ applied to NVMe.
 - **SWAPIN:** Time spent waiting for swap-in (page faults).
 
 ----------------------------------------------------------------------
-10.4.3  Understanding I/O Wait (``%iowait``)
+Understanding I/O Wait (``%iowait``)
 ----------------------------------------------------------------------
 
 ``%iowait`` is **not** "the percentage of time the CPU was waiting for I/O."
@@ -83,7 +83,7 @@ had an outstanding I/O.
 low ``aqu-sz`` = the application does occasional small reads.
 
 ----------------------------------------------------------------------
-10.4.4  Modern Multi-Queue I/O Schedulers
+Modern Multi-Queue I/O Schedulers
 ----------------------------------------------------------------------
 
 The multi-queue block layer (``blk-mq``) gives each CPU core its own
@@ -124,7 +124,7 @@ desktops or shared hosting. Higher CPU overhead.
        > /etc/udev/rules.d/60-iosched.rules
 
 ----------------------------------------------------------------------
-10.4.5  Benchmarking with ``fio`` (Flexible I/O Tester)
+Benchmarking with ``fio`` (Flexible I/O Tester)
 ---------------------------------------------------------
 
 .. code-block:: console
@@ -169,7 +169,7 @@ superior to ``libaio``.
 - **direct=1:** Bypasses the page cache.
 
 ----------------------------------------------------------------------
-10.4.6  Storage I/O USE Checklist
+Storage I/O USE Checklist
 ----------------------------------------------------------------------
 
 .. code-block:: console

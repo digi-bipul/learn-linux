@@ -1,6 +1,6 @@
 .. _raid:
 
-6.5 RAID Arrays
+RAID Arrays
 ================
 
 RAID (Redundant Array of Independent/Inexpensive Disks) improves
@@ -10,7 +10,7 @@ Linux supports hardware
 RAID (controller-based), firmware RAID ("fake RAID," e.g., Intel
 RST), and software RAID — the latter being the focus here thanks to
 its flexibility and portability.
-6.5.1 RAID Levels
+RAID Levels
 ------------------
 
 .. list-table::
@@ -82,7 +82,7 @@ dual-parity computation is CPU-intensive in software RAID.
 mirrors.
 It combines RAID 1's fast rebuild times with RAID 0's
 throughput. Typically the best choice for database workloads.
-6.5.2 Software RAID with ``mdadm``
+Software RAID with ``mdadm``
 -----------------------------------
 
 ``mdadm`` manages **Multiple Device (md)** arrays. The kernel's
@@ -169,7 +169,7 @@ Internal
        Failed Devices : 0
         Spare Devices : 0
 
-6.5.3 Failure and Recovery
+Failure and Recovery
 ---------------------------
 
 **Simulate a failure** (for testing):
@@ -206,7 +206,7 @@ removed):
 
 After the reshape, grow the filesystem with ``resize2fs`` or
 ``xfs_growfs``.
-6.5.4 Legacy ``mdadm`` vs. Filesystem-Native RAID
+Legacy ``mdadm`` vs. Filesystem-Native RAID
 --------------------------------------------------
 
 Modern copy-on-write filesystems integrate RAID directly into the

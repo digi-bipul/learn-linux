@@ -1,6 +1,6 @@
 .. _section-4-6:
 
-4.6 Alternative Init Systems: OpenRC & Runit
+Alternative Init Systems: OpenRC & Runit
 ==================================================
 
 .. rst-class:: lead
@@ -14,7 +14,7 @@
    exercise — it is essential for anyone who works with containers,
    embedded systems, or Alpine-based infrastructure.
 
-4.6.1 Why Alternatives Exist
+Why Alternatives Exist
 ===============================
 
 The Linux ecosystem has never accepted a monoculture without debate. The
@@ -69,7 +69,7 @@ alternatives to systemd stem from several philosophical positions:
    |                | SUSE, Pop!_OS       |                     |                     |
    +----------------+---------------------+---------------------+---------------------+
 
-4.6.2 OpenRC — Dependency-Based, Script-Driven Init
+OpenRC — Dependency-Based, Script-Driven Init
 ======================================================
 
 OpenRC is the init system used by **Alpine Linux** (the most popular
@@ -89,7 +89,7 @@ decisions are:
 5. **Service state is tracked via files** in ``/var/run/openrc/`` or
    ``/run/openrc/`` (no database, no binary journal).
 
-4.6.2.1 OpenRC Directory Structure
+OpenRC Directory Structure
 
 .. code-block:: text
 
@@ -106,7 +106,7 @@ decisions are:
    /etc/conf.d/                  # Configuration files for init scripts
    /etc/conf.d/sshd              # SSH daemon config (e.g., SSH_OPTIONS)
 
-4.6.2.2 Managing Services with ``rc-update`` and ``rc-service``
+Managing Services with ``rc-update`` and ``rc-service``
 
 **``rc-update`` — adding/removing services from runlevels:**
 
@@ -170,7 +170,7 @@ Because init scripts are shell scripts, you can also do:
    # /etc/init.d/sshd zap          # Reset service state (force stop tracking)
    # /etc/init.d/sshd clean        # Clean any stale PID files
 
-4.6.2.3 Anatomy of an OpenRC Init Script
+Anatomy of an OpenRC Init Script
 
 OpenRC init scripts are shell scripts that define a small set of variables
 and functions. Here is a representative example:
@@ -240,7 +240,7 @@ Services can source configuration from ``/etc/conf.d/``:
 The init script picks these up automatically because ``openrc-run`` sources
 ``/etc/conf.d/$RC_SVCNAME`` before running the service.
 
-4.6.2.4 Dependency Pragmas in OpenRC
+Dependency Pragmas in OpenRC
 
 The ``depend()`` function supports these keywords:
 
@@ -267,7 +267,7 @@ The ``depend()`` function supports these keywords:
    |                 | of "mysql" can satisfy a ``need``).                 |
    +-----------------+-----------------------------------------------------+
 
-4.6.2.5 OpenRC on Alpine Linux — Practical Notes
+OpenRC on Alpine Linux — Practical Notes
 
 Alpine Linux is the most widely encountered OpenRC system (it is the default
 base image for Docker containers). The key commands differ slightly:
@@ -305,7 +305,7 @@ it stays dead. To add supervision, use the ``supervise-daemon`` wrapper:
    # This wraps the daemon in a supervisor that restarts it
    # if it crashes (similar to Runit's supervision model).
 
-4.6.3 Runit — Extreme Minimalism
+Runit — Extreme Minimalism
 ====================================
 
 Runit is a **cross-platform init and service supervision system** designed
@@ -327,7 +327,7 @@ The guiding philosophy of Runit:
   propagation, orphan reaping, and executing ``runit`` (the stage
   manager). It does not manage services.
 
-4.6.3.1 Runit Architecture
+Runit Architecture
 
 .. code-block:: text
 
@@ -350,7 +350,7 @@ Every service in Runit is a **directory** containing at minimum an
 executable ``run`` script. That's it. No configuration file, no variable
 declarations, no dependencies — just a script.
 
-4.6.3.2 Writing a Runit Service
+Writing a Runit Service
 
 .. code-block:: bash
    :caption: ``/etc/sv/sshd/run`` — a Runit service script
@@ -393,7 +393,7 @@ restart loops).
 rotating set of files in the specified directory. The ``-tt`` option
 prepends timestamps.
 
-4.6.3.3 Managing Services with ``sv``
+Managing Services with ``sv``
 
 The ``sv(1)`` command controls all Runit services:
 
@@ -447,7 +447,7 @@ into this directory:
    # rm /etc/service/sshd
    # sv down sshd
 
-4.6.3.4 Runit on Void Linux
+Runit on Void Linux
 
 Void Linux uses Runit by default. Key paths:
 
@@ -476,7 +476,7 @@ Void Linux uses Runit by default. Key paths:
    # shutdown -r now
    # or:          # sv force-quit runsvdir && init 6
 
-4.6.4 When to Choose OpenRC or Runit over systemd
+When to Choose OpenRC or Runit over systemd
 ====================================================
 
 .. table:: Decision Guide
@@ -508,7 +508,7 @@ Void Linux uses Runit by default. Key paths:
    |                           |                               | trace.                       |
    +---------------------------+-------------------------------+------------------------------+
 
-4.6.5 Summary
+Summary
 ==============
 
 * **OpenRC** is a dependency-based, script-driven init system used by Alpine

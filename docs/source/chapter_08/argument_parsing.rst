@@ -1,7 +1,9 @@
+.. _argument-parsing:
+
 .. highlight:: bash
 
 ========================================
-8.7 — CLI Argument Parsing
+— CLI Argument Parsing
 ========================================
 
 A professional-quality script accepts command-line arguments just like system
@@ -9,7 +11,7 @@ commands: positional arguments for required inputs, flags for optional behavior,
 and ``--help`` for usage information.
 
 --------------------------------
-8.7.1 Positional Parameters: ``$1``–``$9``, ``${N}``
+Positional Parameters: ``$1``–``$9``, ``${N}``
 --------------------------------
 
 .. code-block:: bash
@@ -28,7 +30,7 @@ and ``--help`` for usage information.
    script path.  Use ``${BASH_SOURCE[0]}`` for reliable self-referencing.
 
 --------------------------------
-8.7.2 ``$@`` vs ``$*`` — The Critical Distinction
+``$@`` vs ``$*`` — The Critical Distinction
 --------------------------------
 
 +---------------+---------------+-----------------------------------+
@@ -45,7 +47,7 @@ and ``--help`` for usage information.
 The golden rule: Use ``"$@"`` 99% of the time.
 
 --------------------------------
-8.7.3 ``shift`` — Consuming Arguments
+``shift`` — Consuming Arguments
 --------------------------------
 
 .. code-block:: bash
@@ -54,7 +56,7 @@ The golden rule: Use ``"$@"`` 99% of the time.
    shift 2    # Discard $1 and $2
 
 --------------------------------
-8.7.4 Manual Flag Parsing with ``case`` + ``shift``
+Manual Flag Parsing with ``case`` + ``shift``
 --------------------------------
 
 .. code-block:: bash
@@ -72,7 +74,7 @@ The golden rule: Use ``"$@"`` 99% of the time.
    done
 
 --------------------------------
-8.7.5 ``getopts`` — The Standard Option Parser
+``getopts`` — The Standard Option Parser
 --------------------------------
 
 .. code-block:: bash
@@ -114,7 +116,7 @@ The golden rule: Use ``"$@"`` 99% of the time.
 * ``shift $((OPTIND - 1))`` removes all processed options
 
 --------------------------------
-8.7.6 Long Options with ``getopts``
+Long Options with ``getopts``
 --------------------------------
 
 Standard ``getopts`` does not support long options.  Workaround:
@@ -135,7 +137,7 @@ Standard ``getopts`` does not support long options.  Workaround:
    # Then normal getopts processes the short options
 
 --------------------------------
-8.7.7 What NOT to Do — Argument Parsing Pitfalls
+What NOT to Do — Argument Parsing Pitfalls
 --------------------------------
 
 **Antipattern 1:** Using ``$@`` without quotes — word splitting destroys
@@ -151,7 +153,7 @@ sourced.
 **Antipattern 5:** Using ``$OPTARG`` outside the ``getopts`` loop.
 
 --------------------------------
-8.7.8 Summary
+Summary
 --------------------------------
 
 +------------------+-------------------------------------------------------+

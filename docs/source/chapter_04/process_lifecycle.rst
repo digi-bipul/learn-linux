@@ -1,6 +1,6 @@
 .. _section-4-1:
 
-4.1 Process Lifecycle
+Process Lifecycle
 ==================================================
 
 .. rst-class:: lead
@@ -12,7 +12,7 @@
    change state, and how they die is fundamental to understanding Linux as a
    whole.
 
-4.1.1 The ``fork`` / ``exec`` Paradigm
+The ``fork`` / ``exec`` Paradigm
 ========================================
 
 On Unix-like systems (including Linux), every new process is created by a
@@ -114,7 +114,7 @@ process; ``exec`` gives it a new identity.
    then executes each program. The pipe is set up **between** the fork and
    exec calls, so the child inherits the pipe file descriptors.
 
-4.1.2 PID, PPID, and the Process Hierarchy
+PID, PPID, and the Process Hierarchy
 ============================================
 
 Every process on a Linux system has a unique numeric identifier called a
@@ -161,7 +161,7 @@ hierarchy, rooted at ``init`` (PID 1):
               └─nginx(280)─┬─nginx(281)
                             └─nginx(282)
 
-4.1.3 Process States
+Process States
 ======================
 
 A process is not always "running." The kernel's scheduler moves processes
@@ -269,7 +269,7 @@ kernel immediately **reparents** all orphans to PID 1 (init/systemd):
    # PID 1 (systemd) is now the parent. It will reap this process
    # when sleep finishes.
 
-4.1.4 The ``/proc`` Filesystem — A Window into the Kernel
+The ``/proc`` Filesystem — A Window into the Kernel
 ============================================================
 
 The ``/proc`` pseudo-filesystem (also called the **procfs**) is one of the
@@ -287,7 +287,7 @@ disk but are manufactured on-the-fly by the kernel when you read them.
 Note the ``noexec`` flag — you cannot execute files in ``/proc``, which
 makes sense since they are not real files.
 
-4.1.4.1 Per-Process Directories: ``/proc/[PID]``
+Per-Process Directories: ``/proc/[PID]``
 
 Every running process has a directory named after its PID:
 
@@ -395,7 +395,7 @@ Every running process has a directory named after its PID:
    Max data size             unlimited            unlimited            bytes
    Max stack size            8388608              unlimited            bytes
 
-4.1.4.2 System-Wide Information in ``/proc``
+System-Wide Information in ``/proc``
 
 Beyond per-process directories, ``/proc`` contains system-level information:
 
@@ -438,7 +438,7 @@ Beyond per-process directories, ``/proc`` contains system-level information:
    :caption: Quick system checks from /proc
 
    $ head -1 /proc/loadavg
-   0.45 0.32 0.28 1/245 12345
+0.32 0.28 1/245 12345
 
    # Interpretation:
    # 0.45  = 1-minute load average
@@ -453,7 +453,7 @@ Beyond per-process directories, ``/proc`` contains system-level information:
    MemAvailable:   10293848 kB
 
    $ cat /proc/uptime
-   482193.45 389102.12
+389102.12
    # 482193 seconds since boot = 5.58 days
    # 389102 seconds idle
 
@@ -464,7 +464,7 @@ Beyond per-process directories, ``/proc`` contains system-level information:
    Learning to read ``/proc`` directly helps when these tools are
    unavailable (e.g., in a minimal container or a recovery environment).
 
-4.1.5 The Copy-on-Write (COW) Optimisation
+The Copy-on-Write (COW) Optimisation
 ============================================
 
 When we said earlier that ``fork`` creates "a copy" of the parent's memory,
@@ -485,7 +485,7 @@ kernel data structures (a few hundred bytes) and creates new page table
 entries pointing to the same physical pages. The heavy lifting of memory
 duplication is **deferred until actually needed** — and often never happens.
 
-4.1.6 ``exec`` Family Variants
+``exec`` Family Variants
 ================================
 
 The ``exec`` system call has several variants in the C library:
@@ -527,7 +527,7 @@ argument marshalling.
        wait(NULL);
    }
 
-4.1.7 Summary
+Summary
 ==============
 
 * Processes are created via the **fork/exec** two-step: ``fork`` clones the

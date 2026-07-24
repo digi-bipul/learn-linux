@@ -1,7 +1,7 @@
 .. _chapter-11-4:
 
 ============================================================
-11.4 Podman & Systemd Integration
+Podman & Systemd Integration
 ============================================================
 
 Podman (Pod Manager) emerged as a response to the architectural limitations of Docker's
@@ -11,7 +11,7 @@ Fedora, CentOS Stream, and many other enterprise Linux distributions. This secti
 explains the daemonless architecture, rootless execution, and the powerful **Quadlet**
 system for integrating containers with systemd.
 
-11.4.1 Daemonless and Rootless Architecture
+Daemonless and Rootless Architecture
 ============================================
 
 Unlike Docker, Podman has **no central daemon**. Every ``podman`` command forks a new
@@ -87,7 +87,7 @@ child process that directly interacts with the kernel, the OCI runtime (``crun``
    ps aux | grep -E "(podman|sleep)"
    # The sleep process is a direct child of the shell, not a daemon
 
-11.4.2 Podman's Native Pod Support
+Podman's Native Pod Support
 ===================================
 
 Podman introduced the concept of **pods** — groups of containers that share the same
@@ -123,7 +123,7 @@ modelled after Kubernetes pods.
    the pod concept means you can develop and test multi-container Kubernetes workloads
    locally without a cluster.
 
-11.4.3 Podman Quadlets: Containers as Systemd Units
+Podman Quadlets: Containers as Systemd Units
 ====================================================
 
 **Quadlets** are the killer feature that makes Podman the preferred choice for
@@ -284,7 +284,7 @@ restart policies, and integrating with journald. With Quadlets, this is automati
    # Enable on login
    systemctl --user enable user-app.service
 
-11.4.4 Podman Secret Management
+Podman Secret Management
 ================================
 
 Podman has a built-in secret store (unlike Docker, which relies on external solutions).
@@ -322,7 +322,7 @@ Secrets are stored in a memory-backed tmpfs and are never written to disk.
    secrets, use an external vault (HashiCorp Vault, AWS Secrets Manager, etc.)
    and mount them at container start.
 
-11.4.5 Podman Machine (macOS/Windows)
+Podman Machine (macOS/Windows)
 ======================================
 
 On non-Linux platforms, Podman runs inside a lightweight VM called ``podman machine``.
@@ -345,7 +345,7 @@ This is Podman's equivalent to Docker Desktop but open-source and without a GUI.
    # Stop
    podman machine stop
 
-11.4.6 Podman vs Docker: CLI Compatibility
+Podman vs Docker: CLI Compatibility
 ===========================================
 
 Podman is a **drop-in replacement** for Docker in almost all cases:
@@ -368,7 +368,7 @@ Podman is a **drop-in replacement** for Docker in almost all cases:
    podman system service --time=0 unix:///tmp/podman.sock &
    DOCKER_HOST=unix:///tmp/podman.sock docker ps   # Works!
 
-11.4.7 Why Enterprise Linux Prefers Podman
+Why Enterprise Linux Prefers Podman
 ===========================================
 
 Red Hat's strategic decision to make Podman the default container tool in RHEL 9+
@@ -394,7 +394,7 @@ is rooted in several architectural advantages:
    podman generate kube web-pod > web-pod.yaml
    # This creates a Pod spec that can be deployed on a Kubernetes cluster
 
-11.4.8 Antipatterns
+Antipatterns
 ===================
 
 .. admonition:: Antipattern: Ignoring Subordinate ID Ranges
@@ -412,7 +412,7 @@ is rooted in several architectural advantages:
    single-container services or simple pods. For complex multi-service
    applications, use ``podman-compose`` or Kubernetes.
 
-11.4.9 Practical Exercises
+Practical Exercises
 ==========================
 
 **1. Rootless Container**

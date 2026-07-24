@@ -1,7 +1,7 @@
 .. _chapter-11-2:
 
 ============================================================
-11.2 Container Fundamentals (The Deep Core)
+Container Fundamentals (The Deep Core)
 ============================================================
 
 If you take only one lesson from this chapter, let it be this: **a container is not a
@@ -16,7 +16,7 @@ In this section, we strip away the tooling and examine the raw kernel machinery.
 end, you will be able to construct a fully isolated container environment using nothing
 but ``unshare``, ``pivot_root``, and ``echo`` into cgroup files.
 
-11.2.1 Linux Namespaces: The Illusion of Isolation
+Linux Namespaces: The Illusion of Isolation
 ===================================================
 
 A **namespace** wraps a global system resource so that processes inside the namespace
@@ -170,7 +170,7 @@ for ``CLOCK_MONOTONIC`` and ``CLOCK_BOOTTIME``. This is essential for:
 * **Consistent logging:** Log timestamps are relative to the container's boot epoch.
 * **Testing:** Simulating time passage without affecting the host clock.
 
-11.2.2 Control Groups v2: The Resource Governor
+Control Groups v2: The Resource Governor
 ================================================
 
 Namespaces provide isolation but not enforcement. A container that sees its own PID
@@ -265,7 +265,7 @@ differences:
 
    echo 512 | sudo tee /sys/fs/cgroup/mycontainer/pids.max
 
-11.2.3 Root Filesystem Isolation: chroot vs pivot_root
+Root Filesystem Isolation: chroot vs pivot_root
 =======================================================
 
 Namespaces and cgroups isolate processes and resources, but a container also needs an
@@ -407,7 +407,7 @@ To run this bundle with ``runc``:
    cat > config.json
    runc run my-container
 
-11.2.4 The Container Runtime Stack
+The Container Runtime Stack
 ===================================
 
 Understanding the layers of a container runtime helps demystify the Docker/Podman
@@ -438,7 +438,7 @@ ecosystem:
   implementation; ``gVisor`` and ``Kata Containers`` are sandboxed runtimes that
   add an extra isolation layer.
 
-11.2.5 Antipatterns
+Antipatterns
 ===================
 
 .. admonition:: Antipattern: Running a Container's Process as Root
@@ -471,7 +471,7 @@ ecosystem:
    indicates you are treating the container like a VM. Use Kubernetes Pods to
    co-schedule related processes if they must share a network namespace.
 
-11.2.6 Practical Exercises
+Practical Exercises
 ==========================
 
 **1. Explore Your Namespaces**

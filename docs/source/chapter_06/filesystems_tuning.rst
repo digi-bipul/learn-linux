@@ -1,6 +1,6 @@
 .. _filesystems-tuning:
 
-6.2 Filesystem Creation & Tuning
+Filesystem Creation & Tuning
 =================================
 
 A filesystem imposes structure onto a raw block device — organising
@@ -8,7 +8,7 @@ space, tracking metadata, and enforcing consistency.
 No single
 filesystem is universally optimal; the choice depends on workload
 patterns, hardware characteristics, and operational requirements.
-6.2.1 Filesystem Architecture: The Big Picture
+Filesystem Architecture: The Big Picture
 -----------------------------------------------
 
 Every Unix-style filesystem shares a handful of architectural
@@ -67,7 +67,7 @@ Faster but risks exposing stale data.
     journal twice (once to the journal, once to the final location).
 Safest but slowest.
 
-6.2.2 Creating Filesystems: ``mkfs``
+Creating Filesystems: ``mkfs``
 -------------------------------------
 
 The ``mkfs`` family is a front-end to filesystem-specific builders:
@@ -159,7 +159,7 @@ Its data structures are B-trees,
     restoring data).
 - ``--csum TYPE``: Checksum algorithm (``crc32c``, ``xxhash``,
     ``sha256``, ``blake2``).
-6.2.3 Inode Deep Dive and Tuning with ``tune2fs``
+Inode Deep Dive and Tuning with ``tune2fs``
 --------------------------------------------------
 
 Understanding inode structure helps you diagnose "No space left on
@@ -190,7 +190,7 @@ To view the extent tree of a specific file:
 
    sudo debugfs -R "stat /path/to/file" /dev/sda1
 
-6.2.4 Filesystem Checking: ``fsck``
+Filesystem Checking: ``fsck``
 ------------------------------------
 
 ``fsck`` is a front-end dispatcher:
@@ -225,7 +225,7 @@ For Btrfs, an online scrub is preferred:
    sudo btrfs scrub start /mnt/data
    sudo btrfs scrub status /mnt/data
 
-6.2.5 SSD/NVMe-Specific Tuning
+SSD/NVMe-Specific Tuning
 -------------------------------
 
 **TRIM/Discard**
@@ -272,7 +272,7 @@ Modern tools align to 1 MiB (2048 sectors) by
 
      sudo parted /dev/nvme0n1 align-check optimal 1
 
-6.2.6 Enterprise Alternative: ZFS
+Enterprise Alternative: ZFS
 ----------------------------------
 
 ZFS, originally from Sun Microsystems, combines the roles of

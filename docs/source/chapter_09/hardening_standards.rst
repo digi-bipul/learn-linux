@@ -1,7 +1,7 @@
 .. _sec9_8:
 
 ###########################################################
-9.8 Enterprise Hardening Standards
+Enterprise Hardening Standards
 ###########################################################
 
 The difference between a hobbyist's hardened system and an enterprise
@@ -11,7 +11,7 @@ pillars of Linux security standards in 2026: the **CIS Benchmarks**,
 the **DISA STIGs**, and practical **systemd service sandboxing** that
 implements many of these controls by default.
 
-9.8.1 CIS Benchmarks — The Industry Baseline
+CIS Benchmarks — The Industry Baseline
 =============================================
 
 The **Center for Internet Security (CIS)** publishes benchmark documents
@@ -178,7 +178,7 @@ The industry-standard tool for CIS assessment is **OpenSCAP**:
 OpenSCAP generates a detailed pass/fail report with remediation scripts.
 It is the standard tool for DoD STIG validation (discussed next).
 
-9.8.2 DISA STIGs — US Military & Government Standard
+DISA STIGs — US Military & Government Standard
 =====================================================
 
 The **Defense Information Systems Agency (DISA)** publishes **Security
@@ -281,7 +281,7 @@ Similarly, the **Drug Enforcement Administration (DEA)** and
 **Transportation Security Administration (TSA)** require STIG compliance
 for Linux servers in regulated environments.
 
-9.8.3 systemd Service Sandboxing
+systemd Service Sandboxing
 =================================
 
 In 2026, the most practical and enforceable hardening technique for Linux
@@ -409,7 +409,7 @@ Use ``systemd-analyze security`` to get a numeric score (0 = exposed,
 The tool assigns an exposure score based on which security directives are
 set. A score below 5 is considered good; below 3 is excellent.
 
-9.8.4 Container Hardening Standards
+Container Hardening Standards
 ====================================
 
 Containers share the host kernel, making isolation paramount. In 2026, the
@@ -478,7 +478,7 @@ three levels:
     kubectl label namespace production \
         pod-security.kubernetes.io/enforce=restricted
 
-9.8.5 Bringing It All Together: A Hardened Baseline
+Bringing It All Together: A Hardened Baseline
 ====================================================
 
 The following checklist represents a **CIS Level 2 + DISA STIG-aligned**
@@ -528,7 +528,7 @@ hardened Linux system in 2026:
      - Image signing, provenance attestation
      - ``cosign``, ``in-toto``, ``trivy`` scanning
 
-9.8.6 The Path Forward: Continuous Compliance
+The Path Forward: Continuous Compliance
 ==============================================
 
 Hardening is not a one-time configuration. In 2026, leading organizations

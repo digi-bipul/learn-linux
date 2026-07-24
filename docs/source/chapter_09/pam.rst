@@ -1,7 +1,7 @@
 .. _sec9_2:
 
 ###########################################################
-9.2 Pluggable Authentication Modules (PAM)
+Pluggable Authentication Modules (PAM)
 ###########################################################
 
 Authentication on a Linux system is rarely a single operation. When a user
@@ -12,7 +12,7 @@ authentication logic from applications, allowing system administrators to
 configure password policies, biometric checks, hardware token verification,
 and account restrictions in a single, centralized stack.
 
-9.2.1 Architecture: The PAM Stack
+Architecture: The PAM Stack
 ==================================
 
 PAM follows a **library-based** architecture. Applications are compiled
@@ -64,7 +64,7 @@ Modern PAM also supports **control with value comparison**:
     auth    [success=ok new_authtok_reqd=ok ignore=ignore default=die] \
             pam_faillock.so
 
-9.2.2 Essential PAM Modules
+Essential PAM Modules
 =============================
 
 ``pam_unix.so``
@@ -169,7 +169,7 @@ User initializes with:
 This generates a QR code for the authenticator app and writes
 ``~/.google_authenticator``.
 
-9.2.3 Modern FIDO2 / WebAuthn PAM Integration
+Modern FIDO2 / WebAuthn PAM Integration
 ==============================================
 
 The passwordless future is here. In 2026, the **FIDO2/WebAuthn** standard
@@ -223,7 +223,7 @@ fingerprint readers, ``pam_fprintd.so`` integrates with ``fprintd`` and
 FIDO2 for biometric authentication. The ``libfprint`` project supports
 over 100 fingerprint readers.
 
-9.2.4 PAM and Containerized Environments
+PAM and Containerized Environments
 =========================================
 
 In container environments, PAM can be bypassed because ``systemd-logind``
@@ -236,7 +236,7 @@ consider:
   Kubernetes authentication (webhook tokens, OIDC) at the orchestration
   layer instead of container-level PAM.
 
-9.2.5 Debugging PAM
+Debugging PAM
 ====================
 
 PAM failures manifest as "Authentication failure" with no further detail.
@@ -256,7 +256,7 @@ without running the actual service:
 
     pamtester sshd alice authenticate
 
-9.2.6 PAM and Compliance (2026)
+PAM and Compliance (2026)
 ================================
 
 Enterprise compliance frameworks (PCI DSS v4.0, SOC 2, FedRAMP) require:

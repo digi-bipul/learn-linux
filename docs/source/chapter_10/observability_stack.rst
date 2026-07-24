@@ -1,7 +1,7 @@
 .. _ch10-observability-stack:
 
 ###########################################################
-10.8  The Modern Observability Stack
+The Modern Observability Stack
 ###########################################################
 
 .. epigraph::
@@ -19,7 +19,7 @@ The modern observability stack — Prometheus + Grafana + OpenTelemetry — has
 coalesced as the industry standard by 2026.
 
 ----------------------------------------------------------------------
-10.8.1  The Architectural Shift: Monoliths to Distributed Telemetry
+The Architectural Shift: Monoliths to Distributed Telemetry
 ----------------------------------------------------------------------
 
 **The legacy model (pre-2015):** Nagios, Zabbix — a single server polling via
@@ -34,7 +34,7 @@ SSH/SNMP every 5 minutes. Fixed schema. Did not scale beyond ~10k metrics.
   through a single SDK.
 
 ----------------------------------------------------------------------
-10.8.2  Prometheus: Metrics That Answer Questions
+Prometheus: Metrics That Answer Questions
 ----------------------------------------------------------------------
 
 **Data model:**
@@ -102,7 +102,7 @@ SSH/SNMP every 5 minutes. Fixed schema. Did not scale beyond ~10k metrics.
            expr: 1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes
 
 ----------------------------------------------------------------------
-10.8.3  Grafana: From Metrics to Meaning
+Grafana: From Metrics to Meaning
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -121,7 +121,7 @@ Errors. Annotate deployments via the HTTP API:
        -d '{"dashboardUID":"abc123","text":"Deploy v2.3.1","tags":["deploy"]}'
 
 ----------------------------------------------------------------------
-10.8.4  OpenTelemetry: The Unified Standard
+OpenTelemetry: The Unified Standard
 ----------------------------------------------------------------------
 
 **OpenTelemetry (OTel)** is the CNCF project that unified metrics, logs, and
@@ -165,7 +165,7 @@ shows the span tree → click a span → see the exact line of code and the
 metric at that moment.
 
 ----------------------------------------------------------------------
-10.8.5  The Complete Stack (Deploy in Under an Hour)
+The Complete Stack (Deploy in Under an Hour)
 ----------------------------------------------------------------------
 
 For a production-grade self-hosted stack:
@@ -197,7 +197,7 @@ For a production-grade self-hosted stack:
 +------------------+----------------+-------------------+------------------+
 
 ----------------------------------------------------------------------
-10.8.6  Alerting: When to Wake Someone
+Alerting: When to Wake Someone
 ----------------------------------------------------------------------
 
 **Alert on symptoms, not causes.** "HTTP 5xx > 1%" is a symptom. "CPU > 80%"
@@ -220,7 +220,7 @@ is a cause.
 ``perf`` command to run, which eBPF tool to invoke, and the mitigation steps.
 
 ----------------------------------------------------------------------
-10.8.7  Observability USE/RED Checklist
+Observability USE/RED Checklist
 ----------------------------------------------------------------------
 
 .. code-block:: console
@@ -243,7 +243,7 @@ is a cause.
    $ curl http://localhost:9093/api/v1/alerts
 
 ----------------------------------------------------------------------
-10.8.8  Summary
+Summary
 ----------------------------------------------------------------------
 
 +---------------------+--------------------------------------------------+

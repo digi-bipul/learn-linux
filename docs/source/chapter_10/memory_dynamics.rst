@@ -1,7 +1,7 @@
 .. _ch10-memory-dynamics:
 
 ###########################################################
-10.3  Memory Dynamics
+Memory Dynamics
 ###########################################################
 
 .. epigraph::
@@ -18,7 +18,7 @@ the Linux virtual memory subsystem, then apply modern tools to measure and
 control memory behaviour.
 
 ----------------------------------------------------------------------
-10.3.1  Virtual Memory and the Page Cache
+Virtual Memory and the Page Cache
 ----------------------------------------------------------------------
 
 **Virtual memory** gives every process its own linear address space,
@@ -61,7 +61,7 @@ The distinction between **Active** and **Inactive** is critical. Inactive
 pages are the first candidates for reclamation under memory pressure.
 
 ----------------------------------------------------------------------
-10.3.2  Translation Lookaside Buffers (TLB) and Huge Pages
+Translation Lookaside Buffers (TLB) and Huge Pages
 ----------------------------------------------------------------------
 
 **TLB** (Translation Lookaside Buffer) is a hardware cache of recent
@@ -98,7 +98,7 @@ which can cause latency spikes. For database workloads, disable THP and use
 A TLB miss rate > 1% usually means huge pages would improve performance.
 
 ----------------------------------------------------------------------
-10.3.3  NUMA Architectures and ``numactl``
+NUMA Architectures and ``numactl``
 ----------------------------------------------------------------------
 
 **NUMA** (Non-Uniform Memory Access) is the standard topology for multi-socket
@@ -148,7 +148,7 @@ overhead.
    $ numactl --physcpubind=0-7 --interleave=all my-application
 
 ----------------------------------------------------------------------
-10.3.4  Modern Memory Management: ``zram`` vs. Traditional Swapping
+Modern Memory Management: ``zram`` vs. Traditional Swapping
 ----------------------------------------------------------------------
 
 **Traditional swapping** writes pages to a block device. Even NVMe (50 µs) is
@@ -177,7 +177,7 @@ to disk, the kernel compresses infrequently used pages.
 +----------------------------+---------------------------+---------------------------+
 
 ----------------------------------------------------------------------
-10.3.5  From Kernel OOM Killer to ``systemd-oomd``
+From Kernel OOM Killer to ``systemd-oomd``
 ----------------------------------------------------------------------
 
 The **kernel OOM killer** fires when the system is critically low on memory.
@@ -214,7 +214,7 @@ memory pressure management via PSI (Pressure Stall Information).
    ``systemd-oomd`` enabled.
 
 ----------------------------------------------------------------------
-10.3.6  Memory USE Checklist
+Memory USE Checklist
 ----------------------------------------------------------------------
 
 .. code-block:: console

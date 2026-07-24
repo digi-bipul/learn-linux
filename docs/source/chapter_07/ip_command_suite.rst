@@ -1,7 +1,7 @@
 .. _sec-07-03:
 
 =======================================
-7.3 The ip Command Suite
+The ip Command Suite
 =======================================
 
 The ``ip`` command from the ``iproute2`` package is the modern, unified tool
@@ -17,7 +17,7 @@ manager; but that scenario is vanishingly rare.
 This section is organised by sub-command. Each corresponds to a distinct area
 of network management.
 
-7.3.1 ip addr — Interface Address Management
+ip addr — Interface Address Management
 =============================================
 
 The ``ip addr`` (short for ``ip address``) sub-command displays and configures
@@ -107,7 +107,7 @@ cannot display IPv6 addresses reliably, has no concept of CIDR notation, and
 does not support multiple addresses per interface with proper scope labels.
 ``ip addr`` is superior in every dimension.
 
-7.3.2 ip link — Interface Link-Layer Control
+ip link — Interface Link-Layer Control
 =============================================
 
 While ``ip addr`` manages Layer 3 (IP) configuration, ``ip link`` manages
@@ -147,7 +147,7 @@ addresses, set MTU, manage VLANs, and inspect link state.
 up (``UP`` is in the flag list but ``LOWER_UP`` is missing), the physical
 cable is disconnected — or the switch port is administratively disabled.
 
-7.3.3 ip route — Routing Table Management
+ip route — Routing Table Management
 ==========================================
 
 The routing table is the kernel's map for where to send packets. When a packet
@@ -167,7 +167,7 @@ needs to leave the host, the kernel:
 
     $ ip route show
     default via 10.0.2.1 dev eth0 proto dhcp src 10.0.2.15 metric 100
-    10.0.2.0/24 dev eth0 proto dhcp scope link src 10.0.2.15 metric 100
+/24 dev eth0 proto dhcp scope link src 10.0.2.15 metric 100
 
 Breaking this down:
 
@@ -222,7 +222,7 @@ Breaking this down:
 routing decision and shows you exactly which route the kernel would use — and
 which source IP it would choose — for a given destination.
 
-7.3.4 ip neigh — The Neighbour (ARP) Cache
+ip neigh — The Neighbour (ARP) Cache
 ============================================
 
 The neighbour table (historically called the ARP cache) maps IP addresses to
@@ -232,8 +232,8 @@ table.
 ::
 
     $ ip neigh show
-    10.0.2.1 dev eth0 lladdr 52:54:00:ab:cd:ef REACHABLE
-    10.0.2.2 dev eth0 lladdr 52:54:00:11:22:33 STALE
+dev eth0 lladdr 52:54:00:ab:cd:ef REACHABLE
+dev eth0 lladdr 52:54:00:11:22:33 STALE
 
 States you will encounter:
 
@@ -277,7 +277,7 @@ it
 is critical when you suspect Layer 2 issues — e.g., a device has changed its
 MAC address, or ARP spoofing is occurring.
 
-7.3.5 ss — The Modern Socket Statistics Tool
+ss — The Modern Socket Statistics Tool
 =============================================
 
 ``ss`` is the modern replacement for the legacy ``netstat``. It reads socket
@@ -340,7 +340,7 @@ The ``Recv-Q`` and ``Send-Q`` columns show the number of bytes queued for
 receiving or sending that have not yet been consumed by the application. Persistently non-zero values indicate a slow application or a full socket
 buffer.
 
-7.3.6 ip netns — Network Namespaces
+ip netns — Network Namespaces
 =====================================
 
 A brief mention, as this will be explored in later chapters: ``ip netns``
@@ -362,7 +362,7 @@ network namespaces.
 Network namespaces are fundamental to container networking (Docker, Podman,
 Kubernetes) and will be covered in depth in the chapter on virtualization.
 
-7.3.7 The Legacy Tools You Must Never Use
+The Legacy Tools You Must Never Use
 ==========================================
 
 .. list-table:: Replacement map

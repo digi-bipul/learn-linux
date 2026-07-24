@@ -1,7 +1,7 @@
 .. _ch10-tracing-ebpf:
 
 ###########################################################
-10.7  Tracing & eBPF (The 2026 Standard)
+Tracing & eBPF (The 2026 Standard)
 ###########################################################
 
 .. epigraph::
@@ -16,7 +16,7 @@ kernel with ``FTRACE``, running ``strace`` with all its overhead, or inserting
 in production with overhead measured in single-digit percentage points.
 
 ----------------------------------------------------------------------
-10.7.1  The Overhead Problem: Why ``strace`` is a Production Anti-Pattern
+The Overhead Problem: Why ``strace`` is a Production Anti-Pattern
 ----------------------------------------------------------------------
 
 ``strace`` uses ``ptrace()`` — every system call traps into the kernel twice.
@@ -31,7 +31,7 @@ Result: **10x to 100x slowdown** for syscall-heavy workloads.
 on event rate, not 50–90%.
 
 ----------------------------------------------------------------------
-10.7.2  eBPF Architecture — A Conceptual Overview
+eBPF Architecture — A Conceptual Overview
 ----------------------------------------------------------------------
 
 eBPF is an in-kernel virtual machine. An eBPF program:
@@ -59,7 +59,7 @@ eBPF is an in-kernel virtual machine. An eBPF program:
    +----------------------------------------------+
 
 ----------------------------------------------------------------------
-10.7.3  ``bpftrace`` — One-Liners for the Production SRE
+``bpftrace`` — One-Liners for the Production SRE
 ----------------------------------------------------------------------
 
 **Installation:**
@@ -116,7 +116,7 @@ eBPF is an in-kernel virtual machine. An eBPF program:
    when no tracepoint exists.
 
 ----------------------------------------------------------------------
-10.7.4  The ``bcc`` Toolkit (Brendan Gregg's Legacy)
+The ``bcc`` Toolkit (Brendan Gregg's Legacy)
 ----------------------------------------------------------------------
 
 **Installation:**
@@ -177,7 +177,7 @@ load average's single-number average.
    09:15:23 1234   nginx         4   10.0.0.1:443     10.0.0.2:34567  ESTAB
 
 ----------------------------------------------------------------------
-10.7.5  Continuous Profiling in Production
+Continuous Profiling in Production
 ----------------------------------------------------------------------
 
 Always-on low-overhead sampling of production code paths. Tools like **Parca**
@@ -198,7 +198,7 @@ and **Polar Signals** integrate with eBPF via ``perf``.
 - I/O tracing: 1–5%
 
 ----------------------------------------------------------------------
-10.7.6  When to Use Which Tool
+When to Use Which Tool
 ----------------------------------------------------------------------
 
 +----------------------+-----------------------------------+--------------------------+
@@ -221,7 +221,7 @@ and **Polar Signals** integrate with eBPF via ``perf``.
 +----------------------+-----------------------------------+--------------------------+
 
 ----------------------------------------------------------------------
-10.7.7  eBPF USE Checklist
+eBPF USE Checklist
 ----------------------------------------------------------------------
 
 .. code-block:: console

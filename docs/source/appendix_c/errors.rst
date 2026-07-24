@@ -1,11 +1,11 @@
 .. _app-c-errors:
 
 ------------------------------------------------------------------------------
-C.6  Common Error Messages & Solutions
+Common Error Messages & Solutions
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.6.1  Kernel & Boot Errors
+Kernel & Boot Errors
 
 .. list-table:: Kernel panic / boot error diagnosis
    :header-rows: 1
@@ -46,7 +46,7 @@ C.6.1  Kernel & Boot Errors
      - Reseat/data cable; check SATA controller; replace disk
 
 ------------------------------------------------------------------------------
-C.6.2  Service & Daemon Errors
+Service & Daemon Errors
 
 .. list-table:: Common service errors
    :header-rows: 1
@@ -87,7 +87,7 @@ C.6.2  Service & Daemon Errors
      - Verify IP with ``ip addr``; check ``bind`` directive in config
 
 ------------------------------------------------------------------------------
-C.6.3  Network Errors
+Network Errors
 
 .. list-table:: Network error messages
    :header-rows: 1
@@ -128,7 +128,7 @@ C.6.3  Network Errors
      - ``showmount -e <host>``; check server load; ``nfsstat``; look for packet loss
 
 ------------------------------------------------------------------------------
-C.6.4  Filesystem & Storage Errors
+Filesystem & Storage Errors
 
 .. list-table:: Storage error messages
    :header-rows: 1
@@ -160,7 +160,7 @@ C.6.4  Filesystem & Storage Errors
      - ``lsof /mountpoint``; ``fuser -m /mountpoint``; kill the process
 
 ------------------------------------------------------------------------------
-C.6.5  Package Manager Errors
+Package Manager Errors
 
 .. list-table:: Package management errors
    :header-rows: 1

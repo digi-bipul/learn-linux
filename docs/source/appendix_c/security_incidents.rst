@@ -1,11 +1,11 @@
 .. _app-c-security-incidents:
 
 ------------------------------------------------------------------------------
-C.9  Security Incident Response
+Security Incident Response
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.9.1  Common Attack Types & Defenses
+Common Attack Types & Defenses
 
 .. list-table:: Attack types and Linux-specific defenses
    :header-rows: 1
@@ -40,7 +40,7 @@ C.9.1  Common Attack Types & Defenses
      - Monitor CPU usage (``top``, ``htop``); unexpected external connections
 
 ------------------------------------------------------------------------------
-C.9.2  Intrusion Detection Tools
+Intrusion Detection Tools
 
 .. list-table:: Linux IDS/IPS tools
    :header-rows: 1
@@ -149,7 +149,7 @@ C.9.2  Intrusion Detection Tools
    # - Unnecessary services enabled
 
 ------------------------------------------------------------------------------
-C.9.3  Hardening Checklist
+Hardening Checklist
 
 .. rubric:: Quick hardening checklist (10-point rapid response)
 

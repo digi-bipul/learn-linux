@@ -1,8 +1,10 @@
+.. _high-availability:
+
 ============================================================
-12.2 High Availability (HA) & Load Balancing
+High Availability (HA) & Load Balancing
 ============================================================
 
-12.2.1 Defining High Availability
+Defining High Availability
 ====================================
 
 Availability is expressed as a percentage of uptime over a year:
@@ -22,7 +24,7 @@ Availability is expressed as a percentage of uptime over a year:
 Achieving four-nines or higher requires eliminating **single points of failure (SPOFs)**
 at every layer.
 
-12.2.2 Layer 4 vs Layer 7 High Availability
+Layer 4 vs Layer 7 High Availability
 =============================================
 
 Layer 4 (Transport Layer)
@@ -42,7 +44,7 @@ terminates TLS and proxies the request. Tools: HAProxy (HTTP mode), Envoy, NGINX
    a service as healthy even if the application returns HTTP 500s. Use layer-appropriate
    health checks (``option httpchk`` in HAProxy for HTTP services).
 
-12.2.3 VRRP with Keepalived (Floating IPs)
+VRRP with Keepalived (Floating IPs)
 ============================================
 
 Virtual Router Redundancy Protocol (VRRP) allows multiple physical servers to share a
@@ -66,7 +68,7 @@ Configuration Example (Master)
             auth_pass SuperSecret42
         }
         virtual_ipaddress {
-            192.168.1.100/24 dev eth0
+/24 dev eth0
         }
         track_script {
             chk_haproxy
@@ -91,7 +93,7 @@ Same file, with::
 
     systemctl enable --now keepalived
 
-12.2.4 HAProxy: The Industry Standard Reverse Proxy
+HAProxy: The Industry Standard Reverse Proxy
 =====================================================
 
 Global and Defaults
@@ -156,7 +158,7 @@ Modern Alternatives: Envoy Proxy
 the data plane for service meshes like Istio. It offers dynamic configuration via xDS
 APIs, making it superior for Kubernetes-native environments.
 
-12.2.5 Cluster Resource Management: Corosync + Pacemaker
+Cluster Resource Management: Corosync + Pacemaker
 ==========================================================
 
 The Stack
@@ -204,7 +206,7 @@ Installing and Configuring (RHEL 9 / Rocky 9)
     pcs cluster start --all
     pcs status
 
-12.2.6 STONITH: The Absolute Necessity
+STONITH: The Absolute Necessity
 ========================================
 
 STONITH stands for **Shoot The Other Node In The Head**. It is the mechanism by which
@@ -245,7 +247,7 @@ Configuring fence_ipmilan (BMC)
    **Test your STONITH configuration in a maintenance window.** Many operators
    configure fencing incorrectly and discover this only when a real failure occurs.
 
-12.2.7 Cluster Resources in Practice
+Cluster Resources in Practice
 ======================================
 
 Example: PostgreSQL HA with DRBD
@@ -262,7 +264,7 @@ Example: PostgreSQL HA with DRBD
     pcs constraint order promote pgsql-data-master then start pgsql-fs
     pcs constraint colocation add pgsql-fs with pgsql-data-master INFINITY
 
-12.2.8 Summary
+Summary
 ===============
 
 +---------------------+----------------------------------------------------+

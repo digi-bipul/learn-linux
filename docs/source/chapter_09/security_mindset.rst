@@ -1,7 +1,7 @@
 .. _sec9_1:
 
 #############################################
-9.1 The Security Mindset & the 2026 Landscape
+The Security Mindset & the 2026 Landscape
 #############################################
 
 Security is not a checklist; it is a *discipline*—a way of reasoning about
@@ -9,7 +9,7 @@ systems under adversarial conditions. Before we configure a single PAM module
 or SELinux boolean, we must establish the mental models that separate a
 genuinely hardened system from one that merely *appears* hardened.
 
-9.1.1 The Principle of Least Privilege
+The Principle of Least Privilege
 =======================================
 
 The Principle of Least Privilege (PoLP) states that every entity—user,
@@ -35,7 +35,7 @@ fork of HashiCorp Vault). A sysadmin authenticates with their hardware
 security key, is granted a 15-minute sudo window, and the credential expires
 automatically.
 
-9.1.2 Defense in Depth (DiD)
+Defense in Depth (DiD)
 =============================
 
 Defense in Depth acknowledges that any single security layer will eventually
@@ -64,7 +64,7 @@ isolated by eBPF policies. If an attacker compromises the application, SELinux
 prevents reading the transaction database; if they escape SELinux, the audit
 trail catches their lateral movement.
 
-9.1.3 Attack Surface Reduction
+Attack Surface Reduction
 ===============================
 
 Attack surface is the sum of all reachable, exploitable code paths in a
@@ -88,7 +88,7 @@ application binary and its runtime dependencies—no shell, no package manager,
 no compilers. This reduces the CVE surface by 80-90% compared to a standard
 Ubuntu or RHEL base image.
 
-9.1.4 Threat Modeling for Linux Systems
+Threat Modeling for Linux Systems
 =========================================
 
 A threat model answers four questions:
@@ -120,7 +120,7 @@ Linux controls:
 | Elevation of Privilege  | SELinux/AppArmor, ``NoNewPrivileges``      |
 +-------------------------+--------------------------------------------+
 
-9.1.5 Zero Trust Architecture (ZTA) — 2026 Standard
+Zero Trust Architecture (ZTA) — 2026 Standard
 ====================================================
 
 The traditional perimeter-based security model ("trust the internal network")
@@ -150,7 +150,7 @@ workload that attempts to read ``/etc/shadow`` without a valid SPIFFE
 identity is immediately blocked by the eBPF policy and flagged to the
 Security Operations Center (SOC).
 
-9.1.6 Software Supply Chain Security (SLSA)
+Software Supply Chain Security (SLSA)
 ============================================
 
 The 2020 SolarWinds breach and the 2024 XZ Utils backdoor (CVE-2024-3094)
@@ -184,7 +184,7 @@ for nation-states. In response, the industry has converged on the
 - For RPM-based systems: ``rpm -K package.rpm`` validates the GPG signature
   against the imported RPM-GPG key.
 
-9.1.7 Preparing for Post-Quantum Cryptography (PQC)
+Preparing for Post-Quantum Cryptography (PQC)
 =====================================================
 
 By 2026, the U.S. National Institute of Standards and Technology (NIST) has
@@ -213,7 +213,7 @@ will break RSA-2048 and ECDSA-256.
 2023), Cloudflare (Kyber on all edge), Amazon (AWS KMS hybrid PQ), and the
 NSA (announced CNSA 2.0 requiring PQ algorithms by 2028).
 
-9.1.8 Real-World Application: Nation-State Threat Profiles
+Real-World Application: Nation-State Threat Profiles
 ===========================================================
 
 Different adversaries target Linux systems in different ways. Understanding

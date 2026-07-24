@@ -1,7 +1,7 @@
 .. _sec-07-08:
 
 =======================================
-7.8 SSH Mastery
+SSH Mastery
 =======================================
 
 The Secure Shell (SSH) protocol is the Swiss Army knife of remote
@@ -15,7 +15,7 @@ modern cryptographic recommendations), agent forwarding, the three types of
 tunnels, server hardening, and the lesser-known DNS-based SSH fingerprint
 verification (SSHFP).
 
-7.8.1 SSH Architecture Overview
+SSH Architecture Overview
 ================================
 
 SSH follows a client-server model:
@@ -35,7 +35,7 @@ The protocol has three layers:
 3. **Connection Layer:** Multiplexes multiple logical channels (shell sessions,
    file transfers, forwarded ports) over the single encrypted connection.
 
-7.8.2 Key-Based Authentication
+Key-Based Authentication
 ===============================
 
 Password authentication over SSH is vulnerable to brute-force attacks and is
@@ -125,7 +125,7 @@ Common key options:
 | ``restrict``         | Enable all restrictions at once (OpenSSH 6.2+).      |
 +----------------------+------------------------------------------------------+
 
-7.8.3 SSH Agent and Agent Forwarding
+SSH Agent and Agent Forwarding
 =====================================
 
 The **SSH agent** is a background process that holds your decrypted private
@@ -186,7 +186,7 @@ agent socket to authenticate to any host your keys grant access to —
 * Consider using **SSH proxy jump** (``-J``) instead of forwarding when
   possible (see Section 7.8.5).
 
-7.8.4 SSH Tunnels (Port Forwarding)
+SSH Tunnels (Port Forwarding)
 =====================================
 
 SSH tunnels allow you to route TCP traffic through an encrypted SSH
@@ -264,7 +264,7 @@ ProxyJump establishes a separate SSH connection to each hop, forwarding the
 final SSH connection through them. Unlike agent forwarding, it does not expose
 your agent to intermediate hosts.
 
-7.8.5 Hardening sshd_config
+Hardening sshd_config
 ============================
 
 The SSH server's configuration file is ``/etc/ssh/sshd_config``. The
@@ -356,7 +356,7 @@ provides no real security — any targeted attacker will find your SSH port with
 a simple port scan. It is acceptable as a minor inconvenience to attackers, but
 never rely on it as a security measure.
 
-7.8.6 SSHFP Records — SSH Fingerprint Verification via DNS
+SSHFP Records — SSH Fingerprint Verification via DNS
 ===========================================================
 
 **SSHFP (SSH Fingerprint)** resource records allow a DNS zone to publish the
@@ -403,7 +403,7 @@ key. If no SSHFP record exists, it falls back to the manual prompt.
 With ``VerifyHostKeyDNS confirm``, the client will accept if DNSSEC-validated;
 otherwise it prompts you to confirm.
 
-7.8.7 Practical SSH Config File
+Practical SSH Config File
 ================================
 
 The ``~/.ssh/config`` file can save enormous time and avoid repetitive typing. Here is a practical example:
@@ -440,7 +440,7 @@ Now you can type ``ssh bastion`` instead of ``ssh admin@bastion.example.com``,
 and ``ssh internal-db`` automatically tunnels through the bastion and forwards
 the database port.
 
-7.8.8 Common SSH Troubleshooting
+Common SSH Troubleshooting
 =================================
 
 .. list-table::

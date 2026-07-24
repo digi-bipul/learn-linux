@@ -1,14 +1,16 @@
+.. _conditionals:
+
 .. highlight:: bash
 
 ================================
-8.3 — Conditionals
+— Conditionals
 ================================
 
 Conditionals allow a script to make decisions based on the state of the system,
 the value of a variable, or the outcome of a command.
 
 --------------------------------
-8.3.1 The ``if`` Statement — Fundamentals
+The ``if`` Statement — Fundamentals
 --------------------------------
 
 .. code-block:: bash
@@ -35,7 +37,7 @@ boolean expression.  Exit code 0 = "true" (success); non-zero = "false".
    cd /some/directory || { echo "cd failed"; exit 1; }
 
 --------------------------------
-8.3.2 The ``test`` Command: ``[ ]`` vs ``[[ ]]``
+The ``test`` Command: ``[ ]`` vs ``[[ ]]``
 --------------------------------
 
 **``[ ]`` — POSIX test**: A command (``/usr/bin/[`` exists).  The closing
@@ -66,7 +68,7 @@ special parsing treatment.
 when you need strict POSIX compatibility (``/bin/sh``).
 
 --------------------------------
-8.3.3 File Test Operators
+File Test Operators
 --------------------------------
 
 +----------+--------------------------------------------+
@@ -85,7 +87,7 @@ when you need strict POSIX compatibility (``/bin/sh``).
 +----------+--------------------------------------------+
 
 --------------------------------
-8.3.4 String Tests
+String Tests
 --------------------------------
 
 +----------+--------------------------------------------+
@@ -100,7 +102,7 @@ when you need strict POSIX compatibility (``/bin/sh``).
 +----------+--------------------------------------------+
 
 --------------------------------
-8.3.5 Arithmetic Tests
+Arithmetic Tests
 --------------------------------
 
 .. code-block:: bash
@@ -115,7 +117,7 @@ when you need strict POSIX compatibility (``/bin/sh``).
    if [ "$count" -gt 10 ]; then ...
 
 --------------------------------
-8.3.6 The ``case`` Statement
+The ``case`` Statement
 --------------------------------
 
 .. code-block:: bash
@@ -134,7 +136,7 @@ when you need strict POSIX compatibility (``/bin/sh``).
    esac
 
 --------------------------------
-8.3.7 What NOT to Do — Conditional Pitfalls
+What NOT to Do — Conditional Pitfalls
 --------------------------------
 
 **Antipattern 1:** Using ``>`` inside ``[ ]`` for string comparison
@@ -150,7 +152,7 @@ Fragile — the exit code can be overwritten.  Test the command directly.
 Fails on systems where ``/bin/sh`` is dash.  Use ``[ ]`` for portability.
 
 --------------------------------
-8.3.8 Summary
+Summary
 --------------------------------
 
 +------------------+-------------------------------------------------------+

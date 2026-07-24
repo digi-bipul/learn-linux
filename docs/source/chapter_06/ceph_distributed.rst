@@ -1,6 +1,6 @@
 .. _ceph-distributed:
 
-6.8 Distributed & Network Storage (Ceph & NVMe-oF)
+Distributed & Network Storage (Ceph & NVMe-oF)
 ====================================================
 
 Individual server storage hits physical limits — chassis bays, power
@@ -12,7 +12,7 @@ This section introduces the dominant
 open-source distributed storage platform (Ceph) and the network
 transport revolution (NVMe-oF) that is reshaping enterprise SAN
 architectures.
-6.8.1 Ceph Architecture
+Ceph Architecture
 ------------------------
 
 Ceph is a unified, software-defined storage system providing object,
@@ -107,7 +107,7 @@ plus ``m`` coding chunks (parity), tolerating any ``m`` failures
 while consuming ``(k+m)/k`` × the original space — far more
 efficient than full replication at the cost of CPU overhead and
 higher latency.
-6.8.2 The Shift from iSCSI to NVMe-oF
+The Shift from iSCSI to NVMe-oF
 ---------------------------------------
 
 **Legacy iSCSI** encapsulates SCSI commands within TCP/IP, enabling
@@ -172,7 +172,7 @@ On the initiator side, ``nvme connect`` discovers and attaches:
 
 The remote namespace appears as a local ``/dev/nvmeXnY`` device,
 usable identically to a physically attached NVMe drive.
-6.8.3 Converged Architecture: Ceph + NVMe
+Converged Architecture: Ceph + NVMe
 -----------------------------------------
 
 A modern data centre storage design might combine:

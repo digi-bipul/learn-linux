@@ -1,6 +1,6 @@
 .. _mounting-fstab:
 
-6.3 Mounting & ``/etc/fstab``
+Mounting & ``/etc/fstab``
 ==============================
 
 Mounting is the act of attaching a filesystem into the kernel's
@@ -8,7 +8,7 @@ unified VFS (Virtual Filesystem Switch) directory tree.
 Without
 mounting, a filesystem exists as inert data on a block device; after
 mounting, its contents appear seamlessly at a directory path.
-6.3.1 The ``mount`` Command
+The ``mount`` Command
 ----------------------------
 
 The most common invocation:
@@ -92,7 +92,7 @@ into namespaces.
 
 This is the standard way to put the root filesystem into read-only
 mode for maintenance.
-6.3.2 ``umount`` — Detaching Filesystems
+``umount`` — Detaching Filesystems
 -----------------------------------------
 
 .. code-block:: bash
@@ -111,7 +111,7 @@ If ``umount`` reports
    fuser -vm /mnt/data            # list processes accessing the mount
    fuser -km /mnt/data            # kill all processes accessing (dangerous!)
 
-6.3.3 ``/etc/fstab`` — The Filesystem Table
+``/etc/fstab`` — The Filesystem Table
 --------------------------------------------
 
 The file ``/etc/fstab`` is read by ``mount -a`` (and by systemd at
@@ -164,7 +164,7 @@ If the command returns silently,
    the syntax is valid and all devices were found.
 Then run
    ``findmnt --verify`` for a comprehensive consistency check.
-6.3.4 Systemd Mount Units
+Systemd Mount Units
 --------------------------
 
 Systemd can manage mounts natively through **mount units**. When

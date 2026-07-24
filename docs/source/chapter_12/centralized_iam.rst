@@ -1,8 +1,10 @@
+.. _centralized-iam:
+
 ============================================================
-12.1 Centralised Identity & Access (IAM)
+Centralised Identity & Access (IAM)
 ============================================================
 
-12.1.1 Why Centralised Identity Matters
+Why Centralised Identity Matters
 =========================================
 
 In a fleet of one server, local ``/etc/passwd`` and ``/etc/shadow`` are sufficient.
@@ -22,7 +24,7 @@ The modern enterprise bridges both. A Linux server must authenticate an engineer
 their corporate SSO (OIDC) and then map that identity to a local POSIX user with specific
 filesystem permissions and an SELinux context.
 
-12.1.2 Lightweight Directory Access Protocol (LDAP)
+Lightweight Directory Access Protocol (LDAP)
 =====================================================
 
 LDAP is the backbone of almost every enterprise directory, including Microsoft Active
@@ -94,7 +96,7 @@ Load with:
 
     ldapadd -x -D "cn=admin,dc=example,dc=com" -W -f add_user.ldif
 
-12.1.3 Kerberos: Trusted Authentication
+Kerberos: Trusted Authentication
 =========================================
 
 LDAP stores *who you are* and *what groups you belong to*, but it transmits passwords
@@ -134,7 +136,7 @@ Add a principal (user):
 
     kadmin.local -q "addprinc alice"
 
-12.1.4 FreeIPA: The Integrated Identity Platform
+FreeIPA: The Integrated Identity Platform
 ==================================================
 
 FreeIPA (Free Identity, Policy, and Audit) bundles:
@@ -159,7 +161,7 @@ Deploying FreeIPA Server
     ipa user-add alice --first=Alice --last=Smith --password
     ipa host-add web01.example.com
 
-12.1.5 SSSD: Client-Side Identity Caching
+SSSD: Client-Side Identity Caching
 ==========================================
 
 **System Security Services Daemon (SSSD)** is the modern bridge between a Linux machine
@@ -200,7 +202,7 @@ Configuring SSSD for FreeIPA
    Never set ``enumerate = True`` on a domain with more than 1,000 users. Enumeration
    causes every client to download the entire user list, flooding the LDAP server.
 
-12.1.6 Modern IAM Bridging: PAM + OIDC with Keycloak and Dex
+Modern IAM Bridging: PAM + OIDC with Keycloak and Dex
 ==============================================================
 
 The **key problem**: Linux PAM understands POSIX identities and passwords, not OIDC tokens.
@@ -284,7 +286,7 @@ Dex Configuration
       name: 'Linux SSH Bridge'
       secret: $SSH_BRIDGE_SECRET
 
-12.1.7 Summary
+Summary
 ===============
 
 +-------------------+--------------------------------------------------+

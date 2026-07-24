@@ -1,11 +1,11 @@
 .. _app-b-container:
 
 ------------------------------------------------------------------------------
-B.9  Containers (Docker, Podman, LXC)
+Containers (Docker, Podman, LXC)
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-B.9.1  Docker
+Docker
 ------------------------------------------------------------------------------
 
 .. rubric:: Image Management
@@ -151,7 +151,7 @@ B.9.1  Docker
    docker compose exec web bash  # Shell into service
 
 ------------------------------------------------------------------------------
-B.9.2  Podman
+Podman
 ------------------------------------------------------------------------------
 
 Podman is a daemonless container engine, largely Docker-compatible. Commands
@@ -201,7 +201,7 @@ same CLI syntax.
    alias docker=podman
 
 ------------------------------------------------------------------------------
-B.9.3  LXC / LXD
+LXC / LXD
 ------------------------------------------------------------------------------
 
 LXC (Linux Containers) provides system containers that behave like lightweight

@@ -482,7 +482,7 @@ prints the result.  We will explore shell variables in depth later.
 
    # What kernel version?
    $ uname -r
-   6.1.0-25-amd64
+-25-amd64
 
    # All kernel details:
    $ uname -a

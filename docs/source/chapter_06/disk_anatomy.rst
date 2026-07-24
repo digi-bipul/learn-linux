@@ -1,6 +1,6 @@
 .. _disk-anatomy:
 
-6.1 Disk Anatomy & Hardware Interfaces
+Disk Anatomy & Hardware Interfaces
 =======================================
 
 Before a single byte of data can be stored, the kernel must discover,
@@ -8,7 +8,7 @@ identify, and partition the physical medium.
 This section dissects
 the hardware and low-level software abstractions that make that
 possible.
-6.1.1 Physical Media: HDD vs. SSD
+Physical Media: HDD vs. SSD
 ----------------------------------
 
 **Rotational Hard Disk Drives (HDDs)** store data on magnetised
@@ -36,7 +36,7 @@ cells must be erased in large blocks before they can be rewritten, so
 the drive's internal Flash Translation Layer (FTL) remaps logical
 blocks to physical pages, often writing extra data to consolidate
 free space (garbage collection).
-6.1.2 Partition Tables: MBR vs. GPT
+Partition Tables: MBR vs. GPT
 -------------------------------------
 
 A **partition table** carves a block device into disjoint regions.
@@ -88,7 +88,7 @@ Each entry holds a partition type GUID
   - **Penultimate LBAs**: Backup partition entry array.
 GPT is the default for modern systems and is required for booting
   in native UEFI mode.
-6.1.3 Partitioning Tools: ``fdisk``, ``gdisk``, ``parted``
+Partitioning Tools: ``fdisk``, ``gdisk``, ``parted``
 -----------------------------------------------------------
 
 ``fdisk``
@@ -151,7 +151,7 @@ The sub-commands mirror ``fdisk`` (``n``, ``d``, ``p``,
   specifications (``s`` for sectors, ``B``, ``KiB``, ``MiB``,
   ``GiB``, ``%`` for percentage of device) and alignment control
   (``align-check optimal 1``).
-6.1.4 Querying Block Devices: ``lsblk`` and ``blkid``
+Querying Block Devices: ``lsblk`` and ``blkid``
 ------------------------------------------------------
 
 ``lsblk`` (list block devices) prints a tree of block devices and
@@ -186,7 +186,7 @@ filesystem type, and PARTUUID:
    configurations rather than ``/dev/sdX`` nodes, because the kernel
    assigns ``sdX`` names in discovery order, which can change across
    reboots or when disks are added or removed.
-6.1.5 Interface Architectures: SATA/SAS vs. NVMe
+Interface Architectures: SATA/SAS vs. NVMe
 -------------------------------------------------
 
 **SATA (Serial ATA)** is the legacy consumer/prosumer interface.

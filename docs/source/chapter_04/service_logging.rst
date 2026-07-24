@@ -1,6 +1,6 @@
 .. _section-4-7:
 
-4.7 Service Logging: journalctl & the Syslog Model
+Service Logging: journalctl & the Syslog Model
 ==================================================
 
 .. rst-class:: lead
@@ -12,7 +12,7 @@
    indexed) and the **traditional syslog** model (plain text, file-based,
    human-readable with standard Unix tools).
 
-4.7.1 The Two Worlds of Linux Logging
+The Two Worlds of Linux Logging
 ========================================
 
 On a systemd-based distribution (Debian, Ubuntu, RHEL, Fedora, Arch), you
@@ -40,7 +40,7 @@ or ``rsyslogd`` writing directly to ``/var/log/messages``.
                        └─→ /run/systemd/journal/
                            (socket → rsyslogd → /var/log/syslog)
 
-4.7.2 The Traditional Syslog Model
+The Traditional Syslog Model
 =====================================
 
 The syslog system was standardised in **RFC 5424** (2009, superseding RFC
@@ -148,7 +148,7 @@ typically run daily via cron:
        endscript
    }
 
-4.7.3 The systemd Journal — ``journalctl``
+The systemd Journal — ``journalctl``
 =============================================
 
 The systemd journal is a **binary, structured, indexed** log storage system.
@@ -164,7 +164,7 @@ It offers several advantages over plain-text syslog:
 * **Forward-secure sealing**: Cryptographic sealing (if enabled) detects
   log tampering.
 
-4.7.3.1 ``journalctl`` — Querying the Journal
+``journalctl`` — Querying the Journal
 
 .. code-block:: console
    :caption: Essential ``journalctl`` commands
@@ -202,7 +202,7 @@ It offers several advantages over plain-text syslog:
    -1 e5f6a7b8...  Tue 2026-07-14 09:00:00 UTC—Tue 2026-07-14 22:00:00 UTC
     0 c9d0e1f2...  Wed 2026-07-15 06:00:00 UTC—Wed 2026-07-15 12:30:00 UTC
 
-4.7.3.2 Filtering by Time
+Filtering by Time
 
 .. code-block:: console
    :caption: Time-based filtering
@@ -224,7 +224,7 @@ It offers several advantages over plain-text syslog:
    $ journalctl --since "2 days ago"
    $ journalctl --since "last week"
 
-4.7.3.3 Filtering by Priority
+Filtering by Priority
 
 .. code-block:: console
 
@@ -238,7 +238,7 @@ It offers several advantages over plain-text syslog:
    # Combine with service filter
    $ journalctl -u nginx.service -p err --since "1 hour ago"
 
-4.7.3.4 Output Format Control
+Output Format Control
 
 .. code-block:: console
 
@@ -259,7 +259,7 @@ It offers several advantages over plain-text syslog:
    # Export format (for transfer between systems)
    $ journalctl -o export
 
-4.7.3.5 Metadata Field Filtering
+Metadata Field Filtering
 
 The journal records dozens of metadata fields. You can filter on any of
 them:
@@ -293,7 +293,7 @@ them:
    # Show only messages with a specific message ID
    $ journalctl MESSAGE_ID=9f9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c
 
-4.7.3.6 Journal Maintenance
+Journal Maintenance
 
 .. code-block:: console
 
@@ -342,7 +342,7 @@ The configuration is in ``/etc/systemd/journald.conf``:
    MaxRetentionSec=1month   # Maximum age for entries
    ForwardToSyslog=yes      # Forward entries to the traditional syslog daemon
 
-4.7.4 Structured Logging with ``journalctl`` — A Practical Example
+Structured Logging with ``journalctl`` — A Practical Example
 =====================================================================
 
 Let us trace a real diagnostic workflow:
@@ -372,7 +372,7 @@ Let us trace a real diagnostic workflow:
    $ journalctl -u nginx.service --since "2026-07-15 12:00" \
      --until "2026-07-15 12:05" -o json > nginx-crash.json
 
-4.7.5 ``journalctl`` vs. ``tail -f /var/log/syslog`` — When to Use Which
+``journalctl`` vs. ``tail -f /var/log/syslog`` — When to Use Which
 ===========================================================================
 
 .. table:: Comparison
@@ -407,7 +407,7 @@ Let us trace a real diagnostic workflow:
    |                           |                                | or any system with syslog.     |
    +---------------------------+--------------------------------+--------------------------------+
 
-4.7.6 The ``dmesg`` Kernel Ring Buffer
+The ``dmesg`` Kernel Ring Buffer
 =========================================
 
 The kernel maintains a **ring buffer** of boot and runtime messages. On
@@ -431,7 +431,7 @@ systemd systems, these are available via both ``dmesg(1)`` and
    # Via journalctl
    $ journalctl -k --since "10 min ago"
 
-4.7.7 Summary
+Summary
 ==============
 
 * The **traditional syslog model** stores plain-text log files in

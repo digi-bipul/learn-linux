@@ -1,7 +1,9 @@
+.. _variables-data-types:
+
 .. highlight:: bash
 
 ========================================
-8.2 — Variables & Data Types
+— Variables & Data Types
 ========================================
 
 Variables are the memory of a script.  They store strings, numbers, lists, and
@@ -10,7 +12,7 @@ quirks around typing, quoting, and expansion — is essential for writing
 correct scripts.
 
 --------------------------------
-8.2.1 Variable Assignment and Naming
+Variable Assignment and Naming
 --------------------------------
 
 **Assignment syntax — NO spaces around ``=``:**
@@ -47,7 +49,7 @@ correct scripts.
    name=             # Same as name=""
 
 --------------------------------
-8.2.2 Strings
+Strings
 --------------------------------
 
 Everything in bash is ultimately a string.
@@ -78,7 +80,7 @@ and ``"`` have special meaning.
    read first last <<< "John Smith"
 
 --------------------------------
-8.2.3 Integers and Arithmetic
+Integers and Arithmetic
 --------------------------------
 
 Bash has built-in arithmetic using ``$(( ... ))``:
@@ -104,7 +106,7 @@ Bash has built-in arithmetic using ``$(( ... ))``:
    if ((a > b)); then echo "a is greater"; fi
 
 --------------------------------
-8.2.4 Arrays
+Arrays
 --------------------------------
 
 **Indexed arrays:**
@@ -131,7 +133,7 @@ Parsing ``ls`` breaks when filenames contain spaces or special characters.
 Use native globbing instead.
 
 --------------------------------
-8.2.5 Parameter Expansion — The ``${}`` Toolbox
+Parameter Expansion — The ``${}`` Toolbox
 --------------------------------
 
 **Default values:**
@@ -163,7 +165,7 @@ Use native globbing instead.
 +-----------------------------------+----------------------------------------------+
 
 --------------------------------
-8.2.6 Strict Quoting Rules
+Strict Quoting Rules
 --------------------------------
 
 **The golden rule: Always double-quote variable expansions.**
@@ -195,7 +197,7 @@ Always use ``"$@"``.  ``"$*"`` concatenates all arguments into a single word.
 Unquoted ``$@`` and ``$*`` destroy argument boundaries via word splitting.
 
 --------------------------------
-8.2.7 What NOT to Do — Variable & Quoting Pitfalls
+What NOT to Do — Variable & Quoting Pitfalls
 --------------------------------
 
 **Antipattern 1:** Unquoted variables in test expressions
@@ -210,7 +212,7 @@ Use lowercase for script-internal variables.
 ``echo "$arr"`` prints only the first element.  Use ``"${arr[@]}"``.
 
 --------------------------------
-8.2.8 Summary
+Summary
 --------------------------------
 
 +------------------+-------------------------------------------------------+

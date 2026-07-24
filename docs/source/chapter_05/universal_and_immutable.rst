@@ -1,6 +1,6 @@
 .. _section-5-7:
 
-5.7 Universal Formats & Immutable Systems
+Universal Formats & Immutable Systems
 ==================================================
 
 .. rst-class:: lead
@@ -24,7 +24,7 @@ stateful package management — and both are shaping the future of Linux
 deployment.
 
 ------------------------------------------------
-5.7.1 Universal Package Formats
+Universal Package Formats
 ------------------------------------------------
 
 The problem: A binary compiled for Ubuntu's glibc 2.35 will not run on
@@ -33,7 +33,7 @@ Different distributions ship different library versions, different init
 systems, and different filesystem layouts.
 Three projects have emerged to solve this, each with a different approach.
 
-5.7.1.1 Flatpak
+Flatpak
 ^^^^^^^^^^^^^^^^^^
 
 **Flatpak** (formerly xdg-app) focuses on **desktop applications** and is
@@ -91,7 +91,7 @@ Permissions are explicit:
    $ flatpak override --user --filesystem=home org.gimp.GIMP
    $ flatpak override --user --socket=network org.gimp.GIMP
 
-5.7.1.2 Snap
+Snap
 ^^^^^^^^^^^^^^
 
 **Snap** (developed by Canonical, the company behind Ubuntu) is a more
@@ -192,7 +192,7 @@ Flatpak vs. Snap vs. AppImage
      - Slower (mount + AppArmor setup)
      - Instant (direct execution)
 
-5.7.1.3 AppImage
+AppImage
 ^^^^^^^^^^^^^^^^^^
 
 **AppImage** takes the simplest possible approach: a single executable
@@ -226,7 +226,7 @@ The trade-off is size — each AppImage bundles its own libraries, so a
 simple text editor may be 50 MB+ — and the lack of automatic updates.
 
 ------------------------------------------------
-5.7.2 Immutable (Atomic) Operating Systems
+Immutable (Atomic) Operating Systems
 ------------------------------------------------
 
 An **immutable operating system** is one where the root filesystem is
@@ -235,7 +235,7 @@ System updates are not applied by mutating ``/usr/bin`` and ``/usr/lib``
 in place, but by swapping the entire root filesystem image — atomically
 and with the ability to roll back.
 
-5.7.2.1 OSTree: The Foundation
+OSTree: The Foundation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **OSTree** (formerly "git for operating system binaries") is the
@@ -274,7 +274,7 @@ OSTree is not a package manager — it is a **versioned filesystem manager**
 that can be used with any package manager (``rpm``, ``dnf``, ``apt``)
 to compose images.
 
-5.7.2.2 Fedora Silverblue: The Desktop Immutable OS
+Fedora Silverblue: The Desktop Immutable OS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Fedora Silverblue** is a desktop variant of Fedora Workstation that
@@ -309,7 +309,7 @@ The **toolbox** model is key: instead of polluting the host OS with
 development libraries, you work inside a container that shares your home
 directory and can be discarded and recreated at any time.
 
-5.7.2.3 Fedora CoreOS: Immutable for Servers
+Fedora CoreOS: Immutable for Servers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Fedora CoreOS** (FCOS) is the server/cloud version of Silverblue.
@@ -340,7 +340,7 @@ The FCOS update model::
    # Rollback at next boot
    $ sudo rpm-ostree rollback
 
-5.7.2.4 Other Immutable Distributions
+Other Immutable Distributions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * **Vanilla OS** — An immutable Ubuntu derivative using OSTree.
@@ -354,7 +354,7 @@ The FCOS update model::
   read-only rootfs, updated by replacing the APK overlay.
 
 ------------------------------------------------
-5.7.3 The Immutable OS: Trade-Offs and Philosophy
+The Immutable OS: Trade-Offs and Philosophy
 ------------------------------------------------
 
 .. list-table:: Traditional vs. Immutable OS
@@ -408,7 +408,7 @@ The FCOS update model::
   containers.**
 
 ------------------------------------------------
-5.7.4 Summary: The Evolution of Package Management
+Summary: The Evolution of Package Management
 ------------------------------------------------
 
 This chapter has traced package management from its simplest form —

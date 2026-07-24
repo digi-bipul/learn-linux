@@ -1,6 +1,6 @@
 .. _section-4-5:
 
-4.5 Writing systemd Unit Files
+Writing systemd Unit Files
 ==================================================
 
 .. rst-class:: lead
@@ -12,7 +12,7 @@
    enforce. This section builds a complete custom service unit file
    line-by-line, explaining every directive.
 
-4.5.1 Unit File Anatomy
+Unit File Anatomy
 ==========================
 
 A systemd unit file is divided into sections, each prefixed with
@@ -27,14 +27,14 @@ A systemd unit file is divided into sections, each prefixed with
 Other sections exist for other unit types:
 ``[Socket]``, ``[Timer]``, ``[Mount]``, ``[Path]``, etc.
 
-4.5.2 Building a Custom Service: ``myapp.service``
+Building a Custom Service: ``myapp.service``
 ======================================================
 
 We will create a unit file for a hypothetical Python web application called
 ``myapp``. The application runs as a daemon, writes logs to a dedicated
 directory, and should be automatically restarted on failure.
 
-4.5.2.1 The ``[Unit]`` Section
+The ``[Unit]`` Section
 
 .. code-block:: ini
    :caption: ``[Unit]`` section — metadata and dependencies
@@ -111,7 +111,7 @@ Additional common ``[Unit]`` directives:
      - Set to ``no`` for low-level services that should not pull in
        ``basic.target`` (e.g., early boot services).
 
-4.5.2.2 The ``[Service]`` Section
+The ``[Service]`` Section
 
 .. code-block:: ini
    :caption: ``[Service]`` section — execution and lifecycle
@@ -304,7 +304,7 @@ correct way to pass configuration to services (not shell scripts that
    ``StartLimitBurst``), will stop attempting to restart. The service enters
    the ``failed`` state. Check ``systemctl status`` for "start-limit-hit".
 
-4.5.2.3 The ``[Install]`` Section
+The ``[Install]`` Section
 
 .. code-block:: ini
    :caption: ``[Install]`` section — enabling the service
@@ -343,7 +343,7 @@ semantics (stricter).
    * - ``Alias=``
      - Alternative names for the unit (e.g., ``Alias=dbus.service``).
 
-4.5.3 Complete Example: ``myapp.service``
+Complete Example: ``myapp.service``
 ===========================================
 
 Putting it all together:
@@ -418,7 +418,7 @@ Putting it all together:
         Active: active (running) since Wed 2026-07-15 12:30:00 UTC; 5min ago
         ...
 
-4.5.4 Security Hardening Directives
+Security Hardening Directives
 ======================================
 
 systemd provides a comprehensive set of security directives that restrict
@@ -534,9 +534,9 @@ scripts. These are configured in the ``[Service]`` section.
 
    The output scores each security directive and provides a
    "security exposure level" rating from 0.0 (most secure) to
-   10.0 (least secure).
+(least secure).
 
-4.5.5 Unit File Templates (Instantiated Units)
+Unit File Templates (Instantiated Units)
 =================================================
 
 systemd supports **template unit files** using the ``@`` character. A
@@ -603,7 +603,7 @@ to ``instance1``.
    | ``%E``  | Temporary directory root (``/var/tmp``)                     |
    +---------+------------------------------------------------------------+
 
-4.5.6 Drop-In Overrides and Customisations
+Drop-In Overrides and Customisations
 =============================================
 
 The recommended way to customise a distribution-provided unit file (e.g.,
@@ -663,7 +663,7 @@ Add only the directives you wish to override:
    # systemctl show nginx -p Restart
    Restart=always
 
-4.5.7 Summary
+Summary
 ==============
 
 * Unit files have ``[Unit]`` (metadata/dependencies), ``[Service]``

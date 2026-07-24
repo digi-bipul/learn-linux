@@ -1,11 +1,11 @@
 .. _app-b-cron:
 
 ------------------------------------------------------------------------------
-B.7  Scheduling (cron, systemd timers, at/batch)
+Scheduling (cron, systemd timers, at/batch)
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-B.7.1  Cron
+Cron
 ------------------------------------------------------------------------------
 
 .. rubric:: Crontab format
@@ -96,7 +96,7 @@ B.7.1  Cron
    0 3 * * 0 /usr/local/bin/weekly_maintenance.sh
 
 ------------------------------------------------------------------------------
-B.7.2  systemd Timers
+systemd Timers
 ------------------------------------------------------------------------------
 
 systemd timers are the modern replacement for cron. They offer calendar events
@@ -208,7 +208,7 @@ and monotonic timers (relative to boot/activation).
    sudo systemctl start backup.service
 
 ------------------------------------------------------------------------------
-B.7.3  at and batch
+at and batch
 ------------------------------------------------------------------------------
 
 ``at`` schedules a one-time job for a specific time. ``batch`` runs a job when

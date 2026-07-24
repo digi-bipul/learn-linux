@@ -1,7 +1,7 @@
 .. _sec-07-06:
 
 =======================================
-7.6 Core Firewalls with nftables
+Core Firewalls with nftables
 =======================================
 
 Every packet that enters or leaves a Linux system passes through the kernel's
@@ -14,7 +14,7 @@ chains, rules), the verdict system (accept, drop, reject), connection tracking
 for stateful firewalling, Network Address Translation (NAT), and the important
 migration path from the legacy ``iptables`` framework.
 
-7.6.1 The Big Picture: netfilter Hooks
+The Big Picture: netfilter Hooks
 =======================================
 
 The Linux kernel's network stack has five **netfilter hooks** — points in the
@@ -44,7 +44,7 @@ packet traversal path where firewall rules can intercept traffic:
 
 nftables rules are attached to these hooks via **chains**.
 
-7.6.2 Tables, Chains, and Rules
+Tables, Chains, and Rules
 ================================
 
 nftables organises configuration into a three-level hierarchy:
@@ -115,7 +115,7 @@ nftables organises configuration into a three-level hierarchy:
 * ``tcp dport 22 accept`` — Accept TCP packets destined for port 22.
 * ``log prefix "nftables-drop: " drop`` — Log the packet and then drop it.
 
-7.6.3 The Verdicts
+The Verdicts
 ===================
 
 Every nftables rule ends with a **verdict** — the action to take:
@@ -147,7 +147,7 @@ timeouts. ``reject`` sends back an ICMP "port unreachable" or "host
 unreachable" message, allowing the sender to fail fast. In security contexts,
 ``drop`` is often preferred to avoid revealing that a host exists.
 
-7.6.4 Stateful Filtering with Connection Tracking
+Stateful Filtering with Connection Tracking
 ==================================================
 
 Connection tracking (``conntrack``) is the kernel's ability to remember the
@@ -198,7 +198,7 @@ This pattern is **stateful** because once a connection is established, return
 traffic is automatically allowed — you do not have to write rules for ephemeral
 ports or response packets.
 
-7.6.5 NAT with nftables
+NAT with nftables
 ========================
 
 Network Address Translation rewrites the source or destination address of
@@ -248,7 +248,7 @@ Used to redirect incoming traffic from a public IP to a specific internal host.
 **Key distinction:** SNAT rewrites the source IP; DNAT rewrites the destination
 IP. SNAT happens in ``postrouting``; DNAT happens in ``prerouting``.
 
-7.6.6 Managing nftables at Runtime
+Managing nftables at Runtime
 ====================================
 
 .. code-block:: bash
@@ -293,7 +293,7 @@ load them at boot:
 
     # The service reads /etc/nftables.conf by default
 
-7.6.7 The Migration from iptables to nftables
+The Migration from iptables to nftables
 ===============================================
 
 **Historical context:** For nearly two decades, Linux packet filtering was done
@@ -347,7 +347,7 @@ nftables natively. If you are maintaining legacy systems with existing
 iptables rules, migrate incrementally — the compatibility layer handles both
 simultaneously.
 
-7.6.8 Simple Firewall Script Example
+Simple Firewall Script Example
 =====================================
 
 Below is a complete, production-ready nftables configuration for a typical
@@ -404,7 +404,7 @@ Linux server (web server with SSH access):
 
 Load it with: ``sudo nft -f /etc/nftables.conf`` or ``sudo systemctl restart nftables``.
 
-7.6.9 Logging and Debugging
+Logging and Debugging
 =============================
 
 nftables logging uses the kernel's logging subsystem. Logged packets appear in

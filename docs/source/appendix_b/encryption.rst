@@ -1,11 +1,11 @@
 .. _app-b-encryption:
 
 ------------------------------------------------------------------------------
-B.6  Encryption (GPG, LUKS, OpenSSL, SSH)
+Encryption (GPG, LUKS, OpenSSL, SSH)
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-B.6.1  GPG (GNU Privacy Guard)
+GPG (GNU Privacy Guard)
 ------------------------------------------------------------------------------
 
 GPG implements the OpenPGP standard (RFC 4880) for encryption and signing.
@@ -111,7 +111,7 @@ GPG implements the OpenPGP standard (RFC 4880) for encryption and signing.
    gpgconf --kill gpg-agent
 
 ------------------------------------------------------------------------------
-B.6.2  LUKS (Linux Unified Key Setup)
+LUKS (Linux Unified Key Setup)
 ------------------------------------------------------------------------------
 
 LUKS is the standard for full-disk encryption on Linux.
@@ -228,7 +228,7 @@ LUKS is the standard for full-disk encryption on Linux.
    cryptsetup benchmark
 
 ------------------------------------------------------------------------------
-B.6.3  OpenSSL Quick Reference
+OpenSSL Quick Reference
 ------------------------------------------------------------------------------
 
 .. list-table:: OpenSSL command categories
@@ -296,7 +296,7 @@ B.6.3  OpenSSL Quick Reference
    echo "aGVsbG8=" | openssl base64 -d
 
 ------------------------------------------------------------------------------
-B.6.4  SSH Key Management
+SSH Key Management
 ------------------------------------------------------------------------------
 
 .. list-table:: SSH Key Commands

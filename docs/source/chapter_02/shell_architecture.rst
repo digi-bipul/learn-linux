@@ -1,3 +1,5 @@
+.. _shell-architecture:
+
 Shell Architecture
 ===========================================
 

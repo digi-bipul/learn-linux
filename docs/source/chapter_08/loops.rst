@@ -1,7 +1,9 @@
+.. _loops:
+
 .. highlight:: bash
 
 =============================
-8.4 — Loops
+— Loops
 =============================
 
 Loops automate repetition.  Whether iterating over files, retrying a network
@@ -9,7 +11,7 @@ operation, or processing each line of a log file, the shell provides ``for``,
 ``while``, and ``until``.
 
 --------------------------------
-8.4.1 The ``for`` Loop
+The ``for`` Loop
 --------------------------------
 
 **Form 1: Iterating over a list of words**
@@ -49,7 +51,7 @@ operation, or processing each line of a log file, the shell provides ``for``,
    done
 
 --------------------------------
-8.4.2 The ``while`` Loop
+The ``while`` Loop
 --------------------------------
 
 .. code-block:: bash
@@ -93,7 +95,7 @@ operation, or processing each line of a log file, the shell provides ``for``,
 Always use ``while IFS= read -r line``.
 
 --------------------------------
-8.4.3 The ``until`` Loop
+The ``until`` Loop
 --------------------------------
 
 .. code-block:: bash
@@ -105,7 +107,7 @@ Always use ``while IFS= read -r line``.
    done
 
 --------------------------------
-8.4.4 ``break`` and ``continue``
+``break`` and ``continue``
 --------------------------------
 
 .. code-block:: bash
@@ -119,7 +121,7 @@ Always use ``while IFS= read -r line``.
 ``break N`` and ``continue N`` break/continue N levels of nested loops.
 
 --------------------------------
-8.4.5 Safe File Iteration — The Glob Idiom
+Safe File Iteration — The Glob Idiom
 --------------------------------
 
 .. code-block:: bash
@@ -131,7 +133,7 @@ Always use ``while IFS= read -r line``.
    shopt -u nullglob
 
 --------------------------------
-8.4.6 Loop Performance Considerations
+Loop Performance Considerations
 --------------------------------
 
 Each external command (``grep``, ``awk``, ``sed``) inside a loop requires a
@@ -146,7 +148,7 @@ Each external command (``grep``, ``awk``, ``sed``) inside a loop requires a
    grep "ERROR" *.log > errors.txt
 
 --------------------------------
-8.4.7 What NOT to Do — Loop Pitfalls
+What NOT to Do — Loop Pitfalls
 --------------------------------
 
 **Antipattern 1:** Word splitting disaster with ``$(find ...)``
@@ -159,7 +161,7 @@ subshell, so ``$sum`` is lost.  Use ``< file`` redirection instead.
 **Antipattern 3:** Infinite loop without escape
 
 --------------------------------
-8.4.8 Summary
+Summary
 --------------------------------
 
 +----------+---------------------------------------------+

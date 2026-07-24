@@ -1,6 +1,6 @@
 .. _section-3-2:
 
-3.2 User & Group Management
+User & Group Management
 ==================================================
 
 .. rst-class:: lead
@@ -11,8 +11,8 @@
    management: the low-level POSIX tools (``useradd``, ``groupadd``, etc.)
    and their distribution-specific wrappers.
 
-3.2.1 The Low-Level vs. High-Level Tools
-=========================================
+The Low-Level vs. High-Level Tools
+===================================
 
 Two parallel universes of user management tools exist on Linux:
 
@@ -60,7 +60,7 @@ In this section, we teach the **low-level POSIX tools** (``useradd``,
 they are universal. We then describe the high-level wrappers where
 relevant.
 
-3.2.2 Creating Users with ``useradd``
+Creating Users with ``useradd``
 ======================================
 
 The ``useradd(8)`` command creates a new user. Despite its apparent
@@ -175,7 +175,7 @@ section 3.3.5 because it directly affects the default ``umask``.
       SKEL=/etc/skel
       CREATE_MAIL_SPOOL=no
 
-3.2.2.1 The ``adduser`` Wrapper (Debian/Ubuntu)
+The ``adduser`` Wrapper (Debian/Ubuntu)
 -----------------------------------------------
 
 On Debian and Ubuntu, the recommended way to create users is ``adduser``:
@@ -212,7 +212,7 @@ The script handles:
 Use ``adduser`` when you want convenience and interactive setup. Use
 ``useradd`` when scripting or needing precise control.
 
-3.2.3 Modifying Users with ``usermod``
+Modifying Users with ``usermod``
 =======================================
 
 The ``usermod(8)`` command modifies **existing** user accounts. It shares
@@ -267,7 +267,7 @@ most options with ``useradd`` but applies changes to an existing entry.
       # WRONG: alice is now *only* in the docker group!
       usermod -G docker alice
 
-3.2.4 Deleting Users with ``userdel``
+Deleting Users with ``userdel``
 =======================================
 
 The ``userdel(8)`` command removes user accounts.
@@ -308,10 +308,10 @@ The Debian wrapper ``deluser`` provides additional safety:
    # deluser --remove-all-files alice   # Also finds files outside /home
    # deluser --backup alice             # Backs up before removing
 
-3.2.5 Managing Groups
+Managing Groups
 =======================
 
-3.2.5.1 ``groupadd``
+``groupadd``
 --------------------
 
 .. code-block:: bash
@@ -329,7 +329,7 @@ The Debian wrapper ``deluser`` provides additional safety:
    # Create a group with a password (rare)
    groupadd -p ENCRYPTED_PASSWORD restricted
 
-3.2.5.2 ``groupmod``
+``groupmod``
 --------------------
 
 .. code-block:: bash
@@ -348,7 +348,7 @@ The Debian wrapper ``deluser`` provides additional safety:
    ``find / -gid OLD_GID -exec chgrp NEW_GID {} +`` afterwards, or live
    with files owned by a numeric GID that no longer maps to a group name.
 
-3.2.5.3 ``groupdel``
+``groupdel``
 --------------------
 
 .. code-block:: bash
@@ -364,7 +364,7 @@ The Debian wrapper ``deluser`` provides additional safety:
    *supplementary* members can be deleted—those users will simply lose that
    supplementary membership.
 
-3.2.6 Managing Passwords with ``passwd``
+Managing Passwords with ``passwd``
 =========================================
 
 The ``passwd(1)`` command is the primary interface for password management.
@@ -406,7 +406,7 @@ The ``passwd(1)`` command is the primary interface for password management.
    * ``L`` – Locked password (``!`` prepended to hash).
    * ``NP`` – No password.
 
-3.2.7 Password Ageing with ``chage``
+Password Ageing with ``chage``
 ======================================
 
 While ``passwd -n``/``-x`` can set basic age constraints, the ``chage(1)``
@@ -459,7 +459,7 @@ command offers far more comprehensive password policy management.
    # chage -M 60 -W 14 intern
    # passwd intern
 
-3.2.8 The ``gpasswd`` Command
+The ``gpasswd`` Command
 ===============================
 
 The ``gpasswd(1)`` command manages group membership and group passwords.
@@ -492,7 +492,7 @@ The ``gpasswd(1)`` command manages group membership and group passwords.
    (group administrators) has no equivalent in ``usermod`` and is the only
    way to delegate group management without granting full root.
 
-3.2.9 Distribution-Specific Group Conventions
+Distribution-Specific Group Conventions
 ==============================================
 
 One of the most practically important differences between distributions is
@@ -539,7 +539,7 @@ which group grants **administrative (sudo) privileges**:
       $ grep -E '^(%sudo|%wheel)' /etc/sudoers
       %sudo ALL=(ALL:ALL) ALL
 
-3.2.10 Common Workflows and Troubleshooting
+Common Workflows and Troubleshooting
 =============================================
 
 **Workflow 1: Creating a sudo user on Debian/Ubuntu**
@@ -594,7 +594,7 @@ tool) holds the lock. Check for stale lock files:
    # rm -f /etc/passwd.lock /etc/.pwd.lock   # Only if you are SURE no
                                              # other process is running!
 
-3.2.11 Summary
+Summary
 ===============
 
 *   Use ``useradd`` (universal) for scripting; use ``adduser`` (Debian) for

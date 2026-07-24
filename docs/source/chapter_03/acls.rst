@@ -1,6 +1,6 @@
 .. _section-3-5:
 
-3.5 ACLs (Access Control Lists)
+ACLs (Access Control Lists)
 ==================================================
 
 .. rst-class:: lead
@@ -13,7 +13,7 @@
    (ACLs)** solve these problems by extending the permission model to
    support multiple named users and groups.
 
-3.5.1 Why ACLs?
+Why ACLs?
 ================
 
 Consider a practical scenario: a file ``/shared/project/budget.ods`` owned by
@@ -30,7 +30,7 @@ carefully manage membership, or resort to workarounds (symlinks, copies,
 setgid helpers). ACLs solve this elegantly by allowing you to attach
 permissions for arbitrary users and groups to any file.
 
-3.5.2 Enabling ACL Support
+Enabling ACL Support
 ============================
 
 ACLs require support at two levels:
@@ -61,7 +61,7 @@ ACLs require support at two levels:
       /usr/bin/setfacl
       /usr/bin/getfacl
 
-3.5.3 Viewing ACLs with ``getfacl``
+Viewing ACLs with ``getfacl``
 =====================================
 
 The ``getfacl(1)`` command displays the ACL entries for a file or directory:
@@ -103,7 +103,7 @@ Let us parse this output:
    * - ``other::---``
      - Permissions for everyone else.
 
-3.5.3.1 The ``ls -l`` View with ACLs
+The ``ls -l`` View with ACLs
 ------------------------------------
 
 When a file has ACL entries beyond the traditional three triads, ``ls -l``
@@ -119,7 +119,7 @@ appends a **plus sign (``+``)** to the permission string:
 This is your visual cue: "this file has additional permissions that ``ls -l``
 alone cannot show." Always inspect with ``getfacl`` when you see the ``+``.
 
-3.5.4 Setting ACLs with ``setfacl``
+Setting ACLs with ``setfacl``
 =====================================
 
 The ``setfacl(1)`` command modifies ACLs. Its syntax is:
@@ -128,7 +128,7 @@ The ``setfacl(1)`` command modifies ACLs. Its syntax is:
 
    setfacl [options] {m|x} [entries] FILE...
 
-3.5.4.1 Modifying ACL Entries (``-m``)
+Modifying ACL Entries (``-m``)
 --------------------------------------
 
 .. code-block:: bash
@@ -152,7 +152,7 @@ The ``setfacl(1)`` command modifies ACLs. Its syntax is:
    # Grant execute permission to a specific user
    setfacl -m u:deploy:rx /usr/local/bin/deploy.sh
 
-3.5.4.2 Removing ACL Entries (``-x``)
+Removing ACL Entries (``-x``)
 -------------------------------------
 
 .. code-block:: bash
@@ -166,7 +166,7 @@ The ``setfacl(1)`` command modifies ACLs. Its syntax is:
    # Remove the mask entry (kernel recalculates it)
    setfacl -x m:: budget.ods
 
-3.5.4.3 Recursive ACLs
+Recursive ACLs
 ----------------------
 
 .. code-block:: bash
@@ -184,7 +184,7 @@ The ``setfacl(1)`` command modifies ACLs. Its syntax is:
    directory instead (see section 3.5.6) so that new files automatically
    inherit the correct permissions without recursive operations.
 
-3.5.4.4 Copying ACLs Between Files
+Copying ACLs Between Files
 ----------------------------------
 
 .. code-block:: bash
@@ -198,7 +198,7 @@ The ``setfacl(1)`` command modifies ACLs. Its syntax is:
    # Restore ACLs from backup
    setfacl --restore=/root/acl-backup.txt
 
-3.5.5 The ACL Mask: Understanding Effective Permissions
+The ACL Mask: Understanding Effective Permissions
 =========================================================
 
 The **mask** is the most frequently misunderstood concept in the ACL system.
@@ -272,7 +272,7 @@ Bob now has **effective** read-only even though his ACL entry still says
 The rule of thumb: **on files with ACLs, prefer ``setfacl`` over ``chmod``**
 for modifying group permissions.
 
-3.5.6 Default ACLs
+Default ACLs
 ====================
 
 Default ACLs are a mechanism for **permission inheritance**. When you set a
@@ -331,7 +331,7 @@ ignored** for any permission covered by the default ACL (on modern Linux
 systems). The default ACL takes precedence. This is in contrast to
 traditional directories where umask determines the initial permissions.
 
-3.5.7 ACLs and Traditional Permissions — Coexistence
+ACLs and Traditional Permissions — Coexistence
 ======================================================
 
 The traditional permission bits and ACLs are not separate systems; the
@@ -350,7 +350,7 @@ When you use ``chmod`` on an ACL-enabled file, you are modifying the
 ``user::``, ``group::``, and ``other::`` entries (and the mask). When you
 use ``setfacl`` on these entries, you are effectively running ``chmod``.
 
-3.5.8 Practical ACL Workflows
+Practical ACL Workflows
 ===============================
 
 **Workflow 1: Shared project directory with multiple groups**
@@ -395,7 +395,7 @@ use ``setfacl`` on these entries, you are effectively running ``chmod``.
    # setfacl -m u:alice:rwx,u:jenkins:rwx /var/www/html
    # setfacl -m d:u:alice:rwx,d:u:jenkins:rwx /var/www/html
 
-3.5.9 ACL Limitations and Performance Considerations
+ACL Limitations and Performance Considerations
 ======================================================
 
 **Limitations:**
@@ -421,7 +421,7 @@ metadata operations, the overhead may become measurable—but such
 environments typically have dedicated parallel filesystems (Lustre, GPFS)
 with their own permission models.
 
-3.5.10 Summary
+Summary
 ===============
 
 *   ACLs extend the traditional owner/group/other model with named users

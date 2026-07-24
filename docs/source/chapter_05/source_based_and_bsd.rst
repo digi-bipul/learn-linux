@@ -1,6 +1,6 @@
 .. _section-5-4:
 
-5.4 Source-Based Ecosystems & BSD Ports
+Source-Based Ecosystems & BSD Ports
 ==================================================
 
 .. rst-class:: lead
@@ -24,7 +24,7 @@ OpenBSD, NetBSD) follow a similar philosophy but with their own unique
 design trade-offs.
 
 ------------------------------------------------
-5.4.1 Gentoo Linux and Portage
+Gentoo Linux and Portage
 ------------------------------------------------
 
 Gentoo Linux is a **met distribution** — you configure it from the ground
@@ -33,7 +33,7 @@ centered around a tool called ``emerge``. Unlike ``apt`` or ``dnf``, which
 install pre-compiled binaries, ``emerge`` downloads source code, applies
 patches, compiles it with your chosen options, and installs the result.
 
-5.4.1.1 The Portage Tree and Ebuilds
+The Portage Tree and Ebuilds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The **ebuild** is Portage's fundamental unit. An ebuild is a shell script
@@ -108,7 +108,7 @@ Key metadata:
 * **DEPEND** — Build-time and runtime dependencies, with USE-flag
   conditionals.
 
-5.4.1.2 USE Flags: The Heart of Gentoo
+USE Flags: The Heart of Gentoo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 USE flags are the defining innovation of Gentoo. They are Boolean
@@ -143,7 +143,7 @@ systemd integration; ``USE="-systemd"`` will use OpenRC or another init.
    compiled with SSL support. This is one of Portage's most powerful
    features — and the source of its most complex dependency graphs.
 
-5.4.1.3 ``emerge``: The Portage Frontend
+``emerge``: The Portage Frontend
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
@@ -180,7 +180,7 @@ Running ``emerge --update --deep --newuse @world`` ensures every package
 on the system is rebuilt with the latest stable versions and your current
 USE flags.
 
-5.4.1.4 ``emerge`` vs. Binary Package Managers
+``emerge`` vs. Binary Package Managers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: emerge vs apt/dnf
@@ -208,7 +208,7 @@ USE flags.
      - Manual (no official rollback)
      - Manual
 
-5.4.1.5 Masking and Slots
+Masking and Slots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Portage has a concept of **masking** — preventing certain packages or
@@ -239,7 +239,7 @@ without conflict — something that is notoriously painful in binary
 distributions.
 
 ----------------------------------------------
-5.4.2 The BSD Ports Collection
+The BSD Ports Collection
 ----------------------------------------------
 
 The BSD operating systems — FreeBSD, OpenBSD, NetBSD — have their own
@@ -250,7 +250,7 @@ The ports collection is a directory tree of **Makefiles** (not shell
 scripts like ebuilds). Each port knows where to download source code,
 which patches to apply, and how to compile and install.
 
-5.4.2.1 FreeBSD: ``pkg`` and Ports
+FreeBSD: ``pkg`` and Ports
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 FreeBSD has two complementary systems:
@@ -286,7 +286,7 @@ Your selections are saved to ``/var/db/ports/<portname>/options``.
 per-port configuration menu instead of global flags. This is both simpler
 (for new users) and more tedious (for system-wide consistency).
 
-5.4.2.2 OpenBSD: ``pkg_add`` and ``pkg_delete``
+OpenBSD: ``pkg_add`` and ``pkg_delete``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 OpenBSD's package tools are minimal and opinionated — reflecting the
@@ -313,7 +313,7 @@ OpenBSD also pioneered **privilege separation** in package building. The
 environment, and the ``signify`` cryptographic signing system is used
 instead of GPG for package verification.
 
-5.4.2.3 NetBSD: ``pkgsrc``
+NetBSD: ``pkgsrc``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NetBSD's ``pkgsrc`` (package source) is unique in that it is
@@ -339,7 +339,7 @@ and per-package options. It also has a concept called **"bulk builds"**
 — the automated recreation of the entire binary package set.
 
 ----------------------------------------------
-5.4.3 Source-Based vs. Binary: The Trade-Offs
+Source-Based vs. Binary: The Trade-Offs
 ----------------------------------------------
 
 .. list-table:: Source-based vs. binary package management
@@ -436,7 +436,7 @@ and per-package options. It also has a concept called **"bulk builds"**
 * You prefer stability and predictability over micro-optimization.
 
 ------------------------------------------------
-5.4.4 Summary
+Summary
 ------------------------------------------------
 
 Source-based package management represents the ultimate in user control.

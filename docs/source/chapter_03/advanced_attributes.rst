@@ -1,6 +1,6 @@
 .. _section-3-6:
 
-3.6 Advanced File Attributes
+Advanced File Attributes
 ==================================================
 
 .. rst-class:: lead
@@ -12,7 +12,7 @@
    VFS (Virtual Filesystem) layer — controlling properties such as
    immutability, append-only mode, and arbitrary key-value metadata.
 
-3.6.1 Filesystem Attributes: ``chattr`` and ``lsattr``
+Filesystem Attributes: ``chattr`` and ``lsattr``
 ========================================================
 
 The ``chattr(1)`` (change attribute) and ``lsattr(1)`` (list attribute)
@@ -29,7 +29,7 @@ filesystem).
    XFS. It is not available on ZFS (which has its own ``zfs`` property
    system) or on FUSE filesystems like ``sshfs``.
 
-3.6.1.1 Viewing Attributes with ``lsattr``
+Viewing Attributes with ``lsattr``
 ------------------------------------------
 
 .. code-block:: bash
@@ -46,7 +46,7 @@ filename. Each position corresponds to a specific attribute flag. A
 lowercase letter indicates the attribute is set; a hyphen (``-``) indicates
 it is not.
 
-3.6.1.2 Essential Attribute Flags
+Essential Attribute Flags
 ---------------------------------
 
 .. list-table:: Important ``chattr`` Attribute Flags
@@ -84,7 +84,7 @@ it is not.
      - Synchronous
      - Modifications are written to disk immediately (like ``O_SYNC`` open flag). Slower but safer for critical data.
 
-3.6.1.3 Setting Attributes with ``chattr``
+Setting Attributes with ``chattr``
 ------------------------------------------
 
 .. code-block:: bash
@@ -124,7 +124,7 @@ it is not.
    $ lsattr -d /var/log
    --------e-- /var/log
 
-3.6.1.4 Security and Practical Applications
+Security and Practical Applications
 -------------------------------------------
 
 **The immutable bit (``+i``)** is one of the strongest security tools
@@ -190,7 +190,7 @@ available on Linux:
    #     notifempty
    # }
 
-3.6.1.5 Caveats and Limitations
+Caveats and Limitations
 -------------------------------
 
 *   **Not supported on all filesystems**: ``chattr`` works on ext2/3/4,
@@ -207,7 +207,7 @@ available on Linux:
     NFS from a client. The client kernel enforces its own attributes (or lack
     thereof).
 
-3.6.2 Extended Attributes (xattr)
+Extended Attributes (xattr)
 ====================================
 
 Extended attributes (``xattr``) are arbitrary **key-value metadata** stored
@@ -237,7 +237,7 @@ Extended attributes live in **namespaces**. The Linux kernel defines four:
      - ``security.*``
      - Used by security modules: SELinux, AppArmor, Smack, IMA.
 
-3.6.2.1 Viewing and Setting Extended Attributes
+Viewing and Setting Extended Attributes
 -----------------------------------------------
 
 The ``getfattr(1)`` and ``setfattr(1)`` commands (from the ``attr`` package)
@@ -278,7 +278,7 @@ manage extended attributes.
    **all** attributes across all namespaces, not just ``user.*`` which is
    the default.
 
-3.6.2.2 Extended Attributes and ``cp``/``mv``/``tar``/``rsync``
+Extended Attributes and ``cp``/``mv``/``tar``/``rsync``
 ---------------------------------------------------------------
 
 .. list-table:: xattr Preservation by Common Tools
@@ -304,7 +304,7 @@ manage extended attributes.
      - **No** (legacy SCP protocol)
      - Use ``rsync`` over SSH or ``sftp`` instead.
 
-3.6.2.3 Practical Use Cases
+Practical Use Cases
 ---------------------------
 
 **Version labelling:**
@@ -353,7 +353,7 @@ manage extended attributes.
    package, which validates the attribute format and maintains kernel
    compatibility.
 
-3.6.2.4 Filesystem Requirements
+Filesystem Requirements
 -------------------------------
 
 Extended attributes require:
@@ -370,7 +370,7 @@ Extended attributes require:
   On XFS, the limit is one filesystem block (up to 64 KiB on systems with
   64 KiB block size).
 
-3.6.3 Summary
+Summary
 ==============
 
 *   ``chattr``/``lsattr`` manage low-level filesystem attribute flags

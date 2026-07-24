@@ -1,6 +1,6 @@
 .. _section-3-1:
 
-3.1 The Linux Multi-User Model
+The Linux Multi-User Model
 ==================================================
 
 .. rst-class:: lead
@@ -10,7 +10,7 @@
    at Bell Labs in the 1970s. Understanding the user model is the foundation
    upon which all security, resource management, and accountability rests.
 
-3.1.1 The Philosophy of Multi-User Systems
+The Philosophy of Multi-User Systems
 ===========================================
 
 Why did Unix—and by extension Linux—embrace multiple users from the very
@@ -37,7 +37,7 @@ execution; even the most humble background daemon runs as *someone*.
    be granted no more authority than necessary to perform its task. This
    principle permeates every design decision we will study in this chapter.
 
-3.1.2 The ``/etc/passwd`` File
+The ``/etc/passwd`` File
 ===============================
 
 The cornerstone of user identity on Linux is the ``/etc/passwd`` file.
@@ -110,7 +110,7 @@ Let us examine the anatomy of a single line from ``/etc/passwd``:
    the system. ``vipw`` (and its shadow counterpart ``vipw -s``) open the
    file in ``vi`` after acquiring an ``flock`` advisory lock.
 
-3.1.3 The ``/etc/shadow`` File
+The ``/etc/shadow`` File
 ===============================
 
 The ``/etc/shadow`` file holds the **actual password hashes** and password
@@ -172,7 +172,7 @@ A typical shadow line:
    prevents attackers from cracking all passwords simultaneously with a single
    rainbow table or precomputed dictionary.
 
-3.1.4 The ``/etc/group`` File
+The ``/etc/group`` File
 ==============================
 
 Groups are Linux's mechanism for **collective permissions**. Instead of
@@ -211,7 +211,7 @@ A line from ``/etc/group``:
    The command ``groups username`` or ``id username`` will display the full
    set.
 
-3.1.5 UIDs and GIDs: The Kernel's View
+UIDs and GIDs: The Kernel's View
 ========================================
 
 The kernel does **not** care about usernames. When a process makes a system
@@ -259,7 +259,7 @@ systems moved to 32-bit UIDs, 65534 became the conventional "anonymous"
 mapping—a user with deliberately no special privileges, used by NFS for
 anonymous access and by some daemons as the ultimate sandbox.
 
-3.1.6 System Users and the Principle of Least Privilege
+System Users and the Principle of Least Privilege
 =========================================================
 
 Every network service running on your machine (SSH server, web server,
@@ -302,7 +302,7 @@ Notice the pattern:
     usernames with an underscore for clarity (``_ssh``, ``_chrony``,
     ``_apt``).
 
-3.1.7 The Pluggable Authentication Module (PAM) Ecosystem
+The Pluggable Authentication Module (PAM) Ecosystem
 ==========================================================
 
 While not the focus of this chapter, it is essential to know that
@@ -326,7 +326,7 @@ abstracts over these backends:
 group information in a distribution-agnostic manner. Use it instead of
 grepping flat files directly.
 
-3.1.8 Checking Your Identity
+Checking Your Identity
 =============================
 
 Before we move on to managing users, let us cement understanding with a few
@@ -359,7 +359,7 @@ diagnostic commands:
    $ logname         # Original login user (even after su/sudo)
    jdoe
 
-3.1.9 Summary
+Summary
 ==============
 
 *   Linux is a true multi-user system built on the abstractions of users,

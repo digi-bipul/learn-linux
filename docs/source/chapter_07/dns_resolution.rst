@@ -1,7 +1,7 @@
 .. _sec-07-05:
 
 =======================================
-7.5 DNS & Resolution
+DNS & Resolution
 =======================================
 
 The Domain Name System (DNS) is the mechanism that translates human-readable
@@ -11,7 +11,7 @@ connect to — a non-starter for a network with millions of hosts. This section 
 govern the process, the increasingly important role of ``systemd-resolved``,
 and the diagnostic tools every administrator must know.
 
-7.5.1 The Resolution Order (Name Service Switch)
+The Resolution Order (Name Service Switch)
 ==================================================
 
 On a Linux system, the order in which different name-resolution sources are
@@ -41,7 +41,7 @@ add ``127.0.0.1   dev.example.com`` to ``/etc/hosts``, that hostname will
 resolve to localhost regardless of what the public DNS says — useful for
 development, testing, and blocking unwanted hosts.
 
-7.5.2 /etc/hosts — The Static Host File
+/etc/hosts — The Static Host File
 ========================================
 
 The ``/etc/hosts`` file is a simple text file mapping IP addresses to
@@ -51,9 +51,9 @@ hostnames. It predates DNS and is still used daily.
 
 ::
 
-    127.0.0.1   localhost localhost.localdomain
+localhost localhost.localdomain
     ::1         localhost localhost.localdomain
-    192.168.1.100  db-server.internal.example.com  db-server
+db-server.internal.example.com  db-server
 
 Each line contains: an IP address, the canonical hostname (FQDN first), and
 optional aliases separated by whitespace.
@@ -72,7 +72,7 @@ optional aliases separated by whitespace.
 ``/etc/hosts`` by hand is impractical. DNS (or a local resolver) is the proper
 solution at scale.
 
-7.5.3 /etc/resolv.conf — The Resolver Configuration
+/etc/resolv.conf — The Resolver Configuration
 ====================================================
 
 This file tells the system which DNS nameservers to query and which search
@@ -107,7 +107,7 @@ If you need to make persistent DNS changes, use the proper configuration system
 (Netplan, NetworkManager, ``systemd-networkd``) rather than editing the
 resolv.conf symlink.
 
-7.5.4 systemd-resolved — The Modern Resolver
+systemd-resolved — The Modern Resolver
 =============================================
 
 ``systemd-resolved`` is systemd's answer to local DNS resolution. It provides:
@@ -156,7 +156,7 @@ handle ``127.0.0.53`` correctly. If you encounter problems, you can switch
 ``/etc/resolv.conf`` to point directly to the upstream resolvers, but this
 disables ``systemd-resolved`` features.
 
-7.5.5 DNS Query Tools
+DNS Query Tools
 =======================
 
 Three tools dominate DNS diagnostics. All three should be installed
@@ -251,7 +251,7 @@ on virtually every system, including Windows.
 Output is terse and human-readable, making it ideal for scripting quick checks
 or for administrators who want minimal verbosity.
 
-7.5.6 DNS Record Types You Must Know
+DNS Record Types You Must Know
 ======================================
 
 +----------+----------------------------------------------------------+
@@ -279,7 +279,7 @@ or for administrators who want minimal verbosity.
 |          | the zone (primary NS, admin email, serial number).       |
 +----------+----------------------------------------------------------+
 
-7.5.7 Troubleshooting DNS
+Troubleshooting DNS
 ==========================
 
 When a hostname fails to resolve, follow this diagnostic chain:

@@ -1,6 +1,6 @@
 .. _lvm:
 
-6.4 LVM (Logical Volume Manager)
+LVM (Logical Volume Manager)
 ================================
 
 The Logical Volume Manager (LVM) abstracts physical storage devices
@@ -8,7 +8,7 @@ into a flexible pool from which logical volumes are allocated.
 It is
 the foundation of enterprise storage elasticity on Linux.
 
-6.4.1 Architecture: PV, VG, LV
+Architecture: PV, VG, LV
 -------------------------------
 
 LVM's layered model consists of three object types:
@@ -39,7 +39,7 @@ block remapping. LVM tooling orchestrates device mapper tables.
    PVs aggregate into a VG;
 LVs are carved from the VG and appear as
    ``/dev/vg_name/lv_name``.
-6.4.2 Creating and Managing PVs, VGs, and LVs
+Creating and Managing PVs, VGs, and LVs
 -----------------------------------------------
 
 **Initialise a Physical Volume**:
@@ -106,7 +106,7 @@ format and mount like any block device:
    sudo mkfs.xfs /dev/my_vg/my_lv
    sudo mount /dev/my_vg/my_lv /mnt/data
 
-6.4.3 Resizing Logical Volumes
+Resizing Logical Volumes
 -------------------------------
 
 **Extend an LV** (grow the block device, then grow the filesystem):
@@ -133,7 +133,7 @@ support shrinking; XFS does not):
        # shrink fs to 20 GiB
    sudo lvreduce -L 20G /dev/my_vg/my_lv         # shrink LV to match
 
-6.4.4 Snapshots
+Snapshots
 ----------------
 
 An LVM snapshot creates a point-in-time copy of an LV using
@@ -165,7 +165,7 @@ The merge executes on the next activation of the origin LV.
 Monitor
    snapshot usage with ``lvs -o +snapshot_percent``.
 
-6.4.5 Thin Provisioning
+Thin Provisioning
 ------------------------
 
 Traditional (thick) LVs allocate all PEs immediately.
@@ -194,7 +194,7 @@ needed.
 Thin snapshots are also far more space-efficient than traditional
 snapshots because they share a common pool and use the same metadata
 mechanism for both origin and snapshot.
-6.4.6 LVM Caching
+LVM Caching
 -----------------
 
 .. _lvm-caching:

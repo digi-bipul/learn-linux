@@ -1,11 +1,11 @@
 .. _app-c-boot:
 
 ------------------------------------------------------------------------------
-C.1  Boot Process & System Recovery
+Boot Process & System Recovery
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.1.1  Boot Process Overview
+Boot Process Overview
 ------------------------------------------------------------------------------
 
 .. list-table:: Linux Boot Sequence (UEFI + GRUB + systemd)
@@ -50,7 +50,7 @@ C.1.1  Boot Process Overview
      - ``/etc/nologin`` exists; PAM misconfiguration; full ``/var/log``
 
 ------------------------------------------------------------------------------
-C.1.2  GRUB Rescue & Recovery
+GRUB Rescue & Recovery
 ------------------------------------------------------------------------------
 
 .. rubric:: Scenario: GRUB drops to ``grub-rescue>`` prompt
@@ -155,7 +155,7 @@ C.1.2  GRUB Rescue & Recovery
    sudo mkinitcpio -p linux              # Specific preset
 
 ------------------------------------------------------------------------------
-C.1.3  systemd Rescue & Emergency Targets
+systemd Rescue & Emergency Targets
 ------------------------------------------------------------------------------
 
 .. list-table:: systemd boot targets for recovery
@@ -215,7 +215,7 @@ C.1.3  systemd Rescue & Emergency Targets
    fsck -y /dev/sda2
 
 ------------------------------------------------------------------------------
-C.1.4  Bypassing systemd (init=/bin/bash)
+Bypassing systemd (init=/bin/bash)
 ------------------------------------------------------------------------------
 
 .. danger::

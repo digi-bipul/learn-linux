@@ -1,3 +1,5 @@
+.. _history-efficiency:
+
 Command History & Efficiency
 ===========================================
 

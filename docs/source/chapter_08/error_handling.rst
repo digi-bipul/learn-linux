@@ -1,7 +1,9 @@
+.. _error-handling:
+
 .. highlight:: bash
 
 ========================================
-8.6 — Error Handling & Robustness
+— Error Handling & Robustness
 ========================================
 
 The difference between a toy script and a production-grade tool is how it
@@ -9,7 +11,7 @@ handles failure.  A robust shell script stops on unexpected errors, provides
 meaningful error messages, cleans up temporary resources, and is debuggable.
 
 --------------------------------
-8.6.1 The Golden Trifecta: ``set -euo pipefail``
+The Golden Trifecta: ``set -euo pipefail``
 --------------------------------
 
 Place this immediately after the shebang:
@@ -32,7 +34,7 @@ Place this immediately after the shebang:
 * Commands whose exit code is inverted with ``!``
 
 --------------------------------
-8.6.2 The ``trap`` Statement
+The ``trap`` Statement
 --------------------------------
 
 .. code-block:: bash
@@ -66,7 +68,7 @@ Place this immediately after the shebang:
    trap 'error_handler $LINENO "$BASH_COMMAND"' ERR
 
 --------------------------------
-8.6.3 Robust Logging Functions
+Robust Logging Functions
 --------------------------------
 
 .. code-block:: bash
@@ -82,7 +84,7 @@ Place this immediately after the shebang:
    warn() { log "WARN" "$*"; }
 
 --------------------------------
-8.6.4 Debugging with ``bash -x``
+Debugging with ``bash -x``
 --------------------------------
 
 .. code-block:: bash
@@ -99,7 +101,7 @@ Place this immediately after the shebang:
    export PS4='+ [${BASH_SOURCE[0]}:${LINENO}] '
 
 --------------------------------
-8.6.5 Exit Codes and Conventions
+Exit Codes and Conventions
 --------------------------------
 
 .. code-block:: text
@@ -119,7 +121,7 @@ Use named constants in your scripts:
    [[ -n "${1:-}" ]] || exit $E_INVALID_ARGS
 
 --------------------------------
-8.6.6 Defensive Programming Checklist
+Defensive Programming Checklist
 --------------------------------
 
 1. ``set -euo pipefail`` at the top
@@ -134,7 +136,7 @@ Use named constants in your scripts:
 10. Test with ``bash -n`` after editing
 
 --------------------------------
-8.6.7 What NOT to Do — Error Handling Pitfalls
+What NOT to Do — Error Handling Pitfalls
 --------------------------------
 
 **Antipattern 1:** Masking errors with ``|| true`` without logging.
@@ -151,7 +153,7 @@ cannot be caught).
 shell.  Use ``return`` instead.
 
 --------------------------------
-8.6.8 Summary
+Summary
 --------------------------------
 
 +------------------------+-------------------------------------------------+

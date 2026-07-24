@@ -1,3 +1,5 @@
+.. _chapter-06:
+
 Chapter 6: Storage, Filesystems & Advanced Volume Management
 =============================================================
 
@@ -21,7 +23,7 @@ to design a storage layout for any scenario — from a single-disk laptop
 to a multi-node enterprise SAN — and articulate *why* each design
 decision matters.
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :titlesonly:
 
    disk_anatomy

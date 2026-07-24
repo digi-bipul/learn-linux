@@ -1,7 +1,7 @@
 .. _sec9_6:
 
 ###########################################################
-9.6 Cryptography & Encryption
+Cryptography & Encryption
 ###########################################################
 
 Cryptography is the bedrock of data protection. On a Linux system, it
@@ -13,7 +13,7 @@ LUKS2 with Argon2, TLS 1.3 with hybrid post-quantum key exchange, and
 the imminent migration to NIST-approved post-quantum cryptographic
 algorithms.
 
-9.6.1 LUKS2 Full-Disk Encryption
+LUKS2 Full-Disk Encryption
 =================================
 
 **LUKS (Linux Unified Key Setup)** is the standard for Linux full-disk
@@ -101,7 +101,7 @@ YubiKeys and other FIDO2 tokens can serve as LUKS2 unlock keys:
 
 At boot, ``systemd-cryptsetup`` prompts the user to touch the FIDO2 token.
 
-9.6.2 GPG (GNU Privacy Guard)
+GPG (GNU Privacy Guard)
 ==============================
 
 GPG implements the OpenPGP standard (RFC 4880) for encryption, signing, and
@@ -151,7 +151,7 @@ Trust (WoT) model is still used by Debian developers and the Fedora
 project, but most enterprises use centralized key management via
 **OpenPGP CA** or an internal key server.
 
-9.6.3 OpenSSL: TLS, Certificate Management, and Hybrid PQ
+OpenSSL: TLS, Certificate Management, and Hybrid PQ
 ==========================================================
 
 OpenSSL is the library that powers TLS on virtually every Linux server.
@@ -233,7 +233,7 @@ You can verify the post-quantum signature algorithm in the certificate:
   Security Systems.
 - **CISA:** Urges all federal agencies to inventory and begin migration.
 
-9.6.4 Let's Encrypt and certbot
+Let's Encrypt and certbot
 ================================
 
 Let's Encrypt is the world's largest certificate authority, providing free,
@@ -266,13 +266,13 @@ over 3 billion certificates.
 
 Let's Encrypt announced in 2025 that all new certificates use hybrid
 ML-DSA + ECDSA signatures by default. Your certbot client must be version
-2.12+ to support PQ ACME:
++ to support PQ ACME:
 
 ::
 
     certbot --preferred-chain "ISRG Root PQ X1" -d example.com
 
-9.6.5 SSH Key Management and Hardening
+SSH Key Management and Hardening
 =======================================
 
 **Generating modern SSH keys (2026):**
@@ -318,7 +318,7 @@ Instead of distributing hundreds of public keys to servers, use an SSH CA:
 Now any server with that CA public key trusts all certificates signed by
 the CA. Revocation is handled by a ``revoked_keys`` file or CRL.
 
-9.6.6 Hardware Security Modules (HSM) and PKCS#11
+Hardware Security Modules (HSM) and PKCS#11
 ==================================================
 
 In enterprise environments, private keys should never reside in filesystem
@@ -338,7 +338,7 @@ PIV, and dedicated network HSMs—protect keys against extraction.
     # SSH via PKCS#11 provider
     ssh -I /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so server.example.com
 
-9.6.7 Cryptographic Erasure
+Cryptographic Erasure
 ============================
 
 When decommissioning a LUKS2-encrypted drive, simply destroying the LUKS
@@ -369,7 +369,7 @@ cat << 'EOF' > ~/learn-linux/docs/source/chapter_09/07_audit_intrusion.rst
 .. _sec9_7:
 
 ###########################################################
-9.7 Audit, EDR, & Intrusion Detection
+Audit, EDR, & Intrusion Detection
 ###########################################################
 
 Detection is the complement to prevention. Even the most hardened system will
@@ -378,7 +378,7 @@ This section covers the Linux audit subsystem, file integrity monitoring,
 rootkit detection, and the modern Endpoint Detection and Response (EDR)
 tools that define security operations in 2026.
 
-9.7.1 auditd: The Linux Audit Framework
+auditd: The Linux Audit Framework
 ========================================
 
 The Linux Audit Daemon (``auditd``) is the kernel's event-logging subsystem
@@ -481,7 +481,7 @@ For high-security environments, configure TLS-encrypted audit transport
 using ``audisp-remote`` with TLS or forward via syslog-ng/rsyslog with
 TLS to an Elastic SIEM or Splunk Heavy Forwarder.
 
-9.7.2 File Integrity Monitoring: AIDE
+File Integrity Monitoring: AIDE
 ======================================
 
 **AIDE (Advanced Intrusion Detection Environment)** creates a cryptographic
@@ -581,7 +581,7 @@ measure and attest the integrity of every executed file. These are
 beyond the scope of typical Linux administration but are essential in
 **Trusted Computing** environments with TPM-based remote attestation.
 
-9.7.3 Rootkit Detection: rkhunter and chkrootkit
+Rootkit Detection: rkhunter and chkrootkit
 =================================================
 
 **Rootkits** are stealth malware that modify the kernel or system binaries
@@ -634,7 +634,7 @@ hook modification) rather than its static signature.
 Nevertheless, rkhunter and chkrootkit remain useful as a *complementary*
 layer—particularly in legacy environments where eBPF is not available.
 
-9.7.4 lynis: Security Auditing
+lynis: Security Auditing
 ===============================
 
 **Lynis** is an open-source security auditing tool that scans a Linux system
@@ -698,7 +698,7 @@ guidance in this chapter, a properly hardened system should score 85+.
 absolute requirements. Evaluate each suggestion against your specific threat
 model and operational requirements.
 
-9.7.5 Modern EDR: osquery and Falco
+Modern EDR: osquery and Falco
 ====================================
 
 **osquery: SQL-based OS instrumentation**
@@ -782,7 +782,7 @@ container runtime security in 2026.
   response* — when a critical alert fires, Talon can kill the process,
   pause the container, or trigger a network block via CiliumNetworkPolicy.
 
-9.7.6 Real-World EDR Stack (2026)
+Real-World EDR Stack (2026)
 ==================================
 
 A production EDR stack deployed by a Fortune 500 company in 2026:
@@ -833,7 +833,7 @@ cat << 'EOF' > ~/learn-linux/docs/source/chapter_09/08_hardening_standards.rst
 .. _sec9_8:
 
 ###########################################################
-9.8 Enterprise Hardening Standards
+Enterprise Hardening Standards
 ###########################################################
 
 The difference between a hobbyist's hardened system and an enterprise
@@ -843,7 +843,7 @@ pillars of Linux security standards in 2026: the **CIS Benchmarks**,
 the **DISA STIGs**, and practical **systemd service sandboxing** that
 implements many of these controls by default.
 
-9.8.1 CIS Benchmarks — The Industry Baseline
+CIS Benchmarks — The Industry Baseline
 =============================================
 
 The **Center for Internet Security (CIS)** publishes benchmark documents
@@ -1010,7 +1010,7 @@ The industry-standard tool for CIS assessment is **OpenSCAP**:
 OpenSCAP generates a detailed pass/fail report with remediation scripts.
 It is the standard tool for DoD STIG validation (discussed next).
 
-9.8.2 DISA STIGs — US Military & Government Standard
+DISA STIGs — US Military & Government Standard
 =====================================================
 
 The **Defense Information Systems Agency (DISA)** publishes **Security
@@ -1113,7 +1113,7 @@ Similarly, the **Drug Enforcement Administration (DEA)** and
 **Transportation Security Administration (TSA)** require STIG compliance
 for Linux servers in regulated environments.
 
-9.8.3 systemd Service Sandboxing
+systemd Service Sandboxing
 =================================
 
 In 2026, the most practical and enforceable hardening technique for Linux
@@ -1241,7 +1241,7 @@ Use ``systemd-analyze security`` to get a numeric score (0 = exposed,
 The tool assigns an exposure score based on which security directives are
 set. A score below 5 is considered good; below 3 is excellent.
 
-9.8.4 Container Hardening Standards
+Container Hardening Standards
 ====================================
 
 Containers share the host kernel, making isolation paramount. In 2026, the
@@ -1310,7 +1310,7 @@ three levels:
     kubectl label namespace production \
         pod-security.kubernetes.io/enforce=restricted
 
-9.8.5 Bringing It All Together: A Hardened Baseline
+Bringing It All Together: A Hardened Baseline
 ====================================================
 
 The following checklist represents a **CIS Level 2 + DISA STIG-aligned**
@@ -1360,7 +1360,7 @@ hardened Linux system in 2026:
      - Image signing, provenance attestation
      - ``cosign``, ``in-toto``, ``trivy`` scanning
 
-9.8.6 The Path Forward: Continuous Compliance
+The Path Forward: Continuous Compliance
 ==============================================
 
 Hardening is not a one-time configuration. In 2026, leading organizations
@@ -1495,7 +1495,7 @@ YubiKeys and other FIDO2 tokens can serve as LUKS2 unlock keys:
 
 At boot, ``systemd-cryptsetup`` prompts the user to touch the FIDO2 token.
 
-9.6.2 GPG (GNU Privacy Guard)
+GPG (GNU Privacy Guard)
 ==============================
 
 GPG implements the OpenPGP standard (RFC 4880) for encryption, signing, and
@@ -1545,7 +1545,7 @@ Trust (WoT) model is still used by Debian developers and the Fedora
 project, but most enterprises use centralized key management via
 **OpenPGP CA** or an internal key server.
 
-9.6.3 OpenSSL: TLS, Certificate Management, and Hybrid PQ
+OpenSSL: TLS, Certificate Management, and Hybrid PQ
 ==========================================================
 
 OpenSSL is the library that powers TLS on virtually every Linux server.
@@ -1627,7 +1627,7 @@ You can verify the post-quantum signature algorithm in the certificate:
   Security Systems.
 - **CISA:** Urges all federal agencies to inventory and begin migration.
 
-9.6.4 Let's Encrypt and certbot
+Let's Encrypt and certbot
 ================================
 
 Let's Encrypt is the world's largest certificate authority, providing free,
@@ -1660,13 +1660,13 @@ over 3 billion certificates.
 
 Let's Encrypt announced in 2025 that all new certificates use hybrid
 ML-DSA + ECDSA signatures by default. Your certbot client must be version
-2.12+ to support PQ ACME:
++ to support PQ ACME:
 
 ::
 
     certbot --preferred-chain "ISRG Root PQ X1" -d example.com
 
-9.6.5 SSH Key Management and Hardening
+SSH Key Management and Hardening
 =======================================
 
 **Generating modern SSH keys (2026):**
@@ -1712,7 +1712,7 @@ Instead of distributing hundreds of public keys to servers, use an SSH CA:
 Now any server with that CA public key trusts all certificates signed by
 the CA. Revocation is handled by a ``revoked_keys`` file or CRL.
 
-9.6.6 Hardware Security Modules (HSM) and PKCS#11
+Hardware Security Modules (HSM) and PKCS#11
 ==================================================
 
 In enterprise environments, private keys should never reside in filesystem
@@ -1732,7 +1732,7 @@ PIV, and dedicated network HSMs—protect keys against extraction.
     # SSH via PKCS#11 provider
     ssh -I /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so server.example.com
 
-9.6.7 Cryptographic Erasure
+Cryptographic Erasure
 ============================
 
 When decommissioning a LUKS2-encrypted drive, simply destroying the LUKS

@@ -1,7 +1,7 @@
 .. _chapter-11-7:
 
 ============================================================
-11.7 Infrastructure as Code & Cloud Initialization
+Infrastructure as Code & Cloud Initialization
 ============================================================
 
 The final piece of the cloud native puzzle is **Infrastructure as Code (IaC)** — the
@@ -19,7 +19,7 @@ In this section, we cover three interrelated pillars:
 3. **Cloud CLIs:** The AWS CLI, Google Cloud CLI (``gcloud``), and Azure CLI (``az``)
    for imperative operations and automation.
 
-11.7.1 cloud-init: Bootstrapping Virtual Machines
+cloud-init: Bootstrapping Virtual Machines
 ==================================================
 
 When a virtual machine boots for the first time in a cloud environment (AWS, GCP,
@@ -182,7 +182,7 @@ CLI, or OpenTofu.
    ``sudo cloud-init clean --logs``, then reboot. For subsequent boots, use
    ``cloud-boothook`` or ``scripts/per-boot.d/``.
 
-11.7.2 OpenTofu: Declarative Cloud Provisioning
+OpenTofu: Declarative Cloud Provisioning
 =================================================
 
 **OpenTofu** is the open-source, community-driven fork of Terraform created in
@@ -402,7 +402,7 @@ OpenTofu also provisions Kubernetes resources directly:
    The community and most third-party tooling (CI/CD integrations, policy engines
    like OPA/Conftest, Terragrunt) now support OpenTofu as a first-class target.
 
-11.7.3 Cloud CLIs: AWS CLI, gcloud, az
+Cloud CLIs: AWS CLI, gcloud, az
 ========================================
 
 While OpenTofu is the declarative, stateful approach to infrastructure, cloud CLIs are
@@ -504,7 +504,7 @@ For production automation, never use static access keys. Adopt one of:
    # Azure: Use managed identity
    az vm identity assign --resource-group my-rg --name my-vm
 
-11.7.4 The GitOps Workflow
+The GitOps Workflow
 ============================
 
 **GitOps** (pioneered by Weaveworks) extends IaC to make Git the **single source of
@@ -520,7 +520,7 @@ This is the operational model for 2026 cloud native environments. The tools you 
 learned in this chapter — OpenTofu, cloud-init, Kubernetes — form the foundation that
 makes GitOps possible.
 
-11.7.5 Antipatterns
+Antipatterns
 ===================
 
 .. admonition:: Antipattern: Hard-Coding Cloud Credentials
@@ -546,7 +546,7 @@ makes GitOps possible.
    version control. Always use a **remote backend** (S3 + DynamoDB, GCS, Azure
    Storage) with encryption at rest.
 
-11.7.6 Practical Exercises
+Practical Exercises
 ==========================
 
 **1. Write and Test a cloud-config**

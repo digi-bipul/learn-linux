@@ -1,7 +1,9 @@
+.. _local-automation:
+
 .. highlight:: bash
 
 ========================================
-8.8 — Local Automation & Event Hooks
+— Local Automation & Event Hooks
 ========================================
 
 A script sitting in a file is potential.  A script that runs automatically is
@@ -9,7 +11,7 @@ power.  This section covers schedulers, parallel executors, and event-driven
 triggers.
 
 --------------------------------
-8.8.1 Cron — The Traditional Scheduler
+Cron — The Traditional Scheduler
 --------------------------------
 
 **Crontab syntax:**
@@ -44,7 +46,7 @@ triggers.
 **Antipattern:** Assuming cron knows your ``$PATH`` — always use full paths.
 
 --------------------------------
-8.8.2 Systemd Timers — The Modern Standard
+Systemd Timers — The Modern Standard
 --------------------------------
 
 **Service unit** (``/etc/systemd/system/mybackup.service``):
@@ -98,7 +100,7 @@ triggers.
 +----------------------------+-------------------------------+------------------------------------+
 
 --------------------------------
-8.8.3 Concurrent Execution: ``xargs -P`` and GNU ``parallel``
+Concurrent Execution: ``xargs -P`` and GNU ``parallel``
 --------------------------------
 
 **``xargs -P``:**
@@ -120,7 +122,7 @@ triggers.
 (show progress bar), ``--eta`` (estimate time), ``-S`` (remote execution).
 
 --------------------------------
-8.8.4 Event-Driven Automation: ``inotifywait``
+Event-Driven Automation: ``inotifywait``
 --------------------------------
 
 .. code-block:: bash
@@ -139,7 +141,7 @@ triggers.
 processing a file before it is fully written.
 
 --------------------------------
-8.8.5 What NOT to Do — Automation Pitfalls
+What NOT to Do — Automation Pitfalls
 --------------------------------
 
 **Antipattern 1:** Concurrent cron jobs stamping on each other — use ``flock``.
@@ -152,7 +154,7 @@ paths or set ``PATH`` in crontab.
 **Antipattern 4:** Running too many parallel jobs — use ``-P "$(nproc)"``.
 
 --------------------------------
-8.8.6 Summary
+Summary
 --------------------------------
 
 +------------------+-------------------------------------------------------+

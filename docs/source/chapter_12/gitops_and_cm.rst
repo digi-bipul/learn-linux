@@ -1,8 +1,10 @@
+.. _gitops-and-cm:
+
 ============================================================
-12.5 Configuration Management at Scale & GitOps
+Configuration Management at Scale & GitOps
 ============================================================
 
-12.5.1 The Evolution of Configuration Management
+The Evolution of Configuration Management
 ===================================================
 
 +----------------+-----------------------------------+---------------------------+
@@ -18,7 +20,7 @@
 
 By 2026, Era 2.0 tools are in terminal decline. The industry standard is **GitOps**.
 
-12.5.2 Ansible at Scale: AWX
+Ansible at Scale: AWX
 ================================
 
 AWX is the open-source upstream of Red Hat Ansible Automation Platform.
@@ -60,7 +62,7 @@ Ansible Semaphore (Lightweight)
           SEMAPHORE_GIT_URL: https://github.com/yourorg/ansible-prod.git
     SEMEOF
 
-12.5.3 The Decline of Legacy CM Tools
+The Decline of Legacy CM Tools
 ========================================
 
 +----------------+---------------------------------------+----------------------------------+
@@ -73,7 +75,7 @@ Ansible Semaphore (Lightweight)
 | Immutability   | Mutates state in place               | Promotes immutable images        |
 +----------------+---------------------------------------+----------------------------------+
 
-12.5.4 GitOps: The Industry Standard
+GitOps: The Industry Standard
 ========================================
 
 Principles: declarative state, Git as single source of truth, pull-based
@@ -135,7 +137,7 @@ Flux CD
         replicaCount: 3
     FLUXEOF
 
-12.5.5 Summary
+Summary
 ===============
 
 The 2026 verdict: **If it is not in Git, it does not exist.** GitOps eliminates drift

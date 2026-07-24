@@ -1,11 +1,11 @@
 .. _app-c-hardware:
 
 ------------------------------------------------------------------------------
-C.10  Hardware Diagnostics
+Hardware Diagnostics
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.10.1  CPU Diagnostics
+CPU Diagnostics
 
 .. code-block:: bash
    :caption: CPU information and diagnostics
@@ -52,7 +52,7 @@ C.10.1  CPU Diagnostics
    sudo journalctl -k -p warning
 
 ------------------------------------------------------------------------------
-C.10.2  Memory (RAM) Diagnostics
+Memory (RAM) Diagnostics
 
 .. code-block:: bash
    :caption: Memory testing and diagnostics
@@ -96,7 +96,7 @@ C.10.2  Memory (RAM) Diagnostics
    5. Any errors (red text) indicate faulty RAM — replace the defective DIMM
 
 ------------------------------------------------------------------------------
-C.10.3  Disk Diagnostics (SMART)
+Disk Diagnostics (SMART)
 
 .. code-block:: bash
    :caption: SMART monitoring for HDDs and SSDs
@@ -189,7 +189,7 @@ C.10.3  Disk Diagnostics (SMART)
    sudo e2fsck -c /dev/sda1               # -c = check for bad blocks and remap
 
 ------------------------------------------------------------------------------
-C.10.4  GPU Diagnostics
+GPU Diagnostics
 
 .. code-block:: bash
    :caption: Graphics card diagnostics
@@ -217,7 +217,7 @@ C.10.4  GPU Diagnostics
    sudo journalctl -k | grep -i "drm\|i915\|amdgpu\|nvidia\|nouveau" | grep -i "error\|fail\|hang"
 
 ------------------------------------------------------------------------------
-C.10.5  Power Supply & Motherboard Diagnostics
+Power Supply & Motherboard Diagnostics
 
 .. code-block:: bash
    :caption: Power and system health
@@ -244,7 +244,7 @@ C.10.5  Power Supply & Motherboard Diagnostics
    sudo journalctl -k | grep -i "acpi.*error\|acpi.*fail"
 
 ------------------------------------------------------------------------------
-C.10.6  Hardware Inventory
+Hardware Inventory
 
 .. code-block:: bash
    :caption: Complete hardware inventory commands

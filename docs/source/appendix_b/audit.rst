@@ -1,14 +1,14 @@
 .. _app-b-audit:
 
 ------------------------------------------------------------------------------
-B.5  System Auditing (auditd)
+System Auditing (auditd)
 ------------------------------------------------------------------------------
 
 The Linux Audit subsystem (``auditd``) provides detailed logging of security-
 relevant events: file access, system calls, user logins, configuration changes.
 
 ------------------------------------------------------------------------------
-B.5.1  Architecture & Components
+Architecture & Components
 ------------------------------------------------------------------------------
 
 .. list-table:: Audit System Components
@@ -41,7 +41,7 @@ B.5.1  Architecture & Components
      - Persistent audit rules loaded at boot
 
 ------------------------------------------------------------------------------
-B.5.2  auditctl — Rule Management
+auditctl — Rule Management
 ------------------------------------------------------------------------------
 
 .. rubric:: Rule syntax
@@ -115,7 +115,7 @@ B.5.2  auditctl — Rule Management
    sudo auditctl -s              # Show status (enabled, pid, backlog, etc.)
 
 ------------------------------------------------------------------------------
-B.5.3  ausearch — Searching Audit Logs
+ausearch — Searching Audit Logs
 ------------------------------------------------------------------------------
 
 .. list-table:: ausearch options
@@ -190,7 +190,7 @@ B.5.3  ausearch — Searching Audit Logs
    sudo auditctl -l
 
 ------------------------------------------------------------------------------
-B.5.4  aureport — Summary Reports
+aureport — Summary Reports
 ------------------------------------------------------------------------------
 
 .. code-block:: bash
@@ -212,7 +212,7 @@ B.5.4  aureport — Summary Reports
    aureport -x -i --summary | head -10
 
 ------------------------------------------------------------------------------
-B.5.5  Audit Log Rotation (``/etc/audit/auditd.conf``)
+Audit Log Rotation (``/etc/audit/auditd.conf``)
 ------------------------------------------------------------------------------
 
 .. code-block:: text

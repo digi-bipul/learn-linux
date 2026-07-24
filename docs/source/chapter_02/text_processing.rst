@@ -1,3 +1,5 @@
+.. _text-processing:
+
 Text Processing Toolchest
 ===========================================
 

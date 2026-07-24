@@ -1,6 +1,6 @@
 .. _section-3-7:
 
-3.7 Privilege Escalation: ``sudo`` & ``doas``
+Privilege Escalation: ``sudo`` & ``doas``
 ==================================================
 
 .. rst-class:: lead
@@ -15,7 +15,7 @@
    This section covers the two dominant privilege escalation frameworks:
    the ubiquitous **``sudo``** and the minimalist modern alternative **``doas``**.
 
-3.7.1 The Problem with ``su``
+The Problem with ``su``
 ===============================
 
 Before examining ``sudo`` and ``doas``, let us understand why ``su`` (the
@@ -47,7 +47,7 @@ traditional "substitute user" command) is problematic:
 Both ``sudo`` and ``doas`` solve these problems, though with different
 philosophies.
 
-3.7.2 ``sudo`` — The Industry Standard
+``sudo`` — The Industry Standard
 ========================================
 
 The name ``sudo`` stands for "**s**uperuser **do**" (historically
@@ -56,7 +56,7 @@ Sparks at the State University of New York (SUNY) in the late 1980s. Today
 it is maintained by Todd C. Miller and is the de facto standard privilege
 escalation tool on Linux, macOS, and BSD systems.
 
-3.7.2.1 Basic Usage
+Basic Usage
 
 .. code-block:: bash
    :caption: ``sudo`` basics
@@ -111,7 +111,7 @@ Subsequent ``sudo`` commands within this window do not prompt for a password.
    # Keep the timestamp valid but run a command (reset the timer)
    $ sudo -v
 
-3.7.2.2 The ``/etc/sudoers`` File — Central Configuration
+The ``/etc/sudoers`` File — Central Configuration
 
 The heart of sudo is the ``/etc/sudoers`` file. **Never edit this file
 directly with a text editor** — syntax errors can lock everyone out of
@@ -129,7 +129,7 @@ administrative access. Always use ``visudo(8)``, which:
    # Edit a file in the sudoers.d directory (modern practice)
    # visudo -f /etc/sudoers.d/myalias
 
-3.7.2.3 Anatomy of a Sudoers Rule
+Anatomy of a Sudoers Rule
 
 A ``sudoers`` rule follows this basic structure:
 
@@ -193,7 +193,7 @@ A ``sudoers`` rule follows this basic structure:
        prompt. Other tags: ``PASSWD`` (default), ``SETENV``, ``NOEXEC``,
        ``LOG_INPUT``, ``LOG_OUTPUT``.
 
-3.7.2.4 Sudoers Aliases
+Sudoers Aliases
 
 For complex configurations, sudoers supports four types of aliases:
 
@@ -232,7 +232,7 @@ For complex configurations, sudoers supports four types of aliases:
    application or role. This is cleaner, easier to automate, and survives
    package updates to the main ``/etc/sudoers`` file.
 
-3.7.2.5 The ``/etc/sudoers.d/`` Directory
+The ``/etc/sudoers.d/`` Directory
 
 Modern distributions include the directive ``#includedir /etc/sudoers.d`` in
 the main ``/etc/sudoers`` file. This allows you to drop fragmented policy
@@ -279,7 +279,7 @@ files into ``/etc/sudoers.d/``, each containing specific rules.
 
       # chmod 440 /etc/sudoers.d/deploy-nginx
 
-3.7.2.6 Key Sudoers Defaults
+Key Sudoers Defaults
 
 The ``Defaults`` keyword controls sudo's runtime behaviour:
 
@@ -316,7 +316,7 @@ The ``Defaults`` keyword controls sudo's runtime behaviour:
    # Require a TTY (no background sudo from cron scripts)
    Defaults   requiretty
 
-3.7.2.7 The Secure Path
+The Secure Path
 
 The ``secure_path`` default is one of sudo's most important security
 features. It **replaces** the user's ``$PATH`` with a known, safe value
@@ -346,7 +346,7 @@ Consider a user Alice who has a compromised ``~/bin`` directory:
 
 Always ensure ``secure_path`` is set and never disabled.
 
-3.7.2.8 The ``env_keep`` Directive
+The ``env_keep`` Directive
 
 By default, sudo resets the environment to a clean state (``env_reset`` is
 on by default). The ``env_keep`` list specifies variables that are preserved
@@ -369,7 +369,7 @@ Sudo explicitly ignores ``LD_*`` variables regardless of ``env_keep`` —
 this is hardcoded for security. But other interpreter-specific variables
 may not be blocked.
 
-3.7.2.9 Sudo Logging and Auditing
+Sudo Logging and Auditing
 
 Sudo can log every command execution:
 
@@ -400,7 +400,7 @@ character of output — playable later with ``sudoreplay(8)``:
    # sudo sudoreplay -l          # List recorded sessions
    # sudo sudoreplay -d 12345    # Replay session ID 12345
 
-3.7.2.10 Sudo Pitfalls and Security Considerations
+Sudo Pitfalls and Security Considerations
 
 **1. ``sudo`` vs. shell built-ins:**
 
@@ -457,7 +457,7 @@ This also makes the ``sudo`` binary a high-value target — a vulnerability in
 sudo can lead to full system compromise (as demonstrated by the Baron
 Samedit CVE-2021-3156).
 
-3.7.3 ``doas`` — The Modern Minimalist Alternative
+``doas`` — The Modern Minimalist Alternative
 ====================================================
 
 While ``sudo`` is powerful, it is also **complex**. The sudo codebase has
@@ -501,7 +501,7 @@ distributions, you install ``opendoas``:
    tool. The ``sudo`` package is not installed in the base system. This
    makes Alpine a showcase for the "doas way."
 
-3.7.3.1 ``doas`` Configuration — ``/etc/doas.conf`` or ``/etc/doas.d/doas.conf``
+``doas`` Configuration — ``/etc/doas.conf`` or ``/etc/doas.d/doas.conf``
 
 The configuration file is astonishingly simple compared to sudoers:
 
@@ -602,7 +602,7 @@ To manually clear the credential cache:
 
    $ doas -L        # Forget cached credentials
 
-3.7.3.2 ``doas`` Usage
+``doas`` Usage
 
 .. code-block:: bash
    :caption: ``doas`` in action
@@ -629,7 +629,7 @@ To manually clear the credential cache:
    # Check configuration syntax (useful after editing doas.conf)
    $ doas -C /etc/doas.d/doas.conf
 
-3.7.3.3 ``doas`` Configuration Best Practices
+``doas`` Configuration Best Practices
 
 **Alpine Linux default configuration:**
 
@@ -667,7 +667,7 @@ access.
    # chmod 0640 /etc/doas.d/doas.conf
    # chown root:root /etc/doas.d/doas.conf
 
-3.7.3.4 ``doas`` vs. ``sudo`` — When to Use Which
+``doas`` vs. ``sudo`` — When to Use Which
 
 
    .. list-table:: Comparative Analysis
@@ -729,7 +729,7 @@ access.
 * You find sudo's configuration syntax overly complex for your needs.
 * You want to spend less time debugging privilege escalation issues.
 
-3.7.3.5 Migrating from ``sudo`` to ``doas``
+Migrating from ``sudo`` to ``doas``
 
 If you decide to migrate, the process is straightforward:
 
@@ -768,7 +768,7 @@ If you decide to migrate, the process is straightforward:
 
       # ln -s /usr/bin/doas /usr/local/bin/sudo
 
-3.7.4 Comparing ``su``, ``sudo``, and ``doas``
+Comparing ``su``, ``sudo``, and ``doas``
 ================================================
 
 
@@ -801,7 +801,7 @@ If you decide to migrate, the process is straightforward:
         - Emergency access, single- user recovery mode, legacy workflows.
         - Standard multi-user admin, enterprise.
         - Minimalist setups, single- user systems, Alpine/OpenBSD.
-3.7.5 Practical Privilege Escalation Workflows
+Practical Privilege Escalation Workflows
 ================================================
 
 **Workflow 1: Granting passwordless service restart to a web team member**
@@ -849,7 +849,7 @@ If you decide to migrate, the process is straightforward:
    sudo:x:27:alice,bob
    wheel:x:10:carol,dave
 
-3.7.6 Summary
+Summary
 ==============
 
 *   **``sudo``** is the industry-standard privilege escalation tool with

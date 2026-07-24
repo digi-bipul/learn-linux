@@ -1,11 +1,11 @@
 .. _app-b-permissions:
 
 ------------------------------------------------------------------------------
-B.1  File Permissions & ACLs
+File Permissions & ACLs
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-B.1.1  Traditional Unix Permissions
+Traditional Unix Permissions
 ------------------------------------------------------------------------------
 
 .. list-table:: Permission Modes
@@ -104,7 +104,7 @@ B.1.1  Traditional Unix Permissions
    chmod 1777 /tmp                # sticky + rwxrwxrwx
 
 ------------------------------------------------------------------------------
-B.1.2  umask
+umask
 ------------------------------------------------------------------------------
 
 The **umask** subtracts permissions from the base (666 for files, 777 for
@@ -152,7 +152,7 @@ directories.
    ``~/.profile``, ``~/.bashrc``, or ``/etc/profile`` for persistence.
 
 ------------------------------------------------------------------------------
-B.1.3  Access Control Lists (ACLs)
+Access Control Lists (ACLs)
 ------------------------------------------------------------------------------
 
 ACLs provide fine-grained permissions beyond the owner/group/other model.

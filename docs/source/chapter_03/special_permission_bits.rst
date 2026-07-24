@@ -1,6 +1,6 @@
 .. _section-3-4:
 
-3.4 Special Permission Bits
+Special Permission Bits
 ==================================================
 
 .. rst-class:: lead
@@ -10,7 +10,7 @@
    SetUID (SUID), SetGID (SGID), and Sticky bits are powerful tools—and
    equally powerful vectors for privilege escalation if misapplied.
 
-3.4.1 The Three Special Bits
+The Three Special Bits
 ==============================
 
 The special bits occupy the most significant octal digit, sitting to the
@@ -55,7 +55,7 @@ If the execute bit is **not** set, the special bit is shown in uppercase:
 (These uppercase forms are rare in practice, as a file with SUID but no
 owner execute bit is nearly useless.)
 
-3.4.2 SetUID (SUID) — ``chmod u+s`` (4000)
+SetUID (SUID) — ``chmod u+s`` (4000)
 ============================================
 
 **What it does:**
@@ -134,7 +134,7 @@ root access. History is littered with such exploits:
 
    Only **compiled ELF binaries** reliably honour the SUID bit.
 
-3.4.3 SetGID (SGID) — ``chmod g+s`` (2000)
+SetGID (SGID) — ``chmod g+s`` (2000)
 ============================================
 
 SGID has **two distinct behaviours** depending on whether it is applied to a
@@ -195,11 +195,11 @@ project spaces on Unix systems.
 **Combining SGID with ACLs:**
 
 The SGID directory bit works synergistically with **default ACLs** (section
-3.5). The SGID bit ensures group ownership inheritance; default ACLs ensure
+). The SGID bit ensures group ownership inheritance; default ACLs ensure
 permission inheritance. Together, they create a fully collaborative
 environment where every file is automatically accessible to the team.
 
-3.4.4 The Sticky Bit — ``chmod o+t`` (1000)
+The Sticky Bit — ``chmod o+t`` (1000)
 =============================================
 
 **On a directory:**
@@ -263,7 +263,7 @@ disk cache render this historical optimisation obsolete.
 - ``/dev/shm`` — shared memory, world-writable with sticky bit.
 - Any shared directory for team collaboration (e.g., ``/shared/team``).
 
-3.4.5 Setting Special Bits with ``chmod``
+Setting Special Bits with ``chmod``
 ===========================================
 
 **Symbolic syntax:**
@@ -330,7 +330,7 @@ The special bits form the first (most significant) octal digit:
 (Note: these are the classic SUID/SGID binaries found on most Linux systems.
 The exact list varies by distribution.)
 
-3.4.6 Security Implications — A Deeper Look
+Security Implications — A Deeper Look
 =============================================
 
 **The principle of least privilege and SUID:**
@@ -390,7 +390,7 @@ For filesystems that do not need SUID binaries (e.g., ``/tmp``,
 This causes the kernel to **ignore** SUID and SGID bits on that filesystem
 — a crucial hardening technique.
 
-3.4.7 Summary
+Summary
 ==============
 
 *   **SUID (4000)**: Process runs with the file owner's EUID. Dangerous if

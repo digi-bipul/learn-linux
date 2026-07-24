@@ -1,7 +1,7 @@
 .. _ch10-perf-methodology:
 
 ###########################################################
-10.1  Performance Methodology
+Performance Methodology
 ###########################################################
 
 .. epigraph::
@@ -20,7 +20,7 @@ today (USE, RED, and the Four Golden Signals), and we develop the mathematical
 intuition behind latency, throughput, and utilisation.
 
 ----------------------------------------------------------------------
-10.1.1  The Scientific Method Applied to Systems
+The Scientific Method Applied to Systems
 ----------------------------------------------------------------------
 
 Before we discuss any specific methodology, we must internalise a single
@@ -41,7 +41,7 @@ taught in this chapter serves steps 3 and 4. Without the loop, you have
 noise. With it, you have diagnosis.
 
 ----------------------------------------------------------------------
-10.1.2  The USE Method (For Resources)
+The USE Method (For Resources)
 ----------------------------------------------------------------------
 
 The **USE Method** — **U**tilisation, **S**aturation, **E**rors — was
@@ -91,7 +91,7 @@ errors is a fire.
    resource, systematically. This prevents blind spots.
 
 ----------------------------------------------------------------------
-10.1.3  The RED Method (For Services)
+The RED Method (For Services)
 ----------------------------------------------------------------------
 
 While USE targets **resources**, the **RED Method** — **R**ate, **E**rrors,
@@ -130,7 +130,7 @@ memorise. It maps naturally to Prometheus and OpenTelemetry metrics:
      rate(http_request_duration_seconds_bucket[5m]))
 
 ----------------------------------------------------------------------
-10.1.4  The Four Golden Signals
+The Four Golden Signals
 ----------------------------------------------------------------------
 
 The **Four Golden Signals** were defined by Google in the *Site Reliability
@@ -155,7 +155,7 @@ of any production-monitoring strategy:
    OpenTelemetry SDKs are designed to emit these categories by default.
 
 ----------------------------------------------------------------------
-10.1.5  Latency vs. Throughput — The Mathematics
+Latency vs. Throughput — The Mathematics
 ----------------------------------------------------------------------
 
 A deep understanding of the relationship between **latency** and **throughput**
@@ -213,7 +213,7 @@ budget is a recipe for disaster.** This is why SREs set utilisation targets
 well below 100%.
 
 ----------------------------------------------------------------------
-10.1.6  Summary
+Summary
 ----------------------------------------------------------------------
 
 +---------------------------+----------------------------------------------+

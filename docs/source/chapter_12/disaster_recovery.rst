@@ -1,15 +1,17 @@
+.. _disaster-recovery:
+
 ============================================================
-12.3 Disaster Recovery & Ransomware Defences
+Disaster Recovery & Ransomware Defences
 ============================================================
 
-12.3.1 The Threat Landscape in 2026
+The Threat Landscape in 2026
 =====================================
 
 Ransomware operators now exfiltrate data before encrypting (double extortion), delete
 backup catalogs, and linger inside networks for months. A disaster recovery plan that
 assumes "we will restore from tape" is obsolete.
 
-12.3.2 The 3-2-1-1 Rule
+The 3-2-1-1 Rule
 ==========================
 
 * **3** copies of your data.
@@ -34,7 +36,7 @@ assumes "we will restore from tape" is obsolete.
    policies, or a physically air-gapped system. Read-only permissions are insufficient
    against a compromised root account.
 
-12.3.3 BorgBackup: Deduplicating, Encrypted Backups
+BorgBackup: Deduplicating, Encrypted Backups
 =====================================================
 
 `BorgBackup <https://www.borgbackup.org/>`_ splits data into chunks, hashes them, and
@@ -83,7 +85,7 @@ Restoring from Borg
     borg list /mnt/backup/borg-repo
     borg extract /mnt/backup/borg-repo::myhost-2026-07-18_020000
 
-12.3.4 Restic: Backups to Cloud and Object Storage
+Restic: Backups to Cloud and Object Storage
 =====================================================
 
 `Restic <https://restic.net/>`_ natively supports S3, GCS, Azure Blob, B2, and SFTP.
@@ -107,7 +109,7 @@ Restoring from Borg
             --object-lock-configuration '{"ObjectLockEnabled": "Enabled",
               "Rule": {"DefaultRetention": {"Mode": "GOVERNANCE", "Days": 30}}}'
 
-12.3.5 Database Backup Strategies
+Database Backup Strategies
 ====================================
 
 Logical Backups (pg_dump / mysqldump)
@@ -136,7 +138,7 @@ Fast, consistent point-in-time recovery. Binary format, version-specific.
     xtrabackup --backup --target-dir=/backup/mysql_phys
     xtrabackup --prepare --target-dir=/backup/mysql_phys
 
-12.3.6 Filesystem Snapshots: ZFS and Btrfs Send/Recv
+Filesystem Snapshots: ZFS and Btrfs Send/Recv
 =======================================================
 
 ZFS Send/Recv
@@ -162,7 +164,7 @@ Btrfs Send/Recv
    Use ``zfs hold`` to prevent snapshot deletion. Send snapshots to a separate
    air-gapped backup server with no interactive login.
 
-12.3.7 Testing Your Disaster Recovery
+Testing Your Disaster Recovery
 ========================================
 
 An untested backup is not a backup. Schedule quarterly DR drills and measure:
@@ -177,7 +179,7 @@ An untested backup is not a backup. Schedule quarterly DR drills and measure:
 |                 | Target: minutes, not hours.        |
 +-----------------+------------------------------------+
 
-12.3.8 Summary
+Summary
 ===============
 
 1. **3-2-1-1** is non-negotiable. One copy must be immutable/air-gapped.

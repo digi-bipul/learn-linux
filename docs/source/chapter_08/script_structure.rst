@@ -1,7 +1,9 @@
+.. _script-structure:
+
 .. highlight:: bash
 
 ================================
-8.1 — Script Structure
+— Script Structure
 ================================
 
 A shell script is a plain-text file containing a sequence of commands that the
@@ -11,7 +13,7 @@ file.  This section covers the anatomy of a well-structured script from the
 first byte to the final newline.
 
 --------------------------------
-8.1.1 The Shebang (``#!``)
+The Shebang (``#!``)
 --------------------------------
 
 Every script that is meant to be executed directly should begin with a
@@ -81,7 +83,7 @@ restricted, controlled environment like an embedded system).
    target system.
 
 --------------------------------
-8.1.2 Comments
+Comments
 --------------------------------
 
 Comments begin with ``#`` and extend to the end of the line.  Use them
@@ -115,7 +117,7 @@ But prefer a series of ``#`` lines for clarity; the ``: '...'`` trick is
 invisible to readers who do not know it.
 
 --------------------------------
-8.1.3 Execution Permissions and ``chmod``
+Execution Permissions and ``chmod``
 --------------------------------
 
 A script is just text.  To make it executable, you must set the **execute bit**:
@@ -141,7 +143,7 @@ file (which it does).  So effective permissions should be at least ``r-x``.
 ``755`` is the standard.
 
 --------------------------------
-8.1.4 ``$PATH`` Integration
+``$PATH`` Integration
 --------------------------------
 
 Typing ``./myscript.sh`` requires the ``./`` prefix — the shell needs an
@@ -183,7 +185,7 @@ executables.  If you ``cd`` into a directory containing a malicious file named
 Always use absolute paths in ``$PATH``.
 
 --------------------------------
-8.1.5 Execution Contexts: Sourcing vs Running
+Execution Contexts: Sourcing vs Running
 --------------------------------
 
 This is one of the most misunderstood concepts in shell scripting.  There are
@@ -221,7 +223,7 @@ persist in the calling shell.
 +------------------------+--------------------------------+------------------------------------+
 
 --------------------------------
-8.1.6 Script Naming Conventions
+Script Naming Conventions
 --------------------------------
 
 **File extensions are optional on Unix.**  The kernel does not care.  However,
@@ -242,7 +244,7 @@ conventions help humans and editors:
    #
 
 --------------------------------
-8.1.7 What NOT to Do — Pitfalls in Script Structure
+What NOT to Do — Pitfalls in Script Structure
 --------------------------------
 
 **Antipattern 1: Missing shebang with execute bit**
@@ -263,7 +265,7 @@ A security vulnerability.  Leads to hard-to-debug wrong-command-run errors.
 **Antipattern 6: Forgetting the trailing newline**
 
 --------------------------------
-8.1.8 Summary
+Summary
 --------------------------------
 
 +------------------+-------------------------------------------------------+

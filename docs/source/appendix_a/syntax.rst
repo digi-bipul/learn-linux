@@ -1,7 +1,7 @@
 .. _app-a-syntax:
 
 ------------------------------------------------------------------------------
-A.2  Syntax Core
+Syntax Core
 ------------------------------------------------------------------------------
 
 This section is a dense syntax reference. Every construct is shown in **ERE**
@@ -9,7 +9,7 @@ notation (the most portable default for modern ``grep -E`` / ``sed -E`` /
 ``awk``). PCRE extensions are noted explicitly.
 
 ------------------------------------------------------------------------------
-A.2.1  Character Classes
+Character Classes
 ------------------------------------------------------------------------------
 
 .. list-table:: Character Class Reference
@@ -106,7 +106,7 @@ A.2.1  Character Classes
      - Vertical whitespace (PCRE 7.2+)
 
 ------------------------------------------------------------------------------
-A.2.2  Anchors
+Anchors
 ------------------------------------------------------------------------------
 
 Anchors do **not** consume characters — they assert a position.
@@ -141,7 +141,7 @@ Anchors do **not** consume characters — they assert a position.
      - Slightly less strict than ``\z``
 
 ------------------------------------------------------------------------------
-A.2.3  Quantifiers
+Quantifiers
 ------------------------------------------------------------------------------
 
 .. list-table:: Quantifier Reference
@@ -197,7 +197,7 @@ gains and can prevent catastrophic backtracking:
    [^"]*+       # Possessive — all non-quote chars, then expects closing "
 
 ------------------------------------------------------------------------------
-A.2.4  Capture Groups
+Capture Groups
 ------------------------------------------------------------------------------
 
 .. list-table:: Group Types
@@ -241,7 +241,7 @@ A.2.4  Capture Groups
    # swap first two colon-separated fields
 
 ------------------------------------------------------------------------------
-A.2.5  Alternation
+Alternation
 ------------------------------------------------------------------------------
 
 Alternation (``|``) matches either the pattern on the left **or** the pattern

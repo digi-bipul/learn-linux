@@ -1,11 +1,11 @@
 .. _app-c-network:
 
 ------------------------------------------------------------------------------
-C.2  Network Diagnostics
+Network Diagnostics
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.2.1  Connectivity Troubleshooting (OSI Layered Approach)
+Connectivity Troubleshooting (OSI Layered Approach)
 ------------------------------------------------------------------------------
 
 .. list-table:: Network Troubleshooting by Layer
@@ -38,7 +38,7 @@ C.2.1  Connectivity Troubleshooting (OSI Layered Approach)
      - Fix DNS records, renew cert, check app logs
 
 ------------------------------------------------------------------------------
-C.2.2  Interface & Link Diagnostics
+Interface & Link Diagnostics
 
 .. code-block:: bash
    :caption: Checking link state and interface status
@@ -63,7 +63,7 @@ C.2.2  Interface & Link Diagnostics
    ls -l /sys/class/net/
 
 ------------------------------------------------------------------------------
-C.2.3  IP Configuration Checks
+IP Configuration Checks
 
 .. code-block:: bash
    :caption: Verifying addressing, routing, and neighbours
@@ -92,7 +92,7 @@ C.2.3  IP Configuration Checks
    systemd-resolve --status               # Older syntax
 
 ------------------------------------------------------------------------------
-C.2.4  Connectivity Testing Tools
+Connectivity Testing Tools
 
 .. rubric:: ping — ICMP echo (basic reachability)
 
@@ -145,7 +145,7 @@ C.2.4  Connectivity Testing Tools
    curl -w "Time total: %{time_total}s\n" -o /dev/null -s https://example.com
 
 ------------------------------------------------------------------------------
-C.2.5  DNS Troubleshooting
+DNS Troubleshooting
 
 .. list-table:: DNS diagnostic commands
    :header-rows: 1
@@ -207,7 +207,7 @@ C.2.5  DNS Troubleshooting
    sudo systemctl restart nscd         # nscd (name service cache daemon)
 
 ------------------------------------------------------------------------------
-C.2.6  Firewall & Packet Capture
+Firewall & Packet Capture
 
 .. code-block:: bash
    :caption: Firewall troubleshooting

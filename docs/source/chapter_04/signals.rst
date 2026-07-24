@@ -1,6 +1,6 @@
 .. _section-4-3:
 
-4.3 Signals — Inter-Process Communication via Notifications
+Signals — Inter-Process Communication via Notifications
 ===========================================================
 
 .. rst-class:: lead
@@ -12,7 +12,7 @@
    re-read configuration files, or trigger custom behaviour defined by the
    process itself.
 
-4.3.1 What Is a Signal?
+What Is a Signal?
 =========================
 
 A signal is a small, fixed-format message (just an integer) delivered to a
@@ -41,7 +41,7 @@ one of three ways:
    25) SIGXFSZ     26) SIGVTALRM   27) SIGPROF     28) SIGWINCH
    29) SIGIO       30) SIGPWR      31) SIGSYS
 
-4.3.2 Essential Signals — The Ones You Must Know
+Essential Signals — The Ones You Must Know
 ==================================================
 
 Not all 31 standard signals (plus real-time signals 32–64) are equally
@@ -126,10 +126,10 @@ must understand:
    — file descriptors remain unclosed, temporary files stay behind, and data
    buffers are not flushed.
 
-4.3.3 Sending Signals: ``kill``, ``killall``, ``pkill``
+Sending Signals: ``kill``, ``killall``, ``pkill``
 ============================================================
 
-4.3.3.1 ``kill`` — The Original Signal Sender
+``kill`` — The Original Signal Sender
 
 Despite its name, ``kill(1)`` sends **any** signal to a process, not just
 SIGKILL. If no signal is specified, SIGTERM is sent.
@@ -175,7 +175,7 @@ SIGKILL. If no signal is specified, SIGTERM is sent.
           echo "Process $PID is not running or not accessible"
       fi
 
-4.3.3.2 ``killall`` — Kill Processes by Name
+``killall`` — Kill Processes by Name
 
 The ``killall(1)`` command sends a signal to **all processes matching a
 command name** (not to be confused with the ``killall`` command on some
@@ -213,7 +213,7 @@ other Unix systems which kills everything).
    like ``/usr/lib/chromium-browser/chromium-browser`` will appear as
    ``chromium-browse`` in some contexts.
 
-4.3.3.3 ``pkill`` — Flexible Pattern-Based Signalling
+``pkill`` — Flexible Pattern-Based Signalling
 
 The ``pkill(1)`` command (part of the ``procps-ng`` package, same as ``ps``)
 sends signals to processes matching **extended regular expressions** on the
@@ -259,7 +259,7 @@ process name or command line.
    For most daily use, ``pkill`` is more flexible. ``killall`` is simpler
    and less error-prone when you know the exact binary name.
 
-4.3.4 Trapping Signals in Shell Scripts
+Trapping Signals in Shell Scripts
 =========================================
 
 A **signal trap** allows a shell script to intercept a signal and execute
@@ -267,7 +267,7 @@ custom code instead of the default action. This is essential for writing
 robust scripts that clean up temporary files, release resources, or perform
 graceful shutdowns.
 
-4.3.4.1 The ``trap`` Built-In
+The ``trap`` Built-In
 
 The syntax:
 
@@ -360,7 +360,7 @@ when the shell exits for **any** reason (normal end, ``exit`` command, or
 receipt of uncatched SIGTERM). It is the most commonly trapped "signal"
 because it guarantees cleanup runs.
 
-4.3.4.2 Critical Patterns
+Critical Patterns
 
 **Pattern 1: Ensure only one instance of a script runs:**
 
@@ -410,7 +410,7 @@ because it guarantees cleanup runs.
    kill $ALARM_PID 2>/dev/null  # Cancel the alarm if work finished
    echo "Work completed before timeout."
 
-4.3.5 The ``SIGPIPE`` Special Case
+The ``SIGPIPE`` Special Case
 ====================================
 
 ``SIGPIPE`` is unique because it is not sent explicitly by any user command;
@@ -457,7 +457,7 @@ You can observe this directly:
    shell's default behaviour (``set -o pipefail``) combined with careful
    error handling can manage this.
 
-4.3.6 Sending Signals Between Users
+Sending Signals Between Users
 ======================================
 
 By default, a user can send signals only to their own processes
@@ -480,7 +480,7 @@ any process.
 * ``kill -0 PID`` (checking existence) is permitted if the process's
   executable is readable by the probing process.
 
-4.3.7 Real-Time Signals (32–64)
+Real-Time Signals (32–64)
 ==================================
 
 Linux supports 33 real-time signals (``SIGRTMIN`` to ``SIGRTMAX``, typically
@@ -494,7 +494,7 @@ signals 34–64). Unlike standard signals:
 You will rarely need to use real-time signals directly, but their existence
 explains why ``ps`` sometimes shows processes with real-time priority.
 
-4.3.8 Summary
+Summary
 ==============
 
 * Signals are asynchronous integer notifications sent by the kernel or

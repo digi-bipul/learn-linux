@@ -1,11 +1,11 @@
 .. _app-c-process:
 
 ------------------------------------------------------------------------------
-C.4  Process & Performance Troubleshooting
+Process & Performance Troubleshooting
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
-C.4.1  The Linux Performance Toolkit (USE Method)
+The Linux Performance Toolkit (USE Method)
 
 The **USE Method** (Utilization, Saturation, Errors) applies to every resource:
 
@@ -43,7 +43,7 @@ The **USE Method** (Utilization, Saturation, Errors) applies to every resource:
      - ``dmesg`` (filesystem errors)
 
 ------------------------------------------------------------------------------
-C.4.2  CPU Troubleshooting
+CPU Troubleshooting
 
 .. code-block:: bash
    :caption: Identifying CPU bottlenecks
@@ -96,7 +96,7 @@ C.4.2  CPU Troubleshooting
    sensors                            # lm-sensors output
 
 ------------------------------------------------------------------------------
-C.4.3  Memory Troubleshooting
+Memory Troubleshooting
 
 .. code-block:: bash
    :caption: Memory usage analysis
@@ -152,7 +152,7 @@ C.4.3  Memory Troubleshooting
    done 2>/dev/null | sort -k3 -rn | head -20
 
 ------------------------------------------------------------------------------
-C.4.4  Disk I/O Troubleshooting
+Disk I/O Troubleshooting
 
 .. code-block:: bash
    :caption: Finding I/O bottlenecks
@@ -199,7 +199,7 @@ C.4.4  Disk I/O Troubleshooting
    # ACTION=="add|change", KERNEL=="sd*", ATTR{queue/scheduler}="bfq"
 
 ------------------------------------------------------------------------------
-C.4.5  Process Tracing & Debugging
+Process Tracing & Debugging
 
 .. list-table:: Process debugging tools
    :header-rows: 1

@@ -1,7 +1,7 @@
 .. _chapter-11-1:
 
 ============================================================
-11.1 Virtualization & MicroVMs
+Virtualization & MicroVMs
 ============================================================
 
 Virtualization is the cornerstone of cloud computing. Before we discuss containers —
@@ -11,7 +11,7 @@ machine, including CPU, memory, storage, and networking devices. This section co
 hypervisor models, the Linux-native KVM/QEMU stack, the ``libvirt`` management layer,
 and the emerging class of **MicroVMs** that blur the line between VMs and containers.
 
-11.1.1 The Hypervisor: Type 1 vs Type 2
+The Hypervisor: Type 1 vs Type 2
 ========================================
 
 A **hypervisor** (also called a Virtual Machine Monitor, or VMM) is the software layer
@@ -49,7 +49,7 @@ guest VCPUs (virtual CPUs) with near-native performance.
    provides CPU and memory virtualisation. You need a user-space emulator — typically
    QEMU — to provide device emulation (disk, NIC, BIOS, etc.).
 
-11.1.2 QEMU and the KVM/QEMU Stack
+QEMU and the KVM/QEMU Stack
 ===================================
 
 **QEMU** (Quick Emulator) is a user-space process that emulates hardware devices. When
@@ -129,7 +129,7 @@ Key points about this architecture:
      -nic user,hostfwd=tcp::2222-:22,model=virtio-net-pci \
      -vga none -nographic
 
-11.1.3 libvirt and virsh: The Management Layer
+libvirt and virsh: The Management Layer
 ===============================================
 
 While QEMU command lines are powerful, they are unwieldy for production use. **libvirt**
@@ -239,7 +239,7 @@ libvirt represents every VM as an XML document. Here is a minimal example:
      </devices>
    </domain>
 
-11.1.4 MicroVMs: The Best of Both Worlds
+MicroVMs: The Best of Both Worlds
 =========================================
 
 Traditional VMs provide strong security isolation but suffer from:
@@ -422,7 +422,7 @@ Feature highlights:
    produce golden AMIs that are never modified after boot. This principle applies
    equally to MicroVMs and traditional VMs.
 
-11.1.5 Anatomy: How KVM Handles a Guest Instruction
+Anatomy: How KVM Handles a Guest Instruction
 =====================================================
 
 To truly understand virtualisation, trace the path of a single privileged instruction
@@ -446,7 +446,7 @@ overly aggressive I/O or from programming the programmable interrupt controller 
 software) can degrade performance — which is why virtio and paravirtualised drivers
 exist: they minimise exits by using shared memory rings between guest and host.
 
-11.1.6 Practical Exercises
+Practical Exercises
 ==========================
 
 **1. KVM Readiness Check**

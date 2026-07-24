@@ -1,7 +1,7 @@
 .. _sec-07-02:
 
 =======================================
-7.2 IP Addressing & Subnetting
+IP Addressing & Subnetting
 =======================================
 
 IP addressing is the postal system of the internet. Every device on a network
@@ -12,7 +12,7 @@ subnetting that keeps the internet from collapsing under its own size, the
 notation you will see in every configuration file, and the critical distinction
 between public and private address space.
 
-7.2.1 IPv4: The Workhorse
+IPv4: The Workhorse
 ==========================
 
 IPv4 addresses are 32-bit numbers, conventionally written in **dotted decimal
@@ -41,7 +41,7 @@ An IPv4 address has two logical components:
 Where the boundary between network and host lies is determined by the **subnet
 mask** (or, equivalently, the **CIDR prefix length**).
 
-7.2.2 Subnet Masks and CIDR Notation
+Subnet Masks and CIDR Notation
 =====================================
 
 **Subnet Mask**
@@ -66,7 +66,7 @@ slash and the number of network bits:
 
 ::
 
-    192.168.1.0/24
+/24
 
 This reads: "network 192.168.1.0 with a 24-bit mask." It is equivalent to
 ``192.168.1.0 255.255.255.0``. CIDR superseded the older "classful" system
@@ -95,7 +95,7 @@ Note the "- 2": the first address in a subnet is the **network address** (all
 host bits 0) and the last address is the **broadcast address** (all host bits
 1). Neither can be assigned to an interface.
 
-7.2.3 Subnetting in Practice: A Worked Example
+Subnetting in Practice: A Worked Example
 ===============================================
 
 Suppose your organisation is assigned the block ``10.0.0.0/24`` (256 addresses)
@@ -135,7 +135,7 @@ We have used 80 of the 256 addresses and still have room to grow.
 Key formula: **Required bits for N hosts** = ceil(log2(N+2)). The "+2" accounts
 for network and broadcast addresses.
 
-7.2.4 IPv6: The Future (and Present)
+IPv6: The Future (and Present)
 =====================================
 
 IPv6 was standardised in 1998 (RFC 2460) to solve IPv4 address exhaustion.
@@ -187,7 +187,7 @@ administration, but you must be able to recognise an IPv6 address, understand
 that IPv6 stacks are enabled by default on modern Linux, and know that many
 public cloud services now require IPv6 readiness.
 
-7.2.5 Public vs. Private IPs (RFC 1918)
+Public vs. Private IPs (RFC 1918)
 ========================================
 
 Not every IP address is globally routable. The Internet Assigned Numbers
@@ -220,7 +220,7 @@ design philosophy discourages NAT. Most IPv6 deployments give every device a
 globally unique address and rely on firewall rules for security rather than
 address scarcity.
 
-7.2.6 Special-Purpose Addresses
+Special-Purpose Addresses
 ================================
 
 Be aware of these reserved addresses you will encounter:
@@ -244,7 +244,7 @@ Be aware of these reserved addresses you will encounter:
 |                  | VRRP, mDNS, etc.                                         |
 +------------------+----------------------------------------------------------+
 
-7.2.7 Summary
+Summary
 ==============
 
 * IPv4 addresses are 32-bit, written in dotted decimal. The boundary between

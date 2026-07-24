@@ -1,7 +1,9 @@
+.. _ansible-and-iac:
+
 .. highlight:: bash
 
 ========================================
-8.9 — Config Management & Modern IaC
+— Config Management & Modern IaC
 ========================================
 
 This section introduces **Infrastructure as Code (IaC)** — the practice of
@@ -11,7 +13,7 @@ broader IaC landscape including Terraform/OpenTofu, Packer, and the paradigm
 shift toward **Immutable Infrastructure** and **GitOps**.
 
 --------------------------------
-8.9.1 Why Configuration Management?
+Why Configuration Management?
 --------------------------------
 
 CM tools solve three fundamental problems:
@@ -21,7 +23,7 @@ CM tools solve three fundamental problems:
 3. **Auditability** — Changes are code-reviewed and version-controlled.
 
 --------------------------------
-8.9.2 Ansible — Core Concepts
+Ansible — Core Concepts
 --------------------------------
 
 * **Agentless** — No persistent daemon on target hosts (SSH only).
@@ -30,7 +32,7 @@ CM tools solve three fundamental problems:
 * **YAML-based** — Playbooks are written in YAML.
 
 --------------------------------
-8.9.3 Ansible Inventory
+Ansible Inventory
 --------------------------------
 
 .. code-block:: ini
@@ -50,7 +52,7 @@ CM tools solve three fundamental problems:
 For cloud environments, use dynamic inventory plugins (``aws_ec2``, etc.).
 
 --------------------------------
-8.9.4 Ansible Modules
+Ansible Modules
 --------------------------------
 
 Modules are the **units of work** — each performs a specific task.
@@ -81,7 +83,7 @@ Modules are the **units of work** — each performs a specific task.
    ansible production -m apt -a 'name=nginx state=present' -b
 
 --------------------------------
-8.9.5 Playbooks — The Heart of Ansible
+Playbooks — The Heart of Ansible
 --------------------------------
 
 .. code-block:: yaml
@@ -127,7 +129,7 @@ Modules are the **units of work** — each performs a specific task.
    ansible-playbook --diff webserver.yml           # Show changes
 
 --------------------------------
-8.9.6 Jinja2 Templates
+Jinja2 Templates
 --------------------------------
 
 .. code-block:: jinja
@@ -142,7 +144,7 @@ Modules are the **units of work** — each performs a specific task.
    }
 
 --------------------------------
-8.9.7 Ansible Roles
+Ansible Roles
 --------------------------------
 
 Roles organize playbooks into reusable units with a standard directory
@@ -154,7 +156,7 @@ structure: ``tasks/``, ``handlers/``, ``templates/``, ``files/``, ``vars/``,
    ansible-galaxy role install geerlingguy.nginx
 
 --------------------------------
-8.9.8 Ansible Vault
+Ansible Vault
 --------------------------------
 
 Encrypt sensitive data at rest:
@@ -166,7 +168,7 @@ Encrypt sensitive data at rest:
    ansible-playbook playbook.yml --ask-vault-pass
 
 --------------------------------
-8.9.9 Ansible Antipatterns
+Ansible Antipatterns
 --------------------------------
 
 **Antipattern 1:** Using ``command``/``shell`` when a dedicated module exists.
@@ -176,7 +178,7 @@ without checking).
 **Antipattern 4:** Running playbooks without ``--check`` first.
 
 --------------------------------
-8.9.10 Modern Industry Shifts — Immutable Infrastructure & GitOps
+Modern Industry Shifts — Immutable Infrastructure & GitOps
 --------------------------------
 
 **Mutable vs Immutable Infrastructure:**
@@ -221,7 +223,7 @@ The Git repository is the **single source of truth** for infrastructure state.
 Operators (ArgoCD, Flux, Atlantis) reconcile live state with Git.
 
 --------------------------------
-8.9.11 The Convergence — A Modern IaC Stack
+The Convergence — A Modern IaC Stack
 --------------------------------
 
 .. code-block:: text
@@ -248,7 +250,7 @@ Operators (ArgoCD, Flux, Atlantis) reconcile live state with Git.
 +-------------------+-------------------------------------------------------+
 
 --------------------------------
-8.9.12 Ansible for the Shell Scripter — A Practical Bridge
+Ansible for the Shell Scripter — A Practical Bridge
 --------------------------------
 
 .. code-block:: bash
@@ -265,7 +267,7 @@ Operators (ArgoCD, Flux, Atlantis) reconcile live state with Git.
 The advantage: Ansible is **idempotent**, **declarative**, and **cross-platform**.
 
 --------------------------------
-8.9.13 What NOT to Do — IaC Pitfalls
+What NOT to Do — IaC Pitfalls
 --------------------------------
 
 **Antipattern 1:** Using Ansible like a shell script — use dedicated modules.
@@ -276,7 +278,7 @@ DynamoDB).
 **Antipattern 5:** Ignoring secrets management.
 
 --------------------------------
-8.9.14 Summary
+Summary
 --------------------------------
 
 +------------------+-------------------------------------------------------+
@@ -302,7 +304,7 @@ DynamoDB).
 +------------------+-------------------------------------------------------+
 
 --------------------------------
-8.9.15 Chapter 8 — Final Words
+Chapter 8 — Final Words
 --------------------------------
 
 You began this chapter writing simple bash scripts.  You progressed through

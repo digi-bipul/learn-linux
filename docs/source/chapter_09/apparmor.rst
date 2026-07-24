@@ -1,7 +1,7 @@
 .. _sec9_4:
 
 ###########################################################
-9.4 AppArmor
+AppArmor
 ###########################################################
 
 **AppArmor (Application Armor)** is a mandatory access control (MAC) system
@@ -15,7 +15,7 @@ AppArmor originated at **Immunix** (later acquired by Novell and then SUSE)
 and is the default MAC system on Debian, Ubuntu, and SUSE/openSUSE. It has
 been in the mainline Linux kernel since 2.6.36.
 
-9.4.1 Architecture: Path-Based MAC
+Architecture: Path-Based MAC
 ===================================
 
 AppArmor profiles are loaded into the kernel, where the **LSM (Linux Security
@@ -34,7 +34,7 @@ This path-based approach is simpler to understand and audit. An
 administrator can read an AppArmor profile and immediately see which paths
 a program may read, write, or execute.
 
-9.4.2 Profile Modes
+Profile Modes
 ====================
 
 Every AppArmor profile runs in one of two modes:
@@ -55,7 +55,7 @@ The filename convention is the executable's absolute path with slashes
 replaced by dots (e.g., ``/etc/apparmor.d/usr.sbin.ntpd`` for
 ``/usr/sbin/ntpd``).
 
-9.4.3 Profile Syntax Deep Dive
+Profile Syntax Deep Dive
 ===============================
 
 Let us dissect a profile for a hypothetical web application binary.
@@ -124,7 +124,7 @@ Let us dissect a profile for a hypothetical web application binary.
 | ``/dir/{foo,bar}``| ``/dir/foo`` or ``/dir/bar``                      |
 +------------------+----------------------------------------------------+
 
-9.4.4 Managing AppArmor: Essential Commands
+Managing AppArmor: Essential Commands
 ============================================
 
 ::
@@ -151,7 +151,7 @@ Let us dissect a profile for a hypothetical web application binary.
 After deploying a profile, services often trigger new denials during
 edge cases. Run ``aa-logprof`` periodically to review and add rules.
 
-9.4.5 AppArmor Abstractions and Tunables
+AppArmor Abstractions and Tunables
 =========================================
 
 **Abstractions** are reusable profile fragments located in
@@ -181,7 +181,7 @@ Usage in profiles:
 This makes profiles portable across distributions where home directory paths
 may differ.
 
-9.4.6 AppArmor in Container Environments (2026)
+AppArmor in Container Environments (2026)
 ================================================
 
 AppArmor is the default LSM for Docker on Ubuntu and Debian. When you run:
@@ -212,7 +212,7 @@ via the ``container.apparmor.security.beta.kubernetes.io`` annotation
       annotations:
         container.apparmor.security.beta.kubernetes.io/nginx: local/profile-name
 
-9.4.7 SELinux vs. AppArmor — The Definitive Comparison
+SELinux vs. AppArmor — The Definitive Comparison
 =======================================================
 
 +----------------------+---------------------------+---------------------------+
@@ -263,7 +263,7 @@ via the ``container.apparmor.security.beta.kubernetes.io`` annotation
 - **Docker-focused workflow:** AppArmor is simpler to tune for container
   workloads on Ubuntu. On RHEL-based container hosts, stick with SELinux.
 
-9.4.8 Real-World: AppArmor at Scale
+Real-World: AppArmor at Scale
 ====================================
 
 **Canonical's Ubuntu Pro** includes AppArmor profiles for over 100
